@@ -149,8 +149,10 @@ x = my_function(a1,a2)
 class Point(object):
     def __init__(self, x):
         self.x = x
+    def __call__(self):
+        print self.x
 
-x = Point(3.)
+x = Point(3)
 \end{verbatim}
 \end{minipage}\\
 \rule{0pt}{0.5cm}
@@ -163,6 +165,8 @@ def firstn(n):
     while num < n:
         yield num
         num += 1
+
+x = [for i in firstn(10)]
 \end{verbatim}
 \end{minipage}
 &
@@ -174,21 +178,15 @@ class myDecorator(object):
         self.f = f
     def __call__(self):
         print "call"
-        f()
-\end{verbatim}
-\end{minipage}\\
-\rule{0pt}{0.5cm}
+        self.f()
 
-\begin{minipage}[t]{\columnwidth}
-    \textit{continue}
-\begin{verbatim}
-for i in range(20):
-    if i % 2 == 0:
-        continue
-    print i
+@myDecorator
+def my_funct():
+    print 'func'
+
+my_func()
 \end{verbatim}
 \end{minipage}
-&
 \end{tabular}
 
 
@@ -280,10 +278,14 @@ np.logical\_or(a $<$ 2, b $>$ 10) & elementwise logical or\\
  np.sum(a * a.T) & matrix norm\\
 \end{tabular}
 
-\subsection*{interpolation, integration, fft}
+\subsection*{interpolation, integration}
 \begin{tabular}{ p{0.5\columnwidth} p{0.45\columnwidth} }
     np.trapz(y, x=x, axis=1) & integrate along axis 1\\
         np.interp(x, xp, yp) & interpolate function xp, yp at points x\\
+\end{tabular}
+
+\subsection*{fft}
+\begin{tabular}{ p{0.5\columnwidth} p{0.45\columnwidth} }
                np.fft.fft(y) & complex fourier transform of y\\
      np.fft.fftfreqs(len(y)) & fft frequencies for a given length\\
     np.fft.fftshift(freqs)   & shifts zero frequency to the middle\\
