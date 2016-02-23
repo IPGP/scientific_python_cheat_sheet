@@ -1,0 +1,5 @@
+# ignore tex compilation files (created by emacs and latex)
+*.aux
+*.log
+*.gz
+auto/*
