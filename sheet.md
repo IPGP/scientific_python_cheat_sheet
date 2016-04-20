@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Scientific Python Cheatsheet
 ===========
 
@@ -126,11 +127,46 @@ for i in range(20):
 ### Functions, Classes, Generators, Decorators
 
 #### Function
+=======
+## Pure Python
 
-    def myfunc(a1, a2):
-        return x
+### Types
 
-    x = my_function(a1,a2)
+```python
+a = 2  # integer
+b = 5.0  # float
+c = 8.3e5  # exponential
+d = 1.5 + 0.5j  # complex
+e = 3 > 4  # boolean
+f = 'word'  # string
+f = "word"  # string
+```
+### Lists
+
+```python
+a = ['red', 'blue', 'green']  # manually initialization
+b = range(5)  # initialization through a function
+c = [nu ** 2 for nu in b]  # initialize through list comprehension
+d = [nu ** 2 for nu in b if b < 3]  # list comprehension with condition
+e = c[0]  # access element
+f = e[1: 2]  # access a slice of the list
+g = ['re', 'bl'] + ['gr']  # list concatenation
+h = ['re'] * 5  # repeat a list
+['re', 'bl'].index('re')  # returns index of 're'
+'re' in ['re', 'bl'] & true if 're' in list
+sorted([3, 2, 1])  # returns sorted list
+z = ['red'] + ['green', 'blue']  # list concatenation
+```
+
+### Functions, Classes, Generators, Decorators
+
+#### Function
+```python
+def myfunc(a1, a2):
+    return x
+
+x = my_function(a1,a2)
+```
 
 #### Class
 ```python
