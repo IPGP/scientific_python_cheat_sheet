@@ -9,7 +9,7 @@ a = 2 # integer
 b = 5.0 # float
 c = 8.3e5 # exponential
 d = 1.5 + 0.5j # complex
-e = 3 $>$ 4 # boolean
+e = 3 > 4 # boolean
 f = ’word’ # string
 ```
 
@@ -19,7 +19,7 @@ f = ’word’ # string
 a = [’red’, ’blue’, ’green’] # manually initialization
 b = range(5) # initialization through a function
 c = [nu**2 for nu in b] # initialize through list comprehension
-d = [nu**2 for nu in b if b $<$ 3] # list comprehension withcondition
+d = [nu**2 for nu in b if b < 3] # list comprehension withcondition
 e = c[0] # access element
 f = e[1: 2] # access a slice of the list
 g = [’re’, ’bl’] + [’gr’] # list concatenation
@@ -62,11 +62,11 @@ a += 1 (*=, /=) # change and assign
 3 % 2 # remainder
 abs() # absolute value
 1 == 1 # equal
-2 $>$ 1 # larger
-2 $<$ 1 # smaller
+2 > 1 # larger
+2 < 1 # smaller
 1 != 2 # not equal
-1 != 2 and 2 $<$ 3 # logical AND
-1 != 2 or 2 $<$ 3 # logical OR
+1 != 2 and 2 < 3 # logical AND
+1 != 2 or 2 < 3 # logical OR
 not 1 == 2 # logical NOT
 a in b # test if a is in b
 a is b # test if objects point to the same memory (id)
@@ -182,7 +182,7 @@ np.ones((3,3), dtype=np.int32) # 3 x 3 integer matrix with ones
 np.eye(200) # ones on the diagonal
 np.zeros_like(a) # returns array with zeros and the same shape as a
 np.linspace(0., 10., 100) # 100 points from 0 to 10
-np.arange(0, 100, 2) # points from 0 to $<$100 with step width 2
+np.arange(0, 100, 2) # points from 0 to <100 with step width 2
 np.logspace(-5, 2, 100) # 100 logarithmically spaced points between 1e-5 and 1e2
 np.copy(a) # copy array to new memory
 ```
@@ -223,15 +223,15 @@ a[[1, 1, 3, 8]] # return array with values of the indices
 a = a.reshape(10, 10) # transform to 10 x 10 matrix
 a.T # return transposed view
 np.transpose(a, (2, 1, 0)) # transpose array to new axis order
-a[a $<$ 2] # returns array that fulfills elementwise condition
+a[a < 2] # returns array that fulfills elementwise condition
 ```
 
 ### boolean arrays
 
 ```python
-a $<$ 2 # returns array with boolean values
-np.logical_and(a $<$ 2, b $>$ 10) # elementwise logical and
-np.logical_or(a $<$ 2, b $>$ 10) # elementwise logical or
+a < 2 # returns array with boolean values
+np.logical_and(a < 2, b > 10) # elementwise logical and
+np.logical_or(a < 2, b > 10) # elementwise logical or
 -a # invert boolean array
 np.invert(a) # invert boolean array
 ```
@@ -258,7 +258,7 @@ np.std(a, axis=1) # standard deviation
 
 ```python
 np.dot(a, b) # inner matrix product: a_mi b_in
-np.einsum(’ijkl,klmn-$>$ijmn’, a, b) # einstein summation convention
+np.einsum(’ijkl,klmn->ijmn’, a, b) # einstein summation convention
 np.sum(a, axis=1) # sum over axis 1
 np.abs(a) # return array with absolute values
 a[None, :] + b[:, None] # outer sum
