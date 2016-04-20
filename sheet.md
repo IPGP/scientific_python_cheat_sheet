@@ -3,9 +3,9 @@ Scientific Python Cheatsheet
 
 Pure Python
 -----------
+
 ### Types
 ```python
-<<<<<<< HEAD
 a = 2           # integer
 b = 5.0         # float
 c = 8.3e5       # exponential
