@@ -23,31 +23,29 @@ f = e[1: 2]  # access a slice of the list
 g = ['re', 'bl'] + ['gr']  # list concatenation
 h = ['re'] * 5  # repeat a list
 ['re', 'bl'].index('re')  # returns index of 're'
-'re' in ['re', 'bl'] & true if 're' in list
+'re' in ['re', 'bl']  # true if 're' in list
 sorted([3, 2, 1])  # returns sorted list
 z = ['red'] + ['green', 'blue']  # list concatenation
 ```
 
-Dictionaries
-------------
+### Dictionaries
 
-p0.45 p0.45
+```python
+a = {'red': 'rouge', 'blue': 'bleu', 'green': 'vert'}  # initialize dictionary
+b = a['red']  # translate item
+c = [value for key, value in b.items()]  # loop through contents
+d = a.get('yellow', 'no translation found')  # return default
+```
 
-a = {’red’: ’rouge’, ’blue’: ’bleu’, ’green’: ’vert’} & dictionary\
-b = a[’red’] & translate item\
-c = [value for key, value in b.items()] & loop through contents\
-d = a.get(’yellow’, ’no translation found’) & return default\
+### Strings
 
-Strings
--------
-
-p0.45 p0.45
-
-a = ’red’ & assignment\
-char = a[2] & access individual characters\
-’red ’ + ’blue’ & string concatenation\
-’1, 2, three’.split(’,’) & split string into list\
-’.’.join([’1’, ’2’, ’three’]) & concatenate list into string\
+```python
+a = 'red'  # assignment
+char = a[2]  # access individual characters
+'red ' + 'blue'  # string concatenation
+'1, 2, three'.split(',')  # split string into list
+'.'.join(['1', '2', 'three'])  # concatenate list into string
+```
 
 Operators
 ---------
