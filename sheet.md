@@ -18,13 +18,12 @@ f = ’word’ # string
 ```python
 a = [’red’, ’blue’, ’green’] # manually initialization
 b = range(5) # initialization through a function
-c = [nu\*\*2 for nu in b] # initialize through list comprehension
-d = [nu\*\*2 for nu in b if b $<$ 3] # list comprehension with
-condition
+c = [nu**2 for nu in b] # initialize through list comprehension
+d = [nu**2 for nu in b if b $<$ 3] # list comprehension withcondition
 e = c[0] # access element
 f = e[1: 2] # access a slice of the list
 g = [’re’, ’bl’] + [’gr’] # list concatenation
-h = [’re’] \* 5 # repeat a list
+h = [’re’] * 5 # repeat a list
 [’re’, ’bl’].index(’re’) # returns index of ’re’
 ’re’ in [’re’, ’bl’] # true if ’re’ in list
 sorted([3, 2, 1]) # returns sorted list
@@ -54,12 +53,12 @@ char = a[2] # access individual characters
 
 ```python
 a = 2 # assignment
-a += 1 (\*=, /=) # change and assign
+a += 1 (*=, /=) # change and assign
 3 + 2 # addition
 3 / 2 # integer division (python2) or float division (python3)
 3 // 2 # integer division
-3 \* 2 # multiplication
-3 \*\* 2 # exponent
+3 * 2 # multiplication
+3 ** 2 # exponent
 3 % 2 # remainder
 abs() # absolute value
 1 == 1 # equal
@@ -181,21 +180,18 @@ np.empty(20, dtype=np.float32) # single precision array with 20 entries
 np.zeros(200) # initialize 200 zeros
 np.ones((3,3), dtype=np.int32) # 3 x 3 integer matrix with ones
 np.eye(200) # ones on the diagonal
-np.zeros\_like(a) # returns array with zeros and the same shape as a
+np.zeros_like(a) # returns array with zeros and the same shape as a
 np.linspace(0., 10., 100) # 100 points from 0 to 10
 np.arange(0, 100, 2) # points from 0 to $<$100 with step width 2
-np.logspace(-5, 2, 100) # 100 logarithmically spaced points between 1e-5
-and 1e2
+np.logspace(-5, 2, 100) # 100 logarithmically spaced points between 1e-5 and 1e2
 np.copy(a) # copy array to new memory
 ```
 
 ### reading/ writing files
 
 ```python
-np.fromfile(fname/object, dtype=np.float32, count=5) # read binary data
-from file
-np.loadtxt(fname/object, skiprows=2, delimiter=’,’) # read ascii data
-from file
+np.fromfile(fname/object, dtype=np.float32, count=5) # read binary data from file
+np.loadtxt(fname/object, skiprows=2, delimiter=’,’) # read ascii data from file
 ```
 
 ### array properties and operations
@@ -234,8 +230,8 @@ a[a $<$ 2] # returns array that fulfills elementwise condition
 
 ```python
 a $<$ 2 # returns array with boolean values
-np.logical\_and(a $<$ 2, b $>$ 10) # elementwise logical and
-np.logical\_or(a $<$ 2, b $>$ 10) # elementwise logical or
+np.logical_and(a $<$ 2, b $>$ 10) # elementwise logical and
+np.logical_or(a $<$ 2, b $>$ 10) # elementwise logical or
 -a # invert boolean array
 np.invert(a) # invert boolean array
 ```
@@ -243,7 +239,7 @@ np.invert(a) # invert boolean array
 ### elementwise operations and math functions
 
 ```python
-a \* 5 # multiplication with scalar
+a * 5 # multiplication with scalar
 a + 5 # addition with scalar
 a + b # addition with array b
 a / b # division with b (np.NaN for division by zero)
@@ -261,14 +257,14 @@ np.std(a, axis=1) # standard deviation
 ### inner / outer products
 
 ```python
-np.dot(a, b) # inner matrix product: a\_mi b\_in
+np.dot(a, b) # inner matrix product: a_mi b_in
 np.einsum(’ijkl,klmn-$>$ijmn’, a, b) # einstein summation convention
 np.sum(a, axis=1) # sum over axis 1
 np.abs(a) # return array with absolute values
 a[None, :] + b[:, None] # outer sum
-a[None, :] \* b[None, :] # outer product
+a[None, :] * b[None, :] # outer product
 np.outer(a, b) # outer product
-np.sum(a \* a.T) # matrix norm
+np.sum(a * a.T) # matrix norm
 ```
 
 ### interpolation, integration
@@ -299,13 +295,11 @@ np.round(a) # rounds to neares int
 ### random variables
 
 ```python
-np.random.normal(loc=0, scale=2, size=100) # 100 normal distributed
-random numbers
+np.random.normal(loc=0, scale=2, size=100) # 100 normal distributed random numbers
 np.random.seed(23032) # resets the seed value
 np.random.rand(200) # 200 random numbers in [0, 1)
 np.random.uniform(1, 30, 200) # 200 random numbers in [1, 30)
-np.random.random\_integers(1, 15, 300) # 300 random integers between [1,
-10]
+np.random.random_integers(1, 15, 300) # 300 random integers between [1, 10]
 ```
 
 ## Matplotlib
@@ -314,30 +308,28 @@ np.random.random\_integers(1, 15, 300) # 300 random integers between [1,
 
 ```python
 fig = plt.figure(figsize=(5, 2), facecolor=’black’) # initialize figure
-ax = fig.add\_subplot(3, 2, 2) # add second subplot in a 3 x 2 grid
-fig, axes = plt.subplots(5, 2, figsize=(5, 5)) # return fig and array of
-axes in a 5 x 2 grid
-ax = fig.add\_axes([left, bottom, width, height]) # manually add axes at
-a certain position
+ax = fig.add_subplot(3, 2, 2) # add second subplot in a 3 x 2 grid
+fig, axes = plt.subplots(5, 2, figsize=(5, 5)) # return fig and array of axes in a 5 x 2 grid
+ax = fig.add_axes([left, bottom, width, height]) # manually add axes at a certain position
 ```
 
 ### figures and axes properties
 
 ```python
 fig.suptitle(’title’) # big figure title
-fig.subplots\_adjust(bottom=0.1, right=0.8, top=0.9, wspace=0.2,
+fig.subplots_adjust(bottom=0.1, right=0.8, top=0.9, wspace=0.2,
 hspace=0.5) # adjust subplot positions
-fig.tight\_layout(pad=0.1,h\_pad=0.5, w\_pad=0.5, rect=None) # adjust
+fig.tight_layout(pad=0.1,h_pad=0.5, w_pad=0.5, rect=None) # adjust
 subplots to fit perfectly into fig
-ax.set\_xlabel() # set xlabel
-ax.set\_ylabel() # set ylabel
-ax.set\_xlim(1, 2) # sets x limits
-ax.set\_ylim(3, 4) # sets y limits
-ax.set\_title(’blabla’) # sets the axis title
+ax.set_xlabel() # set xlabel
+ax.set_ylabel() # set ylabel
+ax.set_xlim(1, 2) # sets x limits
+ax.set_ylim(3, 4) # sets y limits
+ax.set_title(’blabla’) # sets the axis title
 ax.set(xlabel=’bla’) # set multiple parameters at once
 ax.legend(loc=’upper center’) # activate legend
 ax.grid(True, which=’both’) # activate grid
-bbox = ax.get\_position() # returns the axes bounding box
+bbox = ax.get_position() # returns the axes bounding box
 bbox.x0 + bbox.width # bounding box parameters
 ```
 
@@ -352,6 +344,5 @@ ax.contour(xx,yy,zz, cmap=’jet’) # contour line plot
 ax.contourf(xx,yy,zz, vmin=2, vmax=4) # filled contours plot
 n, bins, patch = ax.hist(x, 50) # histogram
 ax.imshow(matrix, origin=’lower’, extent=(x1, x2, y1, y2)) # show image
-ax.specgram(y, FS=0.1, noverlap=128, scale=’linear’) # plot a
-spectrogram
+ax.specgram(y, FS=0.1, noverlap=128, scale=’linear’) # plot a spectrogram
 ```
