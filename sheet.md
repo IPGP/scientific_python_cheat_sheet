@@ -300,7 +300,7 @@ np.random.normal(loc=0, scale=2, size=100)  # 100 normal distributed random numb
 np.random.seed(23032)                       # resets the seed value
 np.random.rand(200)                         # 200 random numbers in [0, 1)
 np.random.uniform(1, 30, 200)               # 200 random numbers in [1, 30)
-np.random.random_integers(1, 15, 300)       # 300 random integers between [1, 10]
+np.random.random_integers(1, 15, 300)       # 300 random integers between [1, 15]
 ```
 
 ## Matplotlib
