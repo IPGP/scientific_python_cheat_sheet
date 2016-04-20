@@ -2,7 +2,7 @@
 
 ### Types
 
-```
+```python
 a = 2  # integer
 b = 5.0  # float
 c = 8.3e5  # exponential
@@ -13,7 +13,7 @@ f = "word"  # string
 ```
 ### Lists
 
-```
+```python
 a = ['red', 'blue', 'green']  # manually initialization
 b = range(5)  # initialization through a function
 c = [nu ** 2 for nu in b]  # initialize through list comprehension
