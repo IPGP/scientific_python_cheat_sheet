@@ -1,5 +1,44 @@
 Scientific Python Cheatsheet
 ============================
+<!-- markdown-toc start - Don't edit this section. Run M-x markdown-toc-generate-toc again -->
+**Table of Contents**
+
+- [Scientific Python Cheatsheet](#scientific-python-cheatsheet)
+    - [Pure Python](#pure-python)
+        - [Types](#types)
+        - [Lists](#lists)
+        - [Dictionaries](#dictionaries)
+        - [Strings](#strings)
+        - [Operators](#operators)
+        - [Control Flow](#control-flow)
+            - [if/elif/else](#ifelifelse)
+            - [for](#for)
+            - [while](#while)
+            - [break](#break)
+            - [continue](#continue)
+        - [Functions, Classes, Generators, Decorators](#functions-classes-generators-decorators)
+            - [Function](#function)
+            - [Class](#class)
+            - [Generators](#generators)
+            - [Decorators](#decorators)
+    - [NumPy](#numpy)
+        - [array initialization](#array-initialization)
+        - [reading/ writing files](#reading-writing-files)
+        - [array properties and operations](#array-properties-and-operations)
+        - [indexing](#indexing)
+        - [boolean arrays](#boolean-arrays)
+        - [elementwise operations and math functions](#elementwise-operations-and-math-functions)
+        - [inner / outer products](#inner--outer-products)
+        - [interpolation, integration](#interpolation-integration)
+        - [fft](#fft)
+        - [rounding](#rounding)
+        - [random variables](#random-variables)
+    - [Matplotlib](#matplotlib)
+        - [figures and axes](#figures-and-axes)
+        - [figures and axes properties](#figures-and-axes-properties)
+        - [plotting routines](#plotting-routines)
+
+<!-- markdown-toc end -->
 
 Pure Python
 -----------

@@ -1,0 +1,621 @@
+\documentclass[10pt,a4paperpaper,twocolumn]{article}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\usepackage{fixltx2e} % provides \textsubscript
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+\else % if luatex or xelatex
+  \ifxetex
+    \usepackage{mathspec}
+  \else
+    \usepackage{fontspec}
+  \fi
+  \defaultfontfeatures{Ligatures=TeX,Scale=MatchLowercase}
+\fi
+% use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+% use microtype if available
+\IfFileExists{microtype.sty}{%
+\usepackage{microtype}
+\UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\usepackage{hyperref}
+\hypersetup{unicode=true,
+            pdfborder={0 0 0},
+            breaklinks=true}
+\urlstyle{same}  % don't use monospace font for urls
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\newenvironment{Shaded}{}{}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{\textbf{{#1}}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.56,0.13,0.00}{{#1}}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{{#1}}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{{#1}}}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{{#1}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.53,0.00,0.00}{{#1}}}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.73,0.40,0.53}{{#1}}}
+\newcommand{\ImportTok}[1]{{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textit{{#1}}}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.73,0.13,0.13}{\textit{{#1}}}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{{#1}}}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{{#1}}}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{{#1}}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.02,0.16,0.49}{{#1}}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.10,0.09,0.49}{{#1}}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{\textbf{{#1}}}}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.40,0.40,0.40}{{#1}}}
+\newcommand{\BuiltInTok}[1]{{#1}}
+\newcommand{\ExtensionTok}[1]{{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.74,0.48,0.00}{{#1}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.49,0.56,0.16}{{#1}}}
+\newcommand{\RegionMarkerTok}[1]{{#1}}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{{#1}}}}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{{#1}}}}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{{#1}}}}
+\newcommand{\NormalTok}[1]{{#1}}
+\IfFileExists{parskip.sty}{%
+\usepackage{parskip}
+}{% else
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+}
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{0}
+% Redefines (sub)paragraphs to behave more like sections
+\ifx\paragraph\undefined\else
+\let\oldparagraph\paragraph
+\renewcommand{\paragraph}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+\let\oldsubparagraph\subparagraph
+\renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+
+\date{}
+
+\begin{document}
+
+\hypertarget{scientific-python-cheatsheet}{\section{Scientific Python
+Cheatsheet}\label{scientific-python-cheatsheet}}
+
+\textbf{Table of Contents}
+
+\begin{itemize}
+\tightlist
+\item
+  \protect\hyperlink{scientific-python-cheatsheet}{Scientific Python
+  Cheatsheet}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \protect\hyperlink{pure-python}{Pure Python}
+
+    \begin{itemize}
+    \tightlist
+    \item
+      \protect\hyperlink{types}{Types}
+    \item
+      \protect\hyperlink{lists}{Lists}
+    \item
+      \protect\hyperlink{dictionaries}{Dictionaries}
+    \item
+      \protect\hyperlink{strings}{Strings}
+    \item
+      \protect\hyperlink{operators}{Operators}
+    \item
+      \protect\hyperlink{control-flow}{Control Flow}
+
+      \begin{itemize}
+      \tightlist
+      \item
+        \protect\hyperlink{ifelifelse}{if/elif/else}
+      \item
+        \protect\hyperlink{for}{for}
+      \item
+        \protect\hyperlink{while}{while}
+      \item
+        \protect\hyperlink{break}{break}
+      \item
+        \protect\hyperlink{continue}{continue}
+      \end{itemize}
+    \item
+      \protect\hyperlink{functions-classes-generators-decorators}{Functions,
+      Classes, Generators, Decorators}
+
+      \begin{itemize}
+      \tightlist
+      \item
+        \protect\hyperlink{function}{Function}
+      \item
+        \protect\hyperlink{class}{Class}
+      \item
+        \protect\hyperlink{generators}{Generators}
+      \item
+        \protect\hyperlink{decorators}{Decorators}
+      \end{itemize}
+    \end{itemize}
+  \item
+    \protect\hyperlink{numpy}{NumPy}
+
+    \begin{itemize}
+    \tightlist
+    \item
+      \protect\hyperlink{array-initialization}{array initialization}
+    \item
+      \protect\hyperlink{reading-writing-files}{reading/ writing files}
+    \item
+      \protect\hyperlink{array-properties-and-operations}{array
+      properties and operations}
+    \item
+      \protect\hyperlink{indexing}{indexing}
+    \item
+      \protect\hyperlink{boolean-arrays}{boolean arrays}
+    \item
+      \protect\hyperlink{elementwise-operations-and-math-functions}{elementwise
+      operations and math functions}
+    \item
+      \protect\hyperlink{inner--outer-products}{inner / outer products}
+    \item
+      \protect\hyperlink{interpolation-integration}{interpolation,
+      integration}
+    \item
+      \protect\hyperlink{fft}{fft}
+    \item
+      \protect\hyperlink{rounding}{rounding}
+    \item
+      \protect\hyperlink{random-variables}{random variables}
+    \end{itemize}
+  \item
+    \protect\hyperlink{matplotlib}{Matplotlib}
+
+    \begin{itemize}
+    \tightlist
+    \item
+      \protect\hyperlink{figures-and-axes}{figures and axes}
+    \item
+      \protect\hyperlink{figures-and-axes-properties}{figures and axes
+      properties}
+    \item
+      \protect\hyperlink{plotting-routines}{plotting routines}
+    \end{itemize}
+  \end{itemize}
+\end{itemize}
+
+\hypertarget{pure-python}{\subsection{Pure Python}\label{pure-python}}
+
+\hypertarget{types}{\subsubsection{Types}\label{types}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{a }\OperatorTok{=} \DecValTok{2}           \CommentTok{# integer}
+\NormalTok{b }\OperatorTok{=} \FloatTok{5.0}         \CommentTok{# float}
+\NormalTok{c }\OperatorTok{=} \FloatTok{8.3e5}       \CommentTok{# exponential}
+\NormalTok{d }\OperatorTok{=} \FloatTok{1.5} \OperatorTok{+}\OtherTok{ 0.5j}  \CommentTok{# complex}
+\NormalTok{e }\OperatorTok{=} \DecValTok{3} \OperatorTok{>} \DecValTok{4}       \CommentTok{# boolean}
+\NormalTok{f }\OperatorTok{=} \StringTok{'word'}      \CommentTok{# string}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{lists}{\subsubsection{Lists}\label{lists}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{a }\OperatorTok{=} \NormalTok{[}\StringTok{'red'}\NormalTok{, }\StringTok{'blue'}\NormalTok{, }\StringTok{'green'}\NormalTok{]      }\CommentTok{# manually initialization}
+\NormalTok{b }\OperatorTok{=} \BuiltInTok{range}\NormalTok{(}\DecValTok{5}\NormalTok{)                      }\CommentTok{# initialization through a function}
+\NormalTok{c }\OperatorTok{=} \NormalTok{[nu}\OperatorTok{**}\DecValTok{2} \ControlFlowTok{for} \NormalTok{nu }\OperatorTok{in} \NormalTok{b]           }\CommentTok{# initialize through list comprehension}
+\NormalTok{d }\OperatorTok{=} \NormalTok{[nu}\OperatorTok{**}\DecValTok{2} \ControlFlowTok{for} \NormalTok{nu }\OperatorTok{in} \NormalTok{b }\ControlFlowTok{if} \NormalTok{b }\OperatorTok{<} \DecValTok{3}\NormalTok{]  }\CommentTok{# list comprehension withcondition}
+\NormalTok{e }\OperatorTok{=} \NormalTok{c[}\DecValTok{0}\NormalTok{]                          }\CommentTok{# access element}
+\NormalTok{f }\OperatorTok{=} \NormalTok{e[}\DecValTok{1}\NormalTok{: }\DecValTok{2}\NormalTok{]                       }\CommentTok{# access a slice of the list}
+\NormalTok{g }\OperatorTok{=} \NormalTok{[}\StringTok{'re'}\NormalTok{, }\StringTok{'bl'}\NormalTok{] }\OperatorTok{+} \NormalTok{[}\StringTok{'gr'}\NormalTok{]         }\CommentTok{# list concatenation}
+\NormalTok{h }\OperatorTok{=} \NormalTok{[}\StringTok{'re'}\NormalTok{] }\OperatorTok{*} \DecValTok{5}                    \CommentTok{# repeat a list}
+\NormalTok{[}\StringTok{'re'}\NormalTok{, }\StringTok{'bl'}\NormalTok{].index(}\StringTok{'re'}\NormalTok{)          }\CommentTok{# returns index of 're'}
+\CommentTok{'re'} \OperatorTok{in} \NormalTok{[}\StringTok{'re'}\NormalTok{, }\StringTok{'bl'}\NormalTok{]              }\CommentTok{# true if 're' in list}
+\BuiltInTok{sorted}\NormalTok{([}\DecValTok{3}\NormalTok{, }\DecValTok{2}\NormalTok{, }\DecValTok{1}\NormalTok{])                 }\CommentTok{# returns sorted list}
+\NormalTok{z }\OperatorTok{=} \NormalTok{[}\StringTok{'red'}\NormalTok{] }\OperatorTok{+} \NormalTok{[}\StringTok{'green'}\NormalTok{, }\StringTok{'blue'}\NormalTok{]   }\CommentTok{# list concatenation}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{dictionaries}{\subsubsection{Dictionaries}\label{dictionaries}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{a }\OperatorTok{=} \NormalTok{\{}\StringTok{'red'}\NormalTok{: }\StringTok{'rouge'}\NormalTok{, }\StringTok{'blue'}\NormalTok{: }\StringTok{'bleu'}\NormalTok{, }\StringTok{'green'}\NormalTok{: }\StringTok{'vert'}\NormalTok{\}  }\CommentTok{# dictionary}
+\NormalTok{b }\OperatorTok{=} \NormalTok{a[}\StringTok{'red'}\NormalTok{]                                           }\CommentTok{# translate item}
+\NormalTok{c }\OperatorTok{=} \NormalTok{[value }\ControlFlowTok{for} \NormalTok{key, value }\OperatorTok{in} \NormalTok{b.items()]                }\CommentTok{# loop through contents}
+\NormalTok{d }\OperatorTok{=} \NormalTok{a.get(}\StringTok{'yellow'}\NormalTok{, }\StringTok{'no translation found'}\NormalTok{)            }\CommentTok{# return default}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{strings}{\subsubsection{Strings}\label{strings}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{a }\OperatorTok{=} \StringTok{'red'}                      \CommentTok{# assignment}
+\NormalTok{char }\OperatorTok{=} \NormalTok{a[}\DecValTok{2}\NormalTok{]                    }\CommentTok{# access individual characters}
+\CommentTok{'red '} \OperatorTok{+} \StringTok{'blue'}                \CommentTok{# string concatenation}
+\CommentTok{'1, 2, three'}\NormalTok{.split(}\StringTok{','}\NormalTok{)       }\CommentTok{# split string into list}
+\CommentTok{'.'}\NormalTok{.join([}\StringTok{'1'}\NormalTok{, }\StringTok{'2'}\NormalTok{, }\StringTok{'three'}\NormalTok{])  }\CommentTok{# concatenate list into string}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{operators}{\subsubsection{Operators}\label{operators}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{a }\OperatorTok{=} \DecValTok{2}             \CommentTok{# assignment}
+\NormalTok{a }\OperatorTok{+=} \DecValTok{1} \NormalTok{(}\OperatorTok{*=}\NormalTok{, }\OperatorTok{/=}\NormalTok{)   }\CommentTok{# change and assign}
+\DecValTok{3} \OperatorTok{+} \DecValTok{2}             \CommentTok{# addition}
+\DecValTok{3} \OperatorTok{/} \DecValTok{2}             \CommentTok{# integer division (python2) or float division (python3)}
+\DecValTok{3} \OperatorTok{//} \DecValTok{2}            \CommentTok{# integer division}
+\DecValTok{3} \OperatorTok{*} \DecValTok{2}             \CommentTok{# multiplication}
+\DecValTok{3} \OperatorTok{**} \DecValTok{2}            \CommentTok{# exponent}
+\DecValTok{3} \OperatorTok{%} \DecValTok{2}             \CommentTok{# remainder}
+\BuiltInTok{abs}\NormalTok{()             }\CommentTok{# absolute value}
+\DecValTok{1} \OperatorTok{==} \DecValTok{1}            \CommentTok{# equal}
+\DecValTok{2} \OperatorTok{>} \DecValTok{1}             \CommentTok{# larger}
+\DecValTok{2} \OperatorTok{<} \DecValTok{1}             \CommentTok{# smaller}
+\DecValTok{1} \OperatorTok{!=} \DecValTok{2}            \CommentTok{# not equal}
+\DecValTok{1} \OperatorTok{!=} \DecValTok{2} \OperatorTok{and} \DecValTok{2} \OperatorTok{<} \DecValTok{3}  \CommentTok{# logical AND}
+\DecValTok{1} \OperatorTok{!=} \DecValTok{2} \OperatorTok{or} \DecValTok{2} \OperatorTok{<} \DecValTok{3}   \CommentTok{# logical OR}
+\OperatorTok{not} \DecValTok{1} \OperatorTok{==} \DecValTok{2}        \CommentTok{# logical NOT}
+\NormalTok{a }\OperatorTok{in} \NormalTok{b            }\CommentTok{# test if a is in b}
+\NormalTok{a }\OperatorTok{is} \NormalTok{b            }\CommentTok{# test if objects point to the same memory (id)}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{control-flow}{\subsubsection{Control
+Flow}\label{control-flow}}
+
+\hypertarget{ifelifelse}{\paragraph{if/elif/else}\label{ifelifelse}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{a, b }\OperatorTok{=} \DecValTok{1}\NormalTok{, }\DecValTok{2}
+\ControlFlowTok{if} \NormalTok{a }\OperatorTok{+} \NormalTok{b }\OperatorTok{==} \DecValTok{3}\NormalTok{:}
+    \BuiltInTok{print} \StringTok{'True'}
+\ControlFlowTok{elif} \NormalTok{a }\OperatorTok{+} \NormalTok{b }\OperatorTok{==} \DecValTok{1}\NormalTok{:}
+    \BuiltInTok{print} \StringTok{'False'}
+\ControlFlowTok{else}\NormalTok{:}
+    \BuiltInTok{print} \StringTok{'?'}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{for}{\paragraph{for}\label{for}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{a }\OperatorTok{=} \NormalTok{[}\StringTok{'red'}\NormalTok{, }\StringTok{'blue'}\NormalTok{,}
+     \CommentTok{'green'}\NormalTok{]}
+\ControlFlowTok{for} \NormalTok{color }\OperatorTok{in} \NormalTok{a:}
+    \BuiltInTok{print} \NormalTok{color}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{while}{\paragraph{while}\label{while}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{number }\OperatorTok{=} \DecValTok{1}
+\ControlFlowTok{while} \NormalTok{number }\OperatorTok{<} \DecValTok{10}\NormalTok{:}
+    \BuiltInTok{print} \NormalTok{number}
+    \NormalTok{number }\OperatorTok{+=} \DecValTok{1}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{break}{\paragraph{break}\label{break}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{number }\OperatorTok{=} \DecValTok{1}
+\ControlFlowTok{while} \VariableTok{True}\NormalTok{:}
+    \BuiltInTok{print} \NormalTok{number}
+    \NormalTok{number }\OperatorTok{+=} \DecValTok{1}
+    \ControlFlowTok{if} \NormalTok{number }\OperatorTok{>} \DecValTok{10}\NormalTok{:}
+        \ControlFlowTok{break}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{continue}{\paragraph{continue}\label{continue}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ControlFlowTok{for} \NormalTok{i }\OperatorTok{in} \BuiltInTok{range}\NormalTok{(}\DecValTok{20}\NormalTok{):}
+    \ControlFlowTok{if} \NormalTok{i }\OperatorTok{%} \DecValTok{2} \OperatorTok{==} \DecValTok{0}\NormalTok{:}
+        \ControlFlowTok{continue}
+    \BuiltInTok{print} \NormalTok{i}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{functions-classes-generators-decorators}{\subsubsection{Functions,
+Classes, Generators,
+Decorators}\label{functions-classes-generators-decorators}}
+
+\hypertarget{function}{\paragraph{Function}\label{function}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{def} \NormalTok{myfunc(a1, a2):}
+    \ControlFlowTok{return} \NormalTok{x}
+
+\NormalTok{x }\OperatorTok{=} \NormalTok{my_function(a1,a2)}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{class}{\paragraph{Class}\label{class}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{class} \NormalTok{Point(}\BuiltInTok{object}\NormalTok{):}
+    \KeywordTok{def} \FunctionTok{__init__}\NormalTok{(}\VariableTok{self}\NormalTok{, x):}
+        \VariableTok{self}\NormalTok{.x }\OperatorTok{=} \NormalTok{x}
+    \KeywordTok{def} \FunctionTok{__call__}\NormalTok{(}\VariableTok{self}\NormalTok{):}
+        \BuiltInTok{print} \VariableTok{self}\NormalTok{.x}
+
+\NormalTok{x }\OperatorTok{=} \NormalTok{Point(}\DecValTok{3}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{generators}{\paragraph{Generators}\label{generators}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{def} \NormalTok{firstn(n):}
+    \NormalTok{num }\OperatorTok{=} \DecValTok{0}
+    \ControlFlowTok{while} \NormalTok{num }\OperatorTok{<} \NormalTok{n:}
+        \ControlFlowTok{yield} \NormalTok{num}
+        \NormalTok{num }\OperatorTok{+=} \DecValTok{1}
+
+\NormalTok{x }\OperatorTok{=} \NormalTok{[}\ControlFlowTok{for} \NormalTok{i }\OperatorTok{in} \NormalTok{firstn(}\DecValTok{10}\NormalTok{)]}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{decorators}{\paragraph{Decorators}\label{decorators}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{class} \NormalTok{myDecorator(}\BuiltInTok{object}\NormalTok{):}
+    \KeywordTok{def} \FunctionTok{__init__}\NormalTok{(}\VariableTok{self}\NormalTok{, f):}
+        \VariableTok{self}\NormalTok{.f }\OperatorTok{=} \NormalTok{f}
+    \KeywordTok{def} \FunctionTok{__call__}\NormalTok{(}\VariableTok{self}\NormalTok{):}
+        \BuiltInTok{print} \StringTok{"call"}
+        \VariableTok{self}\NormalTok{.f()}
+
+\AttributeTok{@myDecorator}
+\KeywordTok{def} \NormalTok{my_funct():}
+    \BuiltInTok{print} \StringTok{'func'}
+
+\NormalTok{my_func()}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{numpy}{\subsection{NumPy}\label{numpy}}
+
+\hypertarget{array-initialization}{\subsubsection{array
+initialization}\label{array-initialization}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{np.array([}\DecValTok{2}\NormalTok{, }\DecValTok{3}\NormalTok{, }\DecValTok{4}\NormalTok{])             }\CommentTok{# direct initialization}
+\NormalTok{np.empty(}\DecValTok{20}\NormalTok{, dtype}\OperatorTok{=}\NormalTok{np.float32)  }\CommentTok{# single precision array with 20 entries}
+\NormalTok{np.zeros(}\DecValTok{200}\NormalTok{)                   }\CommentTok{# initialize 200 zeros}
+\NormalTok{np.ones((}\DecValTok{3}\NormalTok{,}\DecValTok{3}\NormalTok{), dtype}\OperatorTok{=}\NormalTok{np.int32)  }\CommentTok{# 3 x 3 integer matrix with ones}
+\NormalTok{np.eye(}\DecValTok{200}\NormalTok{)                     }\CommentTok{# ones on the diagonal}
+\NormalTok{np.zeros_like(a)                }\CommentTok{# returns array with zeros and the shape of a}
+\NormalTok{np.linspace(}\DecValTok{0}\NormalTok{., }\DecValTok{10}\NormalTok{., }\DecValTok{100}\NormalTok{)       }\CommentTok{# 100 points from 0 to 10}
+\NormalTok{np.arange(}\DecValTok{0}\NormalTok{, }\DecValTok{100}\NormalTok{, }\DecValTok{2}\NormalTok{)            }\CommentTok{# points from 0 to <100 with step width 2}
+\NormalTok{np.logspace(}\OperatorTok{-}\DecValTok{5}\NormalTok{, }\DecValTok{2}\NormalTok{, }\DecValTok{100}\NormalTok{)         }\CommentTok{# 100 log-spaced points between 1e-5 and 1e2}
+\NormalTok{np.copy(a)                      }\CommentTok{# copy array to new memory}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{reading-writing-files}{\subsubsection{reading/ writing
+files}\label{reading-writing-files}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{np.fromfile(fname}\OperatorTok{/}\BuiltInTok{object}\NormalTok{, dtype}\OperatorTok{=}\NormalTok{np.float32, count}\OperatorTok{=}\DecValTok{5}\NormalTok{)  }\CommentTok{# read binary data from file}
+\NormalTok{np.loadtxt(fname}\OperatorTok{/}\BuiltInTok{object}\NormalTok{, skiprows}\OperatorTok{=}\DecValTok{2}\NormalTok{, delimiter}\OperatorTok{=}\StringTok{','}\NormalTok{)   }\CommentTok{# read ascii data from file}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{array-properties-and-operations}{\subsubsection{array
+properties and operations}\label{array-properties-and-operations}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{a.shape                }\CommentTok{# a tuple with the lengths of each axis}
+\BuiltInTok{len}\NormalTok{(a)                 }\CommentTok{# length of axis 0}
+\NormalTok{a.ndim                 }\CommentTok{# number of dimensions (axes)}
+\NormalTok{a.sort(axis}\OperatorTok{=}\DecValTok{1}\NormalTok{)         }\CommentTok{# sort array along axis}
+\NormalTok{a.flatten()            }\CommentTok{# collapse array to one dimension}
+\NormalTok{a.conj()               }\CommentTok{# return complex conjugate}
+\NormalTok{a.astype(np.int16)     }\CommentTok{# cast to integer}
+\NormalTok{np.argmax(a, axis}\OperatorTok{=}\DecValTok{2}\NormalTok{)   }\CommentTok{# return index of maximum along a given axis}
+\NormalTok{np.cumsum(a)           }\CommentTok{# return cumulative sum}
+\NormalTok{np.}\BuiltInTok{any}\NormalTok{(a)              }\CommentTok{# True if any element is True}
+\NormalTok{np.}\BuiltInTok{all}\NormalTok{(a)              }\CommentTok{# True if all elements are True}
+\NormalTok{np.argsort(a, axis}\OperatorTok{=}\DecValTok{1}\NormalTok{)  }\CommentTok{# return sorted index array along axis}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{indexing}{\subsubsection{indexing}\label{indexing}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{a }\OperatorTok{=} \NormalTok{np.arange(}\DecValTok{100}\NormalTok{)          }\CommentTok{# initialization with 0 - 99}
+\NormalTok{a[: }\DecValTok{3}\NormalTok{] }\OperatorTok{=} \DecValTok{0}                  \CommentTok{# set the first three indices to zero}
+\NormalTok{a[}\DecValTok{1}\NormalTok{: }\DecValTok{5}\NormalTok{] }\OperatorTok{=} \DecValTok{1}                 \CommentTok{# set indices 1-4 to 1}
+\NormalTok{a[start:stop:step]          }\CommentTok{# general form of indexing/slicing}
+\NormalTok{a[}\VariableTok{None}\NormalTok{, :]                  }\CommentTok{# transform to column vector}
+\NormalTok{a[[}\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{3}\NormalTok{, }\DecValTok{8}\NormalTok{]]             }\CommentTok{# return array with values of the indices}
+\NormalTok{a }\OperatorTok{=} \NormalTok{a.reshape(}\DecValTok{10}\NormalTok{, }\DecValTok{10}\NormalTok{)       }\CommentTok{# transform to 10 x 10 matrix}
+\NormalTok{a.T                         }\CommentTok{# return transposed view}
+\NormalTok{np.transpose(a, (}\DecValTok{2}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{))  }\CommentTok{# transpose array to new axis order}
+\NormalTok{a[a }\OperatorTok{<} \DecValTok{2}\NormalTok{]                    }\CommentTok{# returns array that fulfills elementwise condition}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{boolean-arrays}{\subsubsection{boolean
+arrays}\label{boolean-arrays}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{a }\OperatorTok{<} \DecValTok{2}                          \CommentTok{# returns array with boolean values}
+\NormalTok{np.logical_and(a }\OperatorTok{<} \DecValTok{2}\NormalTok{, b }\OperatorTok{>} \DecValTok{10}\NormalTok{)  }\CommentTok{# elementwise logical and}
+\NormalTok{np.logical_or(a }\OperatorTok{<} \DecValTok{2}\NormalTok{, b }\OperatorTok{>} \DecValTok{10}\NormalTok{)   }\CommentTok{# elementwise logical or}
+\OperatorTok{~}\NormalTok{a                             }\CommentTok{# invert boolean array}
+\NormalTok{np.invert(a)                   }\CommentTok{# invert boolean array}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{elementwise-operations-and-math-functions}{\subsubsection{elementwise
+operations and math
+functions}\label{elementwise-operations-and-math-functions}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{a }\OperatorTok{*} \DecValTok{5}              \CommentTok{# multiplication with scalar}
+\NormalTok{a }\OperatorTok{+} \DecValTok{5}              \CommentTok{# addition with scalar}
+\NormalTok{a }\OperatorTok{+} \NormalTok{b              }\CommentTok{# addition with array b}
+\NormalTok{a }\OperatorTok{/} \NormalTok{b              }\CommentTok{# division with b (np.NaN for division by zero)}
+\NormalTok{np.exp(a)          }\CommentTok{# exponential (complex and real)}
+\NormalTok{np.sin(a)          }\CommentTok{# sine}
+\NormalTok{np.cos(a)          }\CommentTok{# cosine}
+\NormalTok{np.arctan2(y,x)    }\CommentTok{# arctan(y/x)}
+\NormalTok{np.arcsin(x)       }\CommentTok{# arcsin}
+\NormalTok{np.radians(a)      }\CommentTok{# degrees to radians}
+\NormalTok{np.degrees(a)      }\CommentTok{# radians to degrees}
+\NormalTok{np.var(a)          }\CommentTok{# variance of array}
+\NormalTok{np.std(a, axis}\OperatorTok{=}\DecValTok{1}\NormalTok{)  }\CommentTok{# standard deviation}
+\end{Highlighting}
+\end{Shaded}
+
+\subsubsection{inner / outer products}\label{inner-outer-products}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{np.dot(a, b)                        }\CommentTok{# inner matrix product: a_mi b_in}
+\NormalTok{np.einsum(}\StringTok{'ijkl,klmn->ijmn'}\NormalTok{, a, b)  }\CommentTok{# einstein summation convention}
+\NormalTok{np.}\BuiltInTok{sum}\NormalTok{(a, axis}\OperatorTok{=}\DecValTok{1}\NormalTok{)                   }\CommentTok{# sum over axis 1}
+\NormalTok{np.}\BuiltInTok{abs}\NormalTok{(a)                           }\CommentTok{# return array with absolute values}
+\NormalTok{a[}\VariableTok{None}\NormalTok{, :] }\OperatorTok{+} \NormalTok{b[:, }\VariableTok{None}\NormalTok{]             }\CommentTok{# outer sum}
+\NormalTok{a[}\VariableTok{None}\NormalTok{, :] }\OperatorTok{*} \NormalTok{b[}\VariableTok{None}\NormalTok{, :]             }\CommentTok{# outer product}
+\NormalTok{np.outer(a, b)                      }\CommentTok{# outer product}
+\NormalTok{np.}\BuiltInTok{sum}\NormalTok{(a }\OperatorTok{*} \NormalTok{a.T)                     }\CommentTok{# matrix norm}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{interpolation-integration}{\subsubsection{interpolation,
+integration}\label{interpolation-integration}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{np.trapz(y, x}\OperatorTok{=}\NormalTok{x, axis}\OperatorTok{=}\DecValTok{1}\NormalTok{)  }\CommentTok{# integrate along axis 1}
+\NormalTok{np.interp(x, xp, yp)      }\CommentTok{# interpolate function xp, yp at points x}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{fft}{\subsubsection{fft}\label{fft}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{np.fft.fft(y)             }\CommentTok{# complex fourier transform of y}
+\NormalTok{np.fft.fftfreqs(}\BuiltInTok{len}\NormalTok{(y))   }\CommentTok{# fft frequencies for a given length}
+\NormalTok{np.fft.fftshift(freqs)    }\CommentTok{# shifts zero frequency to the middle}
+\NormalTok{np.fft.rfft(y)            }\CommentTok{# real fourier transform of y}
+\NormalTok{np.fft.rfftfreqs(}\BuiltInTok{len}\NormalTok{(y))  }\CommentTok{# real fft frequencies for a given length}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{rounding}{\subsubsection{rounding}\label{rounding}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{np.ceil(a)   }\CommentTok{# rounds to nearest upper int}
+\NormalTok{np.floor(a)  }\CommentTok{# rounds to nearest lower int}
+\NormalTok{np.}\BuiltInTok{round}\NormalTok{(a)  }\CommentTok{# rounds to neares int}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{random-variables}{\subsubsection{random
+variables}\label{random-variables}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{np.random.normal(loc}\OperatorTok{=}\DecValTok{0}\NormalTok{, scale}\OperatorTok{=}\DecValTok{2}\NormalTok{, size}\OperatorTok{=}\DecValTok{100}\NormalTok{)  }\CommentTok{# 100 normal distributed random numbers}
+\NormalTok{np.random.seed(}\DecValTok{23032}\NormalTok{)                       }\CommentTok{# resets the seed value}
+\NormalTok{np.random.rand(}\DecValTok{200}\NormalTok{)                         }\CommentTok{# 200 random numbers in [0, 1)}
+\NormalTok{np.random.uniform(}\DecValTok{1}\NormalTok{, }\DecValTok{30}\NormalTok{, }\DecValTok{200}\NormalTok{)               }\CommentTok{# 200 random numbers in [1, 30)}
+\NormalTok{np.random.random_integers(}\DecValTok{1}\NormalTok{, }\DecValTok{15}\NormalTok{, }\DecValTok{300}\NormalTok{)       }\CommentTok{# 300 random integers between [1, 15]}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{matplotlib}{\subsection{Matplotlib}\label{matplotlib}}
+
+\hypertarget{figures-and-axes}{\subsubsection{figures and
+axes}\label{figures-and-axes}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{fig }\OperatorTok{=} \NormalTok{plt.figure(figsize}\OperatorTok{=}\NormalTok{(}\DecValTok{5}\NormalTok{, }\DecValTok{2}\NormalTok{), facecolor}\OperatorTok{=}\StringTok{'black'}\NormalTok{)  }\CommentTok{# initialize figure}
+\NormalTok{ax }\OperatorTok{=} \NormalTok{fig.add_subplot(}\DecValTok{3}\NormalTok{, }\DecValTok{2}\NormalTok{, }\DecValTok{2}\NormalTok{)                        }\CommentTok{# add second subplot in a 3 x 2 grid}
+\NormalTok{fig, axes }\OperatorTok{=} \NormalTok{plt.subplots(}\DecValTok{5}\NormalTok{, }\DecValTok{2}\NormalTok{, figsize}\OperatorTok{=}\NormalTok{(}\DecValTok{5}\NormalTok{, }\DecValTok{5}\NormalTok{))       }\CommentTok{# return fig and array of axes in a 5 x 2 grid}
+\NormalTok{ax }\OperatorTok{=} \NormalTok{fig.add_axes([left, bottom, width, height])     }\CommentTok{# manually add axes at a certain position}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{figures-and-axes-properties}{\subsubsection{figures and
+axes properties}\label{figures-and-axes-properties}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{fig.suptitle(}\StringTok{'title'}\NormalTok{)            }\CommentTok{# big figure title}
+\NormalTok{fig.subplots_adjust(bottom}\OperatorTok{=}\FloatTok{0.1}\NormalTok{, right}\OperatorTok{=}\FloatTok{0.8}\NormalTok{, top}\OperatorTok{=}\FloatTok{0.9}\NormalTok{, wspace}\OperatorTok{=}\FloatTok{0.2}\NormalTok{,}
+                    \NormalTok{hspace}\OperatorTok{=}\FloatTok{0.5}\NormalTok{)  }\CommentTok{# adjust subplot positions}
+\NormalTok{fig.tight_layout(pad}\OperatorTok{=}\FloatTok{0.1}\NormalTok{,h_pad}\OperatorTok{=}\FloatTok{0.5}\NormalTok{, w_pad}\OperatorTok{=}\FloatTok{0.5}\NormalTok{, rect}\OperatorTok{=}\VariableTok{None}\NormalTok{) }\CommentTok{# adjust}
+\NormalTok{subplots to fit perfectly into fig}
+\NormalTok{ax.set_xlabel()                  }\CommentTok{# set xlabel}
+\NormalTok{ax.set_ylabel()                  }\CommentTok{# set ylabel}
+\NormalTok{ax.set_xlim(}\DecValTok{1}\NormalTok{, }\DecValTok{2}\NormalTok{)                }\CommentTok{# sets x limits}
+\NormalTok{ax.set_ylim(}\DecValTok{3}\NormalTok{, }\DecValTok{4}\NormalTok{)                }\CommentTok{# sets y limits}
+\NormalTok{ax.set_title(}\StringTok{'blabla'}\NormalTok{)           }\CommentTok{# sets the axis title}
+\NormalTok{ax.}\BuiltInTok{set}\NormalTok{(xlabel}\OperatorTok{=}\StringTok{'bla'}\NormalTok{)             }\CommentTok{# set multiple parameters at once}
+\NormalTok{ax.legend(loc}\OperatorTok{=}\StringTok{'upper center'}\NormalTok{)    }\CommentTok{# activate legend}
+\NormalTok{ax.grid(}\VariableTok{True}\NormalTok{, which}\OperatorTok{=}\StringTok{'both'}\NormalTok{)      }\CommentTok{# activate grid}
+\NormalTok{bbox }\OperatorTok{=} \NormalTok{ax.get_position()         }\CommentTok{# returns the axes bounding box}
+\NormalTok{bbox.x0 }\OperatorTok{+} \NormalTok{bbox.width             }\CommentTok{# bounding box parameters}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{plotting-routines}{\subsubsection{plotting
+routines}\label{plotting-routines}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{ax.plot(x,y, }\StringTok{'-o'}\NormalTok{, c}\OperatorTok{=}\StringTok{'red'}\NormalTok{, lw}\OperatorTok{=}\DecValTok{2}\NormalTok{, label}\OperatorTok{=}\StringTok{'bla'}\NormalTok{)  }\CommentTok{# plots a line}
+\NormalTok{ax.scatter(x,y, s}\OperatorTok{=}\DecValTok{20}\NormalTok{, c}\OperatorTok{=}\NormalTok{color)                  }\CommentTok{# scatter plot}
+\NormalTok{ax.pcolormesh(xx,yy,zz, shading}\OperatorTok{=}\StringTok{'gouraud'}\NormalTok{)      }\CommentTok{# fast colormesh function}
+\NormalTok{ax.colormesh(xx,yy,zz, norm}\OperatorTok{=}\NormalTok{norm)               }\CommentTok{# slower colormesh function}
+\NormalTok{ax.contour(xx,yy,zz, cmap}\OperatorTok{=}\StringTok{'jet'}\NormalTok{)                }\CommentTok{# contour line plot}
+\NormalTok{ax.contourf(xx,yy,zz, vmin}\OperatorTok{=}\DecValTok{2}\NormalTok{, vmax}\OperatorTok{=}\DecValTok{4}\NormalTok{)           }\CommentTok{# filled contours plot}
+\NormalTok{n, bins, patch }\OperatorTok{=} \NormalTok{ax.hist(x, }\DecValTok{50}\NormalTok{)                 }\CommentTok{# histogram}
+\NormalTok{ax.imshow(matrix, origin}\OperatorTok{=}\StringTok{'lower'}\NormalTok{, extent}\OperatorTok{=}\NormalTok{(x1, x2, y1, y2))  }\CommentTok{# show image}
+\NormalTok{ax.specgram(y, FS}\OperatorTok{=}\FloatTok{0.1}\NormalTok{, noverlap}\OperatorTok{=}\DecValTok{128}\NormalTok{, scale}\OperatorTok{=}\StringTok{'linear'}\NormalTok{)  }\CommentTok{# plot a spectrogram}
+\end{Highlighting}
+\end{Shaded}
+
+\end{document}
