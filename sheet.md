@@ -11,11 +11,6 @@ Scientific Python Cheatsheet
         - [Strings](#strings)
         - [Operators](#operators)
         - [Control Flow](#control-flow)
-            - [if/elif/else](#ifelifelse)
-            - [for](#for)
-            - [while](#while)
-            - [break](#break)
-            - [continue](#continue)
         - [Functions, Classes, Generators, Decorators](#functions-classes-generators-decorators)
             - [Function](#function)
             - [Class](#class)
@@ -125,9 +120,7 @@ else:
     print '?'
     
 # for
-
-a = ['red', 'blue',
-     'green']
+a = ['red', 'blue', 'green']
 for color in a:
     print color
     
