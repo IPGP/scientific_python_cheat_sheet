@@ -104,6 +104,10 @@ a {
   .project-tagline {
     font-size: 1rem; } }
 
+.main-content {
+  column-count:2;
+  -moz-column-count:2;
+  -webkit-column-count: 2;}
 .main-content :first-child {
   margin-top: 0; }
 .main-content img {
