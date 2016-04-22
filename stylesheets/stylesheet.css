@@ -109,9 +109,9 @@ a {
   -moz-column-count:auto;
   -webkit-column-count: auto;
   
-  -webkit-column-width: 200px;
-  -moz-column-width: 200px;
-  column-width: 200px;
+  -webkit-column-width: 330px;
+  -moz-column-width: 330px;
+  column-width: 330px;
   
   box-sizing: unset;}
 .main-content :first-child {
