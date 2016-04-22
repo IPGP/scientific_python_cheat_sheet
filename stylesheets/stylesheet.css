@@ -128,7 +128,7 @@ a {
 .main-content code {
   padding: 2px 4px;
   font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
-  font-size: 0.9rem;
+  font-size: 0.7rem;
   color: #383e41;
   background-color: #f3f6fa;
   border-radius: 0.3rem; }
@@ -145,7 +145,7 @@ a {
   .main-content pre > code {
     padding: 0;
     margin: 0;
-    font-size: 0.9rem;
+    font-size: 0.7rem;
     color: #567482;
     word-break: normal;
     white-space: pre;
@@ -159,7 +159,7 @@ a {
 .main-content .highlight pre, .main-content pre {
   padding: 0.8rem;
   overflow: auto;
-  font-size: 0.9rem;
+  font-size: 0.7rem;
   line-height: 1.45;
   border-radius: 0.3rem; }
 .main-content pre code, .main-content pre tt {
@@ -201,7 +201,7 @@ a {
   .main-content dl dt {
     padding: 0;
     margin-top: 1rem;
-    font-size: 1rem;
+    font-size: 0.8rem;
     font-weight: bold; }
   .main-content dl dd {
     padding: 0;
@@ -218,17 +218,17 @@ a {
     /*max-width: 64rem;*/
     padding: 2rem 6rem;
     margin: 0 auto;
-    font-size: 1.1rem; } }
+    font-size: 1.0rem; } }
 
 @media screen and (min-width: 42em) and (max-width: 64em) {
   .main-content {
     padding: 2rem 4rem;
-    font-size: 1.1rem; } }
+    font-size: 1.0rem; } }
 
 @media screen and (max-width: 42em) {
   .main-content {
     padding: 2rem 1rem;
-    font-size: 1rem; } }
+    font-size: 0.9rem; } }
 
 .site-footer {
   padding-top: 2rem;
@@ -244,12 +244,12 @@ a {
 
 @media screen and (min-width: 64em) {
   .site-footer {
-    font-size: 1rem; } }
+    font-size: 0.9rem; } }
 
 @media screen and (min-width: 42em) and (max-width: 64em) {
   .site-footer {
-    font-size: 1rem; } }
+    font-size: 0.9rem; } }
 
 @media screen and (max-width: 42em) {
   .site-footer {
-    font-size: 0.9rem; } }
+    font-size: 0.7rem; } }
