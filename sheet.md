@@ -114,8 +114,8 @@ a is b            # test if objects point to the same memory (id)
 
 ### Control Flow
 
-#### if/elif/else
 ```python
+# if/elif/else
 a, b = 1, 2
 if a + b == 3:
     print 'True'
@@ -123,39 +123,29 @@ elif a + b == 1:
     print 'False'
 else:
     print '?'
-```
+    
+# for
 
-#### for
-
-```python
 a = ['red', 'blue',
      'green']
 for color in a:
     print color
-```
-
-#### while
-
-```python
+    
+# while
 number = 1
 while number < 10:
     print number
     number += 1
-```
 
-#### break
-```python
+# break
 number = 1
 while True:
     print number
     number += 1
     if number > 10:
         break
-```
 
-#### continue
-
-```python
+# continue
 for i in range(20):
     if i % 2 == 0:
         continue
