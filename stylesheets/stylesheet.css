@@ -113,8 +113,7 @@ a {
   -moz-column-width: 200px;
   column-width: 200px;
   
-  box-sizing: unset;
-}
+  box-sizing: unset;}
 .main-content :first-child {
   margin-top: 0; }
 .main-content img {
