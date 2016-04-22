@@ -107,7 +107,9 @@ a {
 .main-content {
   column-count:3;
   -moz-column-count:3;
-  -webkit-column-count: 3;}
+  -webkit-column-count: 3;
+  box-sizing: unset;
+}
 .main-content :first-child {
   margin-top: 0; }
 .main-content img {
