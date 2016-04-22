@@ -115,25 +115,31 @@ a {
   
   box-sizing: unset;}
 
-div.group {
+.main-content .group {
   display: inline-block;
   width: 100%;}
+
 .main-content :first-child {
   margin-top: 0; }
+
 .main-content img {
   max-width: 100%; }
+
 .main-content h1 {
   margin-top: 2rem;
   margin-bottom: 1rem;
   font-weight: normal;
   color: #159957; }
+
 .main-content h2, .main-content h3, .main-content h4, .main-content h5, .main-content h6 {
   margin-top: 2rem;
   margin-bottom: 1rem;
   font-weight: normal;
   color: #159957; }
+
 .main-content p {
   margin-bottom: 1em; }
+
 .main-content code {
   padding: 2px 4px;
   font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
@@ -141,6 +147,7 @@ div.group {
   color: #383e41;
   background-color: #f3f6fa;
   border-radius: 0.3rem; }
+
 .main-content pre {
   padding: 0.8rem;
   margin-top: 0;
@@ -160,17 +167,20 @@ div.group {
     white-space: pre;
     background: transparent;
     border: 0; }
+
 .main-content .highlight {
   margin-bottom: 1rem; }
   .main-content .highlight pre {
     margin-bottom: 0;
     word-break: normal; }
+
 .main-content .highlight pre, .main-content pre {
   padding: 0.8rem;
   overflow: auto;
   font-size: 0.7rem;
   line-height: 1.45;
   border-radius: 0.3rem; }
+
 .main-content pre code, .main-content pre tt {
   display: inline;
   max-width: initial;
@@ -183,8 +193,10 @@ div.group {
   border: 0; }
   .main-content pre code:before, .main-content pre code:after, .main-content pre tt:before, .main-content pre tt:after {
     content: normal; }
+
 .main-content ul, .main-content ol {
   margin-top: 0; }
+
 .main-content blockquote {
   padding: 0 1rem;
   margin-left: 0;
@@ -194,6 +206,7 @@ div.group {
     margin-top: 0; }
   .main-content blockquote > :last-child {
     margin-bottom: 0; }
+
 .main-content table {
   display: block;
   width: 100%;
@@ -205,6 +218,7 @@ div.group {
   .main-content table th, .main-content table td {
     padding: 0.5rem 1rem;
     border: 1px solid #e9ebec; }
+
 .main-content dl {
   padding: 0; }
   .main-content dl dt {
@@ -215,6 +229,7 @@ div.group {
   .main-content dl dd {
     padding: 0;
     margin-bottom: 1rem; }
+
 .main-content hr {
   height: 2px;
   padding: 0;
