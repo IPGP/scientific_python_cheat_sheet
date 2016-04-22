@@ -118,35 +118,9 @@ Cheatsheet}\label{scientific-python-cheatsheet}}
       \protect\hyperlink{operators}{Operators}
     \item
       \protect\hyperlink{control-flow}{Control Flow}
-
-      \begin{itemize}
-      \tightlist
-      \item
-        \protect\hyperlink{ifelifelse}{if/elif/else}
-      \item
-        \protect\hyperlink{for}{for}
-      \item
-        \protect\hyperlink{while}{while}
-      \item
-        \protect\hyperlink{break}{break}
-      \item
-        \protect\hyperlink{continue}{continue}
-      \end{itemize}
     \item
       \protect\hyperlink{functions-classes-generators-decorators}{Functions,
       Classes, Generators, Decorators}
-
-      \begin{itemize}
-      \tightlist
-      \item
-        \protect\hyperlink{function}{Function}
-      \item
-        \protect\hyperlink{class}{Class}
-      \item
-        \protect\hyperlink{generators}{Generators}
-      \item
-        \protect\hyperlink{decorators}{Decorators}
-      \end{itemize}
     \end{itemize}
   \item
     \protect\hyperlink{numpy}{NumPy}
@@ -280,10 +254,9 @@ Cheatsheet}\label{scientific-python-cheatsheet}}
 \hypertarget{control-flow}{\subsubsection{Control
 Flow}\label{control-flow}}
 
-\hypertarget{ifelifelse}{\paragraph{if/elif/else}\label{ifelifelse}}
-
 \begin{Shaded}
 \begin{Highlighting}[]
+\CommentTok{# if/elif/else}
 \NormalTok{a, b }\OperatorTok{=} \DecValTok{1}\NormalTok{, }\DecValTok{2}
 \ControlFlowTok{if} \NormalTok{a }\OperatorTok{+} \NormalTok{b }\OperatorTok{==} \DecValTok{3}\NormalTok{:}
     \BuiltInTok{print} \StringTok{'True'}
@@ -291,48 +264,27 @@ Flow}\label{control-flow}}
     \BuiltInTok{print} \StringTok{'False'}
 \ControlFlowTok{else}\NormalTok{:}
     \BuiltInTok{print} \StringTok{'?'}
-\end{Highlighting}
-\end{Shaded}
-
-\hypertarget{for}{\paragraph{for}\label{for}}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{a }\OperatorTok{=} \NormalTok{[}\StringTok{'red'}\NormalTok{, }\StringTok{'blue'}\NormalTok{,}
-     \CommentTok{'green'}\NormalTok{]}
+    
+\CommentTok{# for}
+\NormalTok{a }\OperatorTok{=} \NormalTok{[}\StringTok{'red'}\NormalTok{, }\StringTok{'blue'}\NormalTok{, }\StringTok{'green'}\NormalTok{]}
 \ControlFlowTok{for} \NormalTok{color }\OperatorTok{in} \NormalTok{a:}
     \BuiltInTok{print} \NormalTok{color}
-\end{Highlighting}
-\end{Shaded}
-
-\hypertarget{while}{\paragraph{while}\label{while}}
-
-\begin{Shaded}
-\begin{Highlighting}[]
+    
+\CommentTok{# while}
 \NormalTok{number }\OperatorTok{=} \DecValTok{1}
 \ControlFlowTok{while} \NormalTok{number }\OperatorTok{<} \DecValTok{10}\NormalTok{:}
     \BuiltInTok{print} \NormalTok{number}
     \NormalTok{number }\OperatorTok{+=} \DecValTok{1}
-\end{Highlighting}
-\end{Shaded}
 
-\hypertarget{break}{\paragraph{break}\label{break}}
-
-\begin{Shaded}
-\begin{Highlighting}[]
+\CommentTok{# break}
 \NormalTok{number }\OperatorTok{=} \DecValTok{1}
 \ControlFlowTok{while} \VariableTok{True}\NormalTok{:}
     \BuiltInTok{print} \NormalTok{number}
     \NormalTok{number }\OperatorTok{+=} \DecValTok{1}
     \ControlFlowTok{if} \NormalTok{number }\OperatorTok{>} \DecValTok{10}\NormalTok{:}
         \ControlFlowTok{break}
-\end{Highlighting}
-\end{Shaded}
 
-\hypertarget{continue}{\paragraph{continue}\label{continue}}
-
-\begin{Shaded}
-\begin{Highlighting}[]
+\CommentTok{# continue}
 \ControlFlowTok{for} \NormalTok{i }\OperatorTok{in} \BuiltInTok{range}\NormalTok{(}\DecValTok{20}\NormalTok{):}
     \ControlFlowTok{if} \NormalTok{i }\OperatorTok{%} \DecValTok{2} \OperatorTok{==} \DecValTok{0}\NormalTok{:}
         \ControlFlowTok{continue}
@@ -344,21 +296,15 @@ Flow}\label{control-flow}}
 Classes, Generators,
 Decorators}\label{functions-classes-generators-decorators}}
 
-\hypertarget{function}{\paragraph{Function}\label{function}}
-
 \begin{Shaded}
 \begin{Highlighting}[]
+\CommentTok{# Function}
 \KeywordTok{def} \NormalTok{myfunc(a1, a2):}
     \ControlFlowTok{return} \NormalTok{x}
 
 \NormalTok{x }\OperatorTok{=} \NormalTok{my_function(a1,a2)}
-\end{Highlighting}
-\end{Shaded}
 
-\hypertarget{class}{\paragraph{Class}\label{class}}
-
-\begin{Shaded}
-\begin{Highlighting}[]
+\CommentTok{# Class}
 \KeywordTok{class} \NormalTok{Point(}\BuiltInTok{object}\NormalTok{):}
     \KeywordTok{def} \FunctionTok{__init__}\NormalTok{(}\VariableTok{self}\NormalTok{, x):}
         \VariableTok{self}\NormalTok{.x }\OperatorTok{=} \NormalTok{x}
@@ -366,13 +312,8 @@ Decorators}\label{functions-classes-generators-decorators}}
         \BuiltInTok{print} \VariableTok{self}\NormalTok{.x}
 
 \NormalTok{x }\OperatorTok{=} \NormalTok{Point(}\DecValTok{3}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
 
-\hypertarget{generators}{\paragraph{Generators}\label{generators}}
-
-\begin{Shaded}
-\begin{Highlighting}[]
+\CommentTok{# Generators}
 \KeywordTok{def} \NormalTok{firstn(n):}
     \NormalTok{num }\OperatorTok{=} \DecValTok{0}
     \ControlFlowTok{while} \NormalTok{num }\OperatorTok{<} \NormalTok{n:}
@@ -380,13 +321,8 @@ Decorators}\label{functions-classes-generators-decorators}}
         \NormalTok{num }\OperatorTok{+=} \DecValTok{1}
 
 \NormalTok{x }\OperatorTok{=} \NormalTok{[}\ControlFlowTok{for} \NormalTok{i }\OperatorTok{in} \NormalTok{firstn(}\DecValTok{10}\NormalTok{)]}
-\end{Highlighting}
-\end{Shaded}
 
-\hypertarget{decorators}{\paragraph{Decorators}\label{decorators}}
-
-\begin{Shaded}
-\begin{Highlighting}[]
+\CommentTok{# Decorators}
 \KeywordTok{class} \NormalTok{myDecorator(}\BuiltInTok{object}\NormalTok{):}
     \KeywordTok{def} \FunctionTok{__init__}\NormalTok{(}\VariableTok{self}\NormalTok{, f):}
         \VariableTok{self}\NormalTok{.f }\OperatorTok{=} \NormalTok{f}
