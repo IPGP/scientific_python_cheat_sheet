@@ -105,9 +105,10 @@ a {
     font-size: 1rem; } }
 
 .main-content {
-  column-count:3;
-  -moz-column-count:3;
-  -webkit-column-count: 3;
+  column-count:auto;
+  -moz-column-count:auto;
+  -webkit-column-count: auto;
+  column-width=300;
   box-sizing: unset;
 }
 .main-content :first-child {
