@@ -14,8 +14,6 @@
       <h1>
 <a id="scientific-python-cheatsheet" class="anchor" href="#scientific-python-cheatsheet" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Scientific Python Cheatsheet</h1>
 
-
-
 <p><strong>Table of Contents</strong></p>
 
 <ul>
@@ -87,6 +85,7 @@
 
 
 
+<div class="group">
 <h2>
 <a id="pure-python" class="anchor" href="#pure-python" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Pure Python</h2>
 
@@ -251,7 +250,9 @@ x <span class="pl-k">=</span> [<span class="pl-k">for</span> i <span class="pl-k
     <span class="pl-c1">print</span> <span class="pl-s"><span class="pl-pds">'</span>func<span class="pl-pds">'</span></span>
 
 my_func()</pre></div>
+</div>
 
+<div class="group">
 <h2>
 <a id="numpy" class="anchor" href="#numpy" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>NumPy</h2>
 
@@ -373,7 +374,9 @@ np.random.seed(<span class="pl-c1">23032</span>)                       <span cla
 np.random.rand(<span class="pl-c1">200</span>)                         <span class="pl-c"># 200 random numbers in [0, 1)</span>
 np.random.uniform(<span class="pl-c1">1</span>, <span class="pl-c1">30</span>, <span class="pl-c1">200</span>)               <span class="pl-c"># 200 random numbers in [1, 30)</span>
 np.random.random_integers(<span class="pl-c1">1</span>, <span class="pl-c1">15</span>, <span class="pl-c1">300</span>)       <span class="pl-c"># 300 random integers between [1, 15]</span></pre></div>
+</div>
 
+<div class="group">
 <h2>
 <a id="matplotlib" class="anchor" href="#matplotlib" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Matplotlib</h2>
 
@@ -416,6 +419,7 @@ ax.contourf(xx,yy,zz, <span class="pl-v">vmin</span><span class="pl-k">=</span><
 n, bins, patch <span class="pl-k">=</span> ax.hist(x, <span class="pl-c1">50</span>)                 <span class="pl-c"># histogram</span>
 ax.imshow(matrix, <span class="pl-v">origin</span><span class="pl-k">=</span><span class="pl-s"><span class="pl-pds">'</span>lower<span class="pl-pds">'</span></span>, <span class="pl-v">extent</span><span class="pl-k">=</span>(x1, x2, y1, y2))  <span class="pl-c"># show image</span>
 ax.specgram(y, <span class="pl-v">FS</span><span class="pl-k">=</span><span class="pl-c1">0.1</span>, <span class="pl-v">noverlap</span><span class="pl-k">=</span><span class="pl-c1">128</span>, <span class="pl-v">scale</span><span class="pl-k">=</span><span class="pl-s"><span class="pl-pds">'</span>linear<span class="pl-pds">'</span></span>)  <span class="pl-c"># plot a spectrogram</span></pre></div>
+</div>
 
       <footer class="site-footer">
         <span class="site-footer-owner"><a href="https://github.com/IPGP/scientific_python_cheat_sheet">Scientific python cheat sheet</a> is maintained by <a href="https://github.com/IPGP">IPGP</a>.</span>
