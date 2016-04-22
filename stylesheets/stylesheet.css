@@ -105,16 +105,10 @@ a {
     font-size: 1rem; } }
 
 .main-content {
+  box-sizing: unset;
   column-count:auto;
   -moz-column-count:auto;
-  -webkit-column-count: auto;
-  
-  -webkit-column-width: 100px;
-  -moz-column-width: 100px;
-  column-width: 100px;
-  
-  box-sizing: unset;
-}
+  -webkit-column-count: auto;}
 .main-content :first-child {
   margin-top: 0; }
 .main-content img {
