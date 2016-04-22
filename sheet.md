@@ -12,10 +12,6 @@ Scientific Python Cheatsheet
         - [Operators](#operators)
         - [Control Flow](#control-flow)
         - [Functions, Classes, Generators, Decorators](#functions-classes-generators-decorators)
-            - [Function](#function)
-            - [Class](#class)
-            - [Generators](#generators)
-            - [Decorators](#decorators)
     - [NumPy](#numpy)
         - [array initialization](#array-initialization)
         - [reading/ writing files](#reading-writing-files)
@@ -147,16 +143,14 @@ for i in range(20):
 
 ### Functions, Classes, Generators, Decorators
 
-#### Function
 ```python
+# Function
 def myfunc(a1, a2):
     return x
 
 x = my_function(a1,a2)
-```
 
-#### Class
-```python
+# Class
 class Point(object):
     def __init__(self, x):
         self.x = x
@@ -164,10 +158,8 @@ class Point(object):
         print self.x
 
 x = Point(3)
-```
 
-#### Generators
-```python
+# Generators
 def firstn(n):
     num = 0
     while num < n:
@@ -175,10 +167,8 @@ def firstn(n):
         num += 1
 
 x = [for i in firstn(10)]
-```
 
-#### Decorators
-```python
+# Decorators
 class myDecorator(object):
     def __init__(self, f):
         self.f = f
