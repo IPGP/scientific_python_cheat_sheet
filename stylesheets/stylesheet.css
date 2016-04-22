@@ -109,9 +109,9 @@ a {
   -moz-column-count:auto;
   -webkit-column-count: auto;
   
-  -webkit-column-width: 100px;
-  -moz-column-width: 100px;
-  column-width: 100px;
+  -webkit-column-width: 200px;
+  -moz-column-width: 200px;
+  column-width: 200px;
   
   box-sizing: unset;
 }
@@ -216,7 +216,7 @@ a {
 
 @media screen and (min-width: 64em) {
   .main-content {
-    max-width: 64rem;
+    /*max-width: 64rem;*/
     padding: 2rem 6rem;
     margin: 0 auto;
     font-size: 1.1rem; } }
