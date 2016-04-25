@@ -1,4 +1,4 @@
-"
+
 <!DOCTYPE html>
 <html lang="en-us">
   <head>
@@ -15,7 +15,6 @@
 
 
 <h1 id="scientific-python-cheatsheet">Scientific Python Cheatsheet</h1>
- markdown-toc start - Don't edit this section. Run M-x markdown-toc-generate-toc again 
 <p><strong>Table of Contents</strong></p>
 <ul>
 <li><a href="#scientific-python-cheatsheet">Scientific Python Cheatsheet</a>
@@ -52,7 +51,7 @@
 </ul></li>
 </ul></li>
 </ul>
- markdown-toc end 
+<div class=group>
 <h2 id="pure-python">Pure Python</h2>
 <h3 id="types">Types</h3>
 <div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">a <span class="op">=</span> <span class="dv">2</span>           <span class="co"># integer</span>
@@ -176,6 +175,8 @@ x <span class="op">=</span> [<span class="cf">for</span> i <span class="op">in</
     <span class="bu">print</span> <span class="st">'func'</span>
 
 my_func()</code></pre></div>
+</div>
+<div class=group>
 <h2 id="numpy">NumPy</h2>
 <h3 id="array-initialization">array initialization</h3>
 <div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">np.array([<span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>])             <span class="co"># direct initialization</span>
@@ -263,6 +264,8 @@ np.random.seed(<span class="dv">23032</span>)                       <span class=
 np.random.rand(<span class="dv">200</span>)                         <span class="co"># 200 random numbers in [0, 1)</span>
 np.random.uniform(<span class="dv">1</span>, <span class="dv">30</span>, <span class="dv">200</span>)               <span class="co"># 200 random numbers in [1, 30)</span>
 np.random.random_integers(<span class="dv">1</span>, <span class="dv">15</span>, <span class="dv">300</span>)       <span class="co"># 300 random integers between [1, 15]</span></code></pre></div>
+</div>
+<div class=group>
 <h2 id="matplotlib">Matplotlib</h2>
 <h3 id="figures-and-axes">figures and axes</h3>
 <div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">fig <span class="op">=</span> plt.figure(figsize<span class="op">=</span>(<span class="dv">5</span>, <span class="dv">2</span>), facecolor<span class="op">=</span><span class="st">'black'</span>)  <span class="co"># initialize figure</span>

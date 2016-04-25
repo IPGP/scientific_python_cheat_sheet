@@ -9,7 +9,7 @@ import markdown
 import subprocess
 
 
-top = """"
+top = """
 <!DOCTYPE html>
 <html lang="en-us">
   <head>
@@ -59,8 +59,10 @@ f = open("index.html", "w")
 flag_first_h2 = False
 f.write(top+"\n")
 for line in sheet_html_lines:
+    if "markdown-toc" in line:
+        continue
 
-    if "<h2>" in line:
+    if "h2" in line:
         if flag_first_h2:
             f.write("</div>\n<div class=group>\n")
             f.write(line+"\n")
