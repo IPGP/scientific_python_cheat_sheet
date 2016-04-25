@@ -40,7 +40,7 @@ a = 2           # integer
 b = 5.0         # float
 c = 8.3e5       # exponential
 d = 1.5 + 0.5j  # complex
-e = 3 > 4       # boolean
+e = 4 > 5       # boolean
 f = 'word'      # string
 ```
 
