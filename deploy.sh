@@ -18,8 +18,10 @@ git commit -am "regenerated index.html revision: ${rev}"
 
 git push origin master
 
-git checkout gh-pages
+git checkout - --orphan gh-pages
 git checkout master index.html
 git commit -am "regenerad website revision: ${rev}"
 git push origin gh-pages
+
+git checkout master
 
