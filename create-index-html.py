@@ -103,10 +103,10 @@ for line in sheet_html_lines:
 
     if "h2" in line:
         if flag_first_h2:
-            f.write("</div>\n<div class=group>\n")
+            f.write('</div>\n<div class="group">\n')
             f.write(line+"\n")
         else:
-            f.write("<div class=group>\n")
+            f.write('<div class="group">\n')
             f.write(line+"\n")
             flag_first_h2 = True
     else:
