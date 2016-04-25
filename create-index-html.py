@@ -45,7 +45,7 @@ try:
     print cmd
     subprocess.call(cmd, shell=True)
     soup_sheet = BeautifulSoup(open(output_file), "html.parser")
-    list_html = map(str, list(soup_sheet.body.descendants))
+    list_html = map(str, list(soup_sheet.body.children))
     sheet_html = ''.join(list_html)
     print "went the pandoc way"
 except:
