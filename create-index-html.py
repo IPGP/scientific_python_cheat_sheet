@@ -39,12 +39,10 @@ bottom = """
 
 input_file = "sheet.md"
 output_file = "sheet.html"
-hightight_style = "pygment"
 
 try:
-    cmd = "pandoc {} -s -o --highlight-style } {} {}".format(input_file,
-                                                             hightight_style,
-                                                             output_file)
+    cmd = "pandoc {} -s -o {}".format(input_file,
+                                      output_file)
     print cmd
     subprocess.call(cmd, shell=True)
     soup_sheet = BeautifulSoup(open(output_file), "html.parser")
