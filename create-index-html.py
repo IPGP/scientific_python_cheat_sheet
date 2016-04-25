@@ -21,6 +21,7 @@ top = """"
     <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
   </head>
   <body>
+    <section class="main-content">
 """
 
 bottom = """
