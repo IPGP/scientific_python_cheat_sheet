@@ -6,6 +6,7 @@ A script to generate a file named index.html from sheet.md and templace.html
 
 from bs4 import BeautifulSoup
 import markdown
+import subprocess
 
 
 top = """"
@@ -36,16 +37,29 @@ bottom = """
 </html>
 """
 
-filename = "sheet.md"
-with open(filename, "r") as f:
-    text = f.read()
-sheet_html = markdown.markdown(text)
+input_file = "sheet.md"
+output_file = "sheet.html"
+
+try:
+    cmd = "pandoc {} -s -o {}".format(input_file, output_file)
+    print cmd
+    subprocess.call(cmd, shell=True)
+    soup_sheet = BeautifulSoup(open(output_file), "html.parser")
+    list_html = map(str, list(soup_sheet.body.descendants))
+    sheet_html = ''.join(list_html)
+    print "went the pandoc way"
+except:
+    print "pandoc failed, using shitty markdown"
+    with open(input_file, "r") as f:
+        text = f.read()
+    sheet_html = markdown.markdown(text)
 
 sheet_html_lines = sheet_html.split("\n")
 f = open("index.html", "w")
 flag_first_h2 = False
 f.write(top+"\n")
 for line in sheet_html_lines:
+
     if "<h2>" in line:
         if flag_first_h2:
             f.write("</div>\n<div class=group>\n")
@@ -60,15 +74,3 @@ for line in sheet_html_lines:
 f.write("</div>\n")
 f.write(bottom+"\n")
 f.close()
-
-
-
-
-#soup_mark = BeautifulSoup(sheet_html, "html.parser")
-#
-#for child in soup.finu('h2').descendants:
-#    print "hi"
-#    print child
-#
-#soup_sheet = BeautifulSoup(open("sheet.html"))
-
