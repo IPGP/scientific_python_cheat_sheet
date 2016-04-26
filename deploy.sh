@@ -1,27 +1,30 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
-# let's say you just modified sheet.md and want to regenerate the site http://ipgp.github.io/scientific_python_cheat_sheet/
-# just execute this script
+# deploy script for travis-ci, inspired by: https://github.com/steveklabnik/automatically_update_github_pages_with_travis_example
 
-# requirements:
-# python: markowdn, beautifulsoup
-# pandoc
-# git
+set -o errexit -o nounset
 
-# get revision number
+if [ "$TRAVIS_BRANCH" != "master" ]
+then
+  echo "This commit was made against the $TRAVIS_BRANCH and not the master! No deploy!"
+  exit 0
+fi
+
 rev=$(git rev-parse --short HEAD)
 
-# recreate index.html
-git checkout master
-python create-index-html.py
-git commit -am "regenerated index.html revision: ${rev}"
+cp index.html site/
+cd _site/
 
-git push origin master
+git init
+git config user.name "Thomas Belahi"
+git config user.email "belahi@ipgp.fr"
 
-git checkout gh-pages
-git checkout master index.html
-git commit -am "regenerad website revision: ${rev}"
-git push origin gh-pages
+git remote add upstream "https://$GH_TOKEN@github.com/IPGP/scientific_python_cheatsheet.git"
+git fetch upstream
+git reset upstream/gh-pages
 
-git checkout master
+touch .
 
+git add -A .
+git commit -m "rebuild pages at ${rev}"
+git push -q upstream HEAD:gh-pages

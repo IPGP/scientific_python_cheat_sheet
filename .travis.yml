@@ -1,0 +1,17 @@
+language: python
+
+before_install:
+  - sudo apt-get install pandoc
+
+python:
+  - "2.7"
+
+install:
+  - pip install markdown
+  - pip install beautifulsoup
+
+script:
+  - python create-index-html.py
+
+after_success:
+  - bash deploy.sh
