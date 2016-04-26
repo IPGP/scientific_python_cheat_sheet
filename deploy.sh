@@ -12,7 +12,7 @@ fi
 
 rev=$(git rev-parse --short HEAD)
 
-cp index.html site/
+cp index.html _site/
 cd _site/
 
 git init
