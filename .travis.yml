@@ -8,7 +8,7 @@ python:
 
 install:
   - pip install markdown
-  - pip install beautifulsoup
+  - pip install beautifulsoup4
 
 script:
   - python create-index-html.py
