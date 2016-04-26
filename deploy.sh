@@ -19,7 +19,7 @@ git init
 git config user.name "Thomas Belahi"
 git config user.email "belahi@ipgp.fr"
 
-git remote add upstream "https://$GH_TOKEN@github.com/IPGP/scientific_python_cheatsheet.git"
+git remote add upstream "https://$GH_TOKEN@github.com/IPGP/scientific_python_cheat_sheet.git"
 git fetch upstream
 git reset upstream/gh-pages
 
