@@ -183,7 +183,7 @@ def my_funct():
 my_func()
 ```
 
-## NumPy
+## NumPy (`import numpy as np`)
 
 ### array initialization
 
@@ -315,7 +315,7 @@ np.random.uniform(1, 30, 200)               # 200 random numbers in [1, 30)
 np.random.random_integers(1, 15, 300)       # 300 random integers between [1, 15]
 ```
 
-## Matplotlib
+## Matplotlib (`import matplotlib.pyplot as plt`)
 
 ### figures and axes
 
