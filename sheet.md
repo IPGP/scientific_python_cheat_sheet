@@ -257,6 +257,7 @@ a + 5              # addition with scalar
 a + b              # addition with array b
 a / b              # division with b (np.NaN for division by zero)
 np.exp(a)          # exponential (complex and real)
+np.power(a,b)      # a to the power b
 np.sin(a)          # sine
 np.cos(a)          # cosine
 np.arctan2(y,x)    # arctan(y/x)
