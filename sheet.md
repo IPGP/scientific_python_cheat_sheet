@@ -276,7 +276,7 @@ np.einsum('ijkl,klmn->ijmn', a, b)  # einstein summation convention
 np.sum(a, axis=1)                   # sum over axis 1
 np.abs(a)                           # return array with absolute values
 a[None, :] + b[:, None]             # outer sum
-a[None, :] * b[None, :]             # outer product
+a[None, :] * b[:, None]             # outer product
 np.outer(a, b)                      # outer product
 np.sum(a * a.T)                     # matrix norm
 ```
