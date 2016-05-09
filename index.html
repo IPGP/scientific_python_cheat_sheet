@@ -279,7 +279,7 @@ np.einsum(<span class="st">'ijkl,klmn-&gt;ijmn'</span>, a, b)  <span class="co">
 np.<span class="dt">sum</span>(a, axis=<span class="dv">1</span>)                   <span class="co"># sum over axis 1</span>
 np.<span class="dt">abs</span>(a)                           <span class="co"># return array with absolute values</span>
 a[<span class="ot">None</span>, :] + b[:, <span class="ot">None</span>]             <span class="co"># outer sum</span>
-a[<span class="ot">None</span>, :] * b[<span class="ot">None</span>, :]             <span class="co"># outer product</span>
+a[<span class="ot">None</span>, :] * b[:, <span class="ot">None</span>]             <span class="co"># outer product</span>
 np.outer(a, b)                      <span class="co"># outer product</span>
 np.<span class="dt">sum</span>(a * a.T)                     <span class="co"># matrix norm</span></code></pre>
 <h3 id="interpolation-integration">interpolation, integration</h3>
