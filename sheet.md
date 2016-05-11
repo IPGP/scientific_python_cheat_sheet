@@ -12,6 +12,9 @@ Scientific Python Cheatsheet
         - [Operators](#operators)
         - [Control Flow](#control-flow)
         - [Functions, Classes, Generators, Decorators](#functions-classes-generators-decorators)
+    - [IPython](#IPython)
+        - [Python Console]
+        - [Debugger commands]
     - [NumPy](#numpy)
         - [array initialization](#array-initialization)
         - [reading/ writing files](#reading-writing-files)
@@ -181,6 +184,43 @@ def my_funct():
     print 'func'
 
 my_func()
+```
+
+IPython
+-----------
+
+### Python console
+```python
+<object>?  # Information about the object
+<object>.<TAB>  # tab completion
+
+# measure runtime of a function:
+%timeit range(1000)
+100000 loops, best of 3: 7.76 us per loop
+
+# run scripts and debug
+%run
+%run -d  # run in debug mode
+%run -t  # measures execution time
+%run -p  # runs a profiler
+%debug  # jumps to the debugger after an exception
+
+%pdb  # run debugger automatically on exception
+
+# examine history
+%history
+%history ~1/1-5  # lines 1-5 of last session
+
+# run shell commands
+!make  # prefix command with "!"
+
+# clean namespace
+%reset
+```
+
+### Debugger commands
+```python
+n  # execute next line
 ```
 
 ## NumPy (`import numpy as np`)
