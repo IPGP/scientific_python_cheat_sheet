@@ -1,6 +1,6 @@
 Scientific Python Cheatsheet
 ============================
-<!-- markdown-toc start - Don't edit this section. Run M-x markdown-toc-generate-toc again -->
+<!-- markdown-toc start - Don't forget to edit this section according to your modifications -->
 **Table of Contents**
 
 - [Scientific Python Cheatsheet](#scientific-python-cheatsheet)
@@ -13,8 +13,8 @@ Scientific Python Cheatsheet
         - [Control Flow](#control-flow)
         - [Functions, Classes, Generators, Decorators](#functions-classes-generators-decorators)
     - [IPython](#IPython)
-        - [Python Console]
-        - [Debugger commands]
+        - [Python Console](#python-console)
+        - [Debugger commands](#debugger-commands)
     - [NumPy](#numpy)
         - [array initialization](#array-initialization)
         - [reading/ writing files](#reading-writing-files)
