@@ -65,6 +65,11 @@ code > span.in { color: #808080; font-weight: bold; font-style: italic; } /* Inf
 <li><a href="#control-flow">Control Flow</a></li>
 <li><a href="#functions-classes-generators-decorators">Functions, Classes, Generators, Decorators</a></li>
 </ul></li>
+<li><a href="#IPython">IPython</a>
+<ul>
+<li>[Python Console]</li>
+<li>[Debugger commands]</li>
+</ul></li>
 <li><a href="#numpy">NumPy</a>
 <ul>
 <li><a href="#array-initialization">array initialization</a></li>
@@ -211,6 +216,37 @@ x = [<span class="kw">for</span> i in firstn(<span class="dv">10</span>)]
     <span class="kw">print</span> <span class="st">'func'</span>
 
 my_func()</code></pre>
+</div>
+<div class="group">
+<h2 id="ipython">IPython</h2>
+<h3 id="python-console">Python console</h3>
+<pre class="sourceCode python"><code class="sourceCode python">&lt;<span class="dt">object</span>&gt;?  <span class="co"># Information about the object</span>
+&lt;<span class="dt">object</span>&gt;.&lt;TAB&gt;  <span class="co"># tab completion</span>
+
+<span class="co"># measure runtime of a function:</span>
+%timeit <span class="dt">range</span>(<span class="dv">1000</span>)
+<span class="dv">100000</span> loops, best of <span class="dv">3</span>: <span class="fl">7.76</span> us per loop
+
+<span class="co"># run scripts and debug</span>
+%run
+%run -d  <span class="co"># run in debug mode</span>
+%run -t  <span class="co"># measures execution time</span>
+%run -p  <span class="co"># runs a profiler</span>
+%debug  <span class="co"># jumps to the debugger after an exception</span>
+
+%pdb  <span class="co"># run debugger automatically on exception</span>
+
+<span class="co"># examine history</span>
+%history
+%history ~<span class="dv">1</span>/<span class="dv">1-5</span>  <span class="co"># lines 1-5 of last session</span>
+
+<span class="co"># run shell commands</span>
+!make  <span class="co"># prefix command with "!"</span>
+
+<span class="co"># clean namespace</span>
+%reset</code></pre>
+<h3 id="debugger-commands">Debugger commands</h3>
+<pre class="sourceCode python"><code class="sourceCode python">n  <span class="co"># execute next line</span></code></pre>
 </div>
 <div class="group">
 <h2 id="numpy-import-numpy-as-np">NumPy (<code>import numpy as np</code>)</h2>
