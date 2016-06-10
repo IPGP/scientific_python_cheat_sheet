@@ -119,7 +119,7 @@ z = [<span class="st">'red'</span>] + [<span class="st">'green'</span>, <span cl
 <h3 id="dictionaries">Dictionaries</h3>
 <pre class="sourceCode python"><code class="sourceCode python">a = {<span class="st">'red'</span>: <span class="st">'rouge'</span>, <span class="st">'blue'</span>: <span class="st">'bleu'</span>, <span class="st">'green'</span>: <span class="st">'vert'</span>}  <span class="co"># dictionary</span>
 b = a[<span class="st">'red'</span>]                                           <span class="co"># translate item</span>
-c = [value <span class="kw">for</span> key, value in b.items()]                <span class="co"># loop through contents</span>
+c = [value <span class="kw">for</span> key, value in a.items()]                <span class="co"># loop through contents</span>
 d = a.get(<span class="st">'yellow'</span>, <span class="st">'no translation found'</span>)            <span class="co"># return default</span></code></pre>
 <h3 id="strings">Strings</h3>
 <pre class="sourceCode python"><code class="sourceCode python">a = <span class="st">'red'</span>                      <span class="co"># assignment</span>
