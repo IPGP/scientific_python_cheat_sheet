@@ -222,6 +222,16 @@ IPython
 ### Debugger commands
 ```python
 n  # execute next line
+b 42  # set breakpoint in the main file at line 42
+b myfile.py:42  # set breakpoint in 'myfile.py' at line 42
+c  # continue execution
+l  # show current position in the code
+p data  # print the 'data' variable
+pp data  # pretty print the 'data' variable
+s  # step into subroutine
+a  # print arguments that a function received
+pp locals()  # show all variables in local scope
+pp globals()  # show all variables in global scope
 ```
 
 ## NumPy (`import numpy as np`)
