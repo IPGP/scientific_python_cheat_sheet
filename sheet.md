@@ -51,7 +51,7 @@ f = 'word'      # string
 
 ```python
 a = ['red', 'blue', 'green']      # manually initialization
-b = range(5)                      # initialization through a function
+b = list(range(5))                # initialization through a function
 c = [nu**2 for nu in b]           # initialize through list comprehension
 d = [nu**2 for nu in b if b < 3]  # list comprehension withcondition
 e = c[0]                          # access element
@@ -112,27 +112,27 @@ a is b            # test if objects point to the same memory (id)
 # if/elif/else
 a, b = 1, 2
 if a + b == 3:
-    print 'True'
+    print('True')
 elif a + b == 1:
-    print 'False'
+    print('False')
 else:
-    print '?'
+    print('?')
     
 # for
 a = ['red', 'blue', 'green']
 for color in a:
-    print color
+    print(color)
     
 # while
 number = 1
 while number < 10:
-    print number
+    print(number)
     number += 1
 
 # break
 number = 1
 while True:
-    print number
+    print(number)
     number += 1
     if number > 10:
         break
@@ -141,7 +141,7 @@ while True:
 for i in range(20):
     if i % 2 == 0:
         continue
-    print i
+    print(i)
 ```
 
 ### Functions, Classes, Generators, Decorators
@@ -158,7 +158,7 @@ class Point(object):
     def __init__(self, x):
         self.x = x
     def __call__(self):
-        print self.x
+        print(self.x)
 
 x = Point(3)
 
@@ -177,12 +177,12 @@ class myDecorator(object):
     def __init__(self, f):
         self.f = f
     def __call__(self):
-        print "call"
+        print("call")
         self.f()
 
 @myDecorator
 def my_funct():
-    print 'func'
+    print('func')
 
 my_funct()
 ```
