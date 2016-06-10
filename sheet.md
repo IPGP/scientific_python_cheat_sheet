@@ -69,7 +69,7 @@ z = ['red'] + ['green', 'blue']   # list concatenation
 ```python
 a = {'red': 'rouge', 'blue': 'bleu', 'green': 'vert'}  # dictionary
 b = a['red']                                           # translate item
-c = [value for key, value in b.items()]                # loop through contents
+c = [value for key, value in a.items()]                # loop through contents
 d = a.get('yellow', 'no translation found')            # return default
 ```
 
