@@ -293,11 +293,10 @@ a[a < 2]                    # returns array that fulfills elementwise condition
 ### boolean arrays
 
 ```python
-a < 2                          # returns array with boolean values
-np.logical_and(a < 2, b > 10)  # elementwise logical and
-np.logical_or(a < 2, b > 10)   # elementwise logical or
-~a                             # invert boolean array
-np.invert(a)                   # invert boolean array
+a < 2                         # returns array with boolean values
+(a < 2) & (b > 10)            # elementwise logical and
+(a < 2) | (b > 10)            # elementwise logical or
+~a                            # invert boolean array
 ```
 
 ### elementwise operations and math functions
