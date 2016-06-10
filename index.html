@@ -203,7 +203,8 @@ x = Point(<span class="dv">3</span>)
         <span class="kw">yield</span> num
         num += <span class="dv">1</span>
 
-x = [<span class="kw">for</span> i in firstn(<span class="dv">10</span>)]
+<span class="co"># consume the generator with list comprehension</span>
+x = [i <span class="kw">for</span> i in firstn(<span class="dv">10</span>)]
 
 <span class="co"># Decorators</span>
 <span class="kw">class</span> myDecorator(<span class="dt">object</span>):
