@@ -303,11 +303,10 @@ a.T                         <span class="co"># return transposed view</span>
 np.transpose(a, (<span class="dv">2</span>, <span class="dv">1</span>, <span class="dv">0</span>))  <span class="co"># transpose array to new axis order</span>
 a[a &lt; <span class="dv">2</span>]                    <span class="co"># returns array that fulfills elementwise condition</span></code></pre>
 <h3 id="boolean-arrays">boolean arrays</h3>
-<pre class="sourceCode python"><code class="sourceCode python">a &lt; <span class="dv">2</span>                          <span class="co"># returns array with boolean values</span>
-np.logical_and(a &lt; <span class="dv">2</span>, b &gt; <span class="dv">10</span>)  <span class="co"># elementwise logical and</span>
-np.logical_or(a &lt; <span class="dv">2</span>, b &gt; <span class="dv">10</span>)   <span class="co"># elementwise logical or</span>
-~a                             <span class="co"># invert boolean array</span>
-np.invert(a)                   <span class="co"># invert boolean array</span></code></pre>
+<pre class="sourceCode python"><code class="sourceCode python">a &lt; <span class="dv">2</span>                         <span class="co"># returns array with boolean values</span>
+(a &lt; <span class="dv">2</span>) &amp; (b &gt; <span class="dv">10</span>)            <span class="co"># elementwise logical and</span>
+(a &lt; <span class="dv">2</span>) | (b &gt; <span class="dv">10</span>)            <span class="co"># elementwise logical or</span>
+~a                            <span class="co"># invert boolean array</span></code></pre>
 <h3 id="elementwise-operations-and-math-functions">elementwise operations and math functions</h3>
 <pre class="sourceCode python"><code class="sourceCode python">a * <span class="dv">5</span>              <span class="co"># multiplication with scalar</span>
 a + <span class="dv">5</span>              <span class="co"># addition with scalar</span>
