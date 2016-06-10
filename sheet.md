@@ -183,7 +183,7 @@ class myDecorator(object):
 def my_funct():
     print 'func'
 
-my_func()
+my_funct()
 ```
 
 IPython
