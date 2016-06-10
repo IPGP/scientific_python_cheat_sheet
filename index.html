@@ -106,7 +106,7 @@ e = <span class="dv">4</span> &gt; <span class="dv">5</span>       <span class="
 f = <span class="st">'word'</span>      <span class="co"># string</span></code></pre>
 <h3 id="lists">Lists</h3>
 <pre class="sourceCode python"><code class="sourceCode python">a = [<span class="st">'red'</span>, <span class="st">'blue'</span>, <span class="st">'green'</span>]      <span class="co"># manually initialization</span>
-b = <span class="dt">range</span>(<span class="dv">5</span>)                      <span class="co"># initialization through a function</span>
+b = <span class="dt">list</span>(<span class="dt">range</span>(<span class="dv">5</span>))                <span class="co"># initialization through a function</span>
 c = [nu**<span class="dv">2</span> <span class="kw">for</span> nu in b]           <span class="co"># initialize through list comprehension</span>
 d = [nu**<span class="dv">2</span> <span class="kw">for</span> nu in b <span class="kw">if</span> b &lt; <span class="dv">3</span>]  <span class="co"># list comprehension withcondition</span>
 e = c[<span class="dv">0</span>]                          <span class="co"># access element</span>
@@ -151,27 +151,27 @@ a is b            <span class="co"># test if objects point to the same memory (i
 <pre class="sourceCode python"><code class="sourceCode python"><span class="co"># if/elif/else</span>
 a, b = <span class="dv">1</span>, <span class="dv">2</span>
 <span class="kw">if</span> a + b == <span class="dv">3</span>:
-    <span class="kw">print</span> <span class="st">'True'</span>
+    <span class="kw">print</span>(<span class="st">'True'</span>)
 <span class="kw">elif</span> a + b == <span class="dv">1</span>:
-    <span class="kw">print</span> <span class="st">'False'</span>
+    <span class="kw">print</span>(<span class="st">'False'</span>)
 <span class="kw">else</span>:
-    <span class="kw">print</span> <span class="st">'?'</span>
+    <span class="kw">print</span>(<span class="st">'?'</span>)
 
 <span class="co"># for</span>
 a = [<span class="st">'red'</span>, <span class="st">'blue'</span>, <span class="st">'green'</span>]
 <span class="kw">for</span> color in a:
-    <span class="kw">print</span> color
+    <span class="kw">print</span>(color)
 
 <span class="co"># while</span>
 number = <span class="dv">1</span>
 <span class="kw">while</span> number &lt; <span class="dv">10</span>:
-    <span class="kw">print</span> number
+    <span class="kw">print</span>(number)
     number += <span class="dv">1</span>
 
 <span class="co"># break</span>
 number = <span class="dv">1</span>
 <span class="kw">while</span> <span class="ot">True</span>:
-    <span class="kw">print</span> number
+    <span class="kw">print</span>(number)
     number += <span class="dv">1</span>
     <span class="kw">if</span> number &gt; <span class="dv">10</span>:
         <span class="kw">break</span>
@@ -180,7 +180,7 @@ number = <span class="dv">1</span>
 <span class="kw">for</span> i in <span class="dt">range</span>(<span class="dv">20</span>):
     <span class="kw">if</span> i % <span class="dv">2</span> == <span class="dv">0</span>:
         <span class="kw">continue</span>
-    <span class="kw">print</span> i</code></pre>
+    <span class="kw">print</span>(i)</code></pre>
 <h3 id="functions-classes-generators-decorators">Functions, Classes, Generators, Decorators</h3>
 <pre class="sourceCode python"><code class="sourceCode python"><span class="co"># Function</span>
 <span class="kw">def</span> myfunc(a1, a2):
@@ -193,7 +193,7 @@ x = myfunc(a1, a2)
     <span class="kw">def</span> <span class="ot">__init__</span>(<span class="ot">self</span>, x):
         <span class="ot">self</span>.x = x
     <span class="kw">def</span> <span class="ot">__call__</span>(<span class="ot">self</span>):
-        <span class="kw">print</span> <span class="ot">self</span>.x
+        <span class="kw">print</span>(<span class="ot">self</span>.x)
 
 x = Point(<span class="dv">3</span>)
 
@@ -212,12 +212,12 @@ x = [i <span class="kw">for</span> i in firstn(<span class="dv">10</span>)]
     <span class="kw">def</span> <span class="ot">__init__</span>(<span class="ot">self</span>, f):
         <span class="ot">self</span>.f = f
     <span class="kw">def</span> <span class="ot">__call__</span>(<span class="ot">self</span>):
-        <span class="kw">print</span> <span class="st">"call"</span>
+        <span class="kw">print</span>(<span class="st">"call"</span>)
         <span class="ot">self</span>.f()
 
 <span class="ot">@myDecorator</span>
 <span class="kw">def</span> my_funct():
-    <span class="kw">print</span> <span class="st">'func'</span>
+    <span class="kw">print</span>(<span class="st">'func'</span>)
 
 my_funct()</code></pre>
 </div>
