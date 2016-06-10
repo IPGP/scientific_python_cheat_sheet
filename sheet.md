@@ -151,7 +151,7 @@ for i in range(20):
 def myfunc(a1, a2):
     return x
 
-x = my_function(a1,a2)
+x = myfunc(a1, a2)
 
 # Class
 class Point(object):
