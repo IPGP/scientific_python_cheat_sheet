@@ -249,7 +249,17 @@ my_funct()</code></pre>
 <span class="co"># clean namespace</span>
 %reset</code></pre>
 <h3 id="debugger-commands">Debugger commands</h3>
-<pre class="sourceCode python"><code class="sourceCode python">n  <span class="co"># execute next line</span></code></pre>
+<pre class="sourceCode python"><code class="sourceCode python">n  <span class="co"># execute next line</span>
+b <span class="dv">42</span>  <span class="co"># set breakpoint in the main file at line 42</span>
+b myfile.py:<span class="dv">42</span>  <span class="co"># set breakpoint in 'myfile.py' at line 42</span>
+c  <span class="co"># continue execution</span>
+l  <span class="co"># show current position in the code</span>
+p data  <span class="co"># print the 'data' variable</span>
+pp data  <span class="co"># pretty print the 'data' variable</span>
+s  <span class="co"># step into subroutine</span>
+a  <span class="co"># print arguments that a function received</span>
+pp <span class="dt">locals</span>()  <span class="co"># show all variables in local scope</span>
+pp <span class="dt">globals</span>()  <span class="co"># show all variables in global scope</span></code></pre>
 </div>
 <div class="group">
 <h2 id="numpy-import-numpy-as-np">NumPy (<code>import numpy as np</code>)</h2>
