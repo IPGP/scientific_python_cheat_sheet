@@ -168,8 +168,9 @@ def firstn(n):
     while num < n:
         yield num
         num += 1
-
-x = [for i in firstn(10)]
+        
+# consume the generator with list comprehension
+x = [i for i in firstn(10)]
 
 # Decorators
 class myDecorator(object):
