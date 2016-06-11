@@ -149,7 +149,7 @@ for i in range(20):
 ```python
 # Function
 def myfunc(a1, a2):
-    return x
+    return a1 + a2
 
 x = myfunc(a1, a2)
 
