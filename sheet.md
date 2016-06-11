@@ -50,18 +50,18 @@ f = 'word'      # string
 ### Lists
 
 ```python
-a = ['red', 'blue', 'green']      # manually initialization
-b = list(range(5))                # initialization through a function
-c = [nu**2 for nu in b]           # initialize through list comprehension
-d = [nu**2 for nu in b if b < 3]  # list comprehension withcondition
-e = c[0]                          # access element
-f = e[1: 2]                       # access a slice of the list
-g = ['re', 'bl'] + ['gr']         # list concatenation
-h = ['re'] * 5                    # repeat a list
-['re', 'bl'].index('re')          # returns index of 're'
-'re' in ['re', 'bl']              # true if 're' in list
-sorted([3, 2, 1])                 # returns sorted list
-z = ['red'] + ['green', 'blue']   # list concatenation
+a = ['red', 'blue', 'green']       # manually initialization
+b = list(range(5))                 # initialization through a function
+c = [nu**2 for nu in b]            # initialize through list comprehension
+d = [nu**2 for nu in b if nu < 3]  # list comprehension with condition
+e = c[0]                           # access element
+f = e[1:2]                         # access a slice of the list
+g = ['re', 'bl'] + ['gr']          # list concatenation
+h = ['re'] * 5                     # repeat a list
+['re', 'bl'].index('re')           # returns index of 're'
+'re' in ['re', 'bl']               # true if 're' in list
+sorted([3, 2, 1])                  # returns sorted list
+z = ['red'] + ['green', 'blue']    # list concatenation
 ```
 
 ### Dictionaries
@@ -117,12 +117,12 @@ elif a + b == 1:
     print('False')
 else:
     print('?')
-    
+
 # for
 a = ['red', 'blue', 'green']
 for color in a:
     print(color)
-    
+
 # while
 number = 1
 while number < 10:
@@ -149,7 +149,7 @@ for i in range(20):
 ```python
 # Function
 def myfunc(a1, a2):
-    return x
+    return a1 + a2
 
 x = myfunc(a1, a2)
 
@@ -168,7 +168,7 @@ def firstn(n):
     while num < n:
         yield num
         num += 1
-        
+
 # consume the generator with list comprehension
 x = [i for i in firstn(10)]
 
@@ -279,8 +279,8 @@ np.argsort(a, axis=1)  # return sorted index array along axis
 
 ```python
 a = np.arange(100)          # initialization with 0 - 99
-a[: 3] = 0                  # set the first three indices to zero
-a[1: 5] = 1                 # set indices 1-4 to 1
+a[:3] = 0                   # set the first three indices to zero
+a[1:5] = 1                  # set indices 1-4 to 1
 a[start:stop:step]          # general form of indexing/slicing
 a[None, :]                  # transform to column vector
 a[[1, 1, 3, 8]]             # return array with values of the indices
@@ -383,8 +383,8 @@ ax = fig.add_axes([left, bottom, width, height])     # manually add axes at a ce
 fig.suptitle('title')            # big figure title
 fig.subplots_adjust(bottom=0.1, right=0.8, top=0.9, wspace=0.2,
                     hspace=0.5)  # adjust subplot positions
-fig.tight_layout(pad=0.1,h_pad=0.5, w_pad=0.5, rect=None) # adjust
-subplots to fit perfectly into fig
+fig.tight_layout(pad=0.1, h_pad=0.5, w_pad=0.5,
+                 rect=None)      # adjust subplots to fit perfectly into fig
 ax.set_xlabel()                  # set xlabel
 ax.set_ylabel()                  # set ylabel
 ax.set_xlim(1, 2)                # sets x limits
@@ -402,11 +402,12 @@ bbox.x0 + bbox.width             # bounding box parameters
 ```python
 ax.plot(x,y, '-o', c='red', lw=2, label='bla')  # plots a line
 ax.scatter(x,y, s=20, c=color)                  # scatter plot
-ax.pcolormesh(xx,yy,zz, shading='gouraud')      # fast colormesh function
-ax.colormesh(xx,yy,zz, norm=norm)               # slower colormesh function
-ax.contour(xx,yy,zz, cmap='jet')                # contour line plot
-ax.contourf(xx,yy,zz, vmin=2, vmax=4)           # filled contours plot
+ax.pcolormesh(xx, yy, zz, shading='gouraud')    # fast colormesh function
+ax.colormesh(xx, yy, zz, norm=norm)             # slower colormesh function
+ax.contour(xx, yy, zz, cmap='jet')              # contour line plot
+ax.contourf(xx, yy, zz, vmin=2, vmax=4)         # filled contours plot
 n, bins, patch = ax.hist(x, 50)                 # histogram
-ax.imshow(matrix, origin='lower', extent=(x1, x2, y1, y2))  # show image
+ax.imshow(matrix, origin='lower',
+          extent=(x1, x2, y1, y2))              # show image
 ax.specgram(y, FS=0.1, noverlap=128, scale='linear')  # plot a spectrogram
 ```
