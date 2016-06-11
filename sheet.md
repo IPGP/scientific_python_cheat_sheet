@@ -61,7 +61,6 @@ h = ['re'] * 5                     # repeat a list
 ['re', 'bl'].index('re')           # returns index of 're'
 're' in ['re', 'bl']               # true if 're' in list
 sorted([3, 2, 1])                  # returns sorted list
-z = ['red'] + ['green', 'blue']    # list concatenation
 ```
 
 ### Dictionaries
