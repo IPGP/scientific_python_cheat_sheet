@@ -105,18 +105,18 @@ d = <span class="fl">1.5</span> +<span class="ot"> 0.5j</span>  <span class="co"
 e = <span class="dv">4</span> &gt; <span class="dv">5</span>       <span class="co"># boolean</span>
 f = <span class="st">'word'</span>      <span class="co"># string</span></code></pre>
 <h3 id="lists">Lists</h3>
-<pre class="sourceCode python"><code class="sourceCode python">a = [<span class="st">'red'</span>, <span class="st">'blue'</span>, <span class="st">'green'</span>]      <span class="co"># manually initialization</span>
-b = <span class="dt">list</span>(<span class="dt">range</span>(<span class="dv">5</span>))                <span class="co"># initialization through a function</span>
-c = [nu**<span class="dv">2</span> <span class="kw">for</span> nu in b]           <span class="co"># initialize through list comprehension</span>
-d = [nu**<span class="dv">2</span> <span class="kw">for</span> nu in b <span class="kw">if</span> b &lt; <span class="dv">3</span>]  <span class="co"># list comprehension withcondition</span>
-e = c[<span class="dv">0</span>]                          <span class="co"># access element</span>
-f = e[<span class="dv">1</span>: <span class="dv">2</span>]                       <span class="co"># access a slice of the list</span>
-g = [<span class="st">'re'</span>, <span class="st">'bl'</span>] + [<span class="st">'gr'</span>]         <span class="co"># list concatenation</span>
-h = [<span class="st">'re'</span>] * <span class="dv">5</span>                    <span class="co"># repeat a list</span>
-[<span class="st">'re'</span>, <span class="st">'bl'</span>].index(<span class="st">'re'</span>)          <span class="co"># returns index of 're'</span>
-<span class="st">'re'</span> in [<span class="st">'re'</span>, <span class="st">'bl'</span>]              <span class="co"># true if 're' in list</span>
-<span class="dt">sorted</span>([<span class="dv">3</span>, <span class="dv">2</span>, <span class="dv">1</span>])                 <span class="co"># returns sorted list</span>
-z = [<span class="st">'red'</span>] + [<span class="st">'green'</span>, <span class="st">'blue'</span>]   <span class="co"># list concatenation</span></code></pre>
+<pre class="sourceCode python"><code class="sourceCode python">a = [<span class="st">'red'</span>, <span class="st">'blue'</span>, <span class="st">'green'</span>]       <span class="co"># manually initialization</span>
+b = <span class="dt">list</span>(<span class="dt">range</span>(<span class="dv">5</span>))                 <span class="co"># initialization through a function</span>
+c = [nu**<span class="dv">2</span> <span class="kw">for</span> nu in b]            <span class="co"># initialize through list comprehension</span>
+d = [nu**<span class="dv">2</span> <span class="kw">for</span> nu in b <span class="kw">if</span> nu &lt; <span class="dv">3</span>]  <span class="co"># list comprehension with condition</span>
+e = c[<span class="dv">0</span>]                           <span class="co"># access element</span>
+f = e[<span class="dv">1</span>:<span class="dv">2</span>]                         <span class="co"># access a slice of the list</span>
+g = [<span class="st">'re'</span>, <span class="st">'bl'</span>] + [<span class="st">'gr'</span>]          <span class="co"># list concatenation</span>
+h = [<span class="st">'re'</span>] * <span class="dv">5</span>                     <span class="co"># repeat a list</span>
+[<span class="st">'re'</span>, <span class="st">'bl'</span>].index(<span class="st">'re'</span>)           <span class="co"># returns index of 're'</span>
+<span class="st">'re'</span> in [<span class="st">'re'</span>, <span class="st">'bl'</span>]               <span class="co"># true if 're' in list</span>
+<span class="dt">sorted</span>([<span class="dv">3</span>, <span class="dv">2</span>, <span class="dv">1</span>])                  <span class="co"># returns sorted list</span>
+z = [<span class="st">'red'</span>] + [<span class="st">'green'</span>, <span class="st">'blue'</span>]    <span class="co"># list concatenation</span></code></pre>
 <h3 id="dictionaries">Dictionaries</h3>
 <pre class="sourceCode python"><code class="sourceCode python">a = {<span class="st">'red'</span>: <span class="st">'rouge'</span>, <span class="st">'blue'</span>: <span class="st">'bleu'</span>, <span class="st">'green'</span>: <span class="st">'vert'</span>}  <span class="co"># dictionary</span>
 b = a[<span class="st">'red'</span>]                                           <span class="co"># translate item</span>
@@ -184,7 +184,7 @@ number = <span class="dv">1</span>
 <h3 id="functions-classes-generators-decorators">Functions, Classes, Generators, Decorators</h3>
 <pre class="sourceCode python"><code class="sourceCode python"><span class="co"># Function</span>
 <span class="kw">def</span> myfunc(a1, a2):
-    <span class="kw">return</span> x
+    <span class="kw">return</span> a1 + a2
 
 x = myfunc(a1, a2)
 
@@ -293,8 +293,8 @@ np.<span class="dt">all</span>(a)              <span class="co"># True if all el
 np.argsort(a, axis=<span class="dv">1</span>)  <span class="co"># return sorted index array along axis</span></code></pre>
 <h3 id="indexing">indexing</h3>
 <pre class="sourceCode python"><code class="sourceCode python">a = np.arange(<span class="dv">100</span>)          <span class="co"># initialization with 0 - 99</span>
-a[: <span class="dv">3</span>] = <span class="dv">0</span>                  <span class="co"># set the first three indices to zero</span>
-a[<span class="dv">1</span>: <span class="dv">5</span>] = <span class="dv">1</span>                 <span class="co"># set indices 1-4 to 1</span>
+a[:<span class="dv">3</span>] = <span class="dv">0</span>                   <span class="co"># set the first three indices to zero</span>
+a[<span class="dv">1</span>:<span class="dv">5</span>] = <span class="dv">1</span>                  <span class="co"># set indices 1-4 to 1</span>
 a[start:stop:step]          <span class="co"># general form of indexing/slicing</span>
 a[<span class="ot">None</span>, :]                  <span class="co"># transform to column vector</span>
 a[[<span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">8</span>]]             <span class="co"># return array with values of the indices</span>
@@ -362,8 +362,8 @@ ax = fig.add_axes([left, bottom, width, height])     <span class="co"># manually
 <pre class="sourceCode python"><code class="sourceCode python">fig.suptitle(<span class="st">'title'</span>)            <span class="co"># big figure title</span>
 fig.subplots_adjust(bottom=<span class="fl">0.1</span>, right=<span class="fl">0.8</span>, top=<span class="fl">0.9</span>, wspace=<span class="fl">0.2</span>,
                     hspace=<span class="fl">0.5</span>)  <span class="co"># adjust subplot positions</span>
-fig.tight_layout(pad=<span class="fl">0.1</span>,h_pad=<span class="fl">0.5</span>, w_pad=<span class="fl">0.5</span>, rect=<span class="ot">None</span>) <span class="co"># adjust</span>
-subplots to fit perfectly into fig
+fig.tight_layout(pad=<span class="fl">0.1</span>, h_pad=<span class="fl">0.5</span>, w_pad=<span class="fl">0.5</span>,
+                 rect=<span class="ot">None</span>)      <span class="co"># adjust subplots to fit perfectly into fig</span>
 ax.set_xlabel()                  <span class="co"># set xlabel</span>
 ax.set_ylabel()                  <span class="co"># set ylabel</span>
 ax.set_xlim(<span class="dv">1</span>, <span class="dv">2</span>)                <span class="co"># sets x limits</span>
@@ -377,12 +377,13 @@ bbox.x0 + bbox.width             <span class="co"># bounding box parameters</spa
 <h3 id="plotting-routines">plotting routines</h3>
 <pre class="sourceCode python"><code class="sourceCode python">ax.plot(x,y, <span class="st">'-o'</span>, c=<span class="st">'red'</span>, lw=<span class="dv">2</span>, label=<span class="st">'bla'</span>)  <span class="co"># plots a line</span>
 ax.scatter(x,y, s=<span class="dv">20</span>, c=color)                  <span class="co"># scatter plot</span>
-ax.pcolormesh(xx,yy,zz, shading=<span class="st">'gouraud'</span>)      <span class="co"># fast colormesh function</span>
-ax.colormesh(xx,yy,zz, norm=norm)               <span class="co"># slower colormesh function</span>
-ax.contour(xx,yy,zz, cmap=<span class="st">'jet'</span>)                <span class="co"># contour line plot</span>
-ax.contourf(xx,yy,zz, vmin=<span class="dv">2</span>, vmax=<span class="dv">4</span>)           <span class="co"># filled contours plot</span>
+ax.pcolormesh(xx, yy, zz, shading=<span class="st">'gouraud'</span>)    <span class="co"># fast colormesh function</span>
+ax.colormesh(xx, yy, zz, norm=norm)             <span class="co"># slower colormesh function</span>
+ax.contour(xx, yy, zz, cmap=<span class="st">'jet'</span>)              <span class="co"># contour line plot</span>
+ax.contourf(xx, yy, zz, vmin=<span class="dv">2</span>, vmax=<span class="dv">4</span>)         <span class="co"># filled contours plot</span>
 n, bins, patch = ax.hist(x, <span class="dv">50</span>)                 <span class="co"># histogram</span>
-ax.imshow(matrix, origin=<span class="st">'lower'</span>, extent=(x1, x2, y1, y2))  <span class="co"># show image</span>
+ax.imshow(matrix, origin=<span class="st">'lower'</span>,
+          extent=(x1, x2, y1, y2))              <span class="co"># show image</span>
 ax.specgram(y, FS=<span class="fl">0.1</span>, noverlap=<span class="dv">128</span>, scale=<span class="st">'linear'</span>)  <span class="co"># plot a spectrogram</span></code></pre>
 
 </div>
