@@ -340,11 +340,11 @@ np.interp(x, xp, yp)      # interpolate function xp, yp at points x
 ### fft
 
 ```python
-np.fft.fft(y)             # complex fourier transform of y
-np.fft.fftfreqs(len(y))   # fft frequencies for a given length
-np.fft.fftshift(freqs)    # shifts zero frequency to the middle
-np.fft.rfft(y)            # real fourier transform of y
-np.fft.rfftfreqs(len(y))  # real fft frequencies for a given length
+np.fft.fft(a)                # complex fourier transform of a
+f = np.fft.fftfreq(len(a))   # fft frequencies for a given length
+np.fft.fftshift(f)           # shifts zero frequency to the middle
+np.fft.rfft(a)               # real fourier transform of a
+np.fft.rfftfreq(len(a))      # real fft frequencies for a given length
 ```
 
 ### rounding
@@ -362,7 +362,7 @@ np.random.normal(loc=0, scale=2, size=100)  # 100 normal distributed random numb
 np.random.seed(23032)                       # resets the seed value
 np.random.rand(200)                         # 200 random numbers in [0, 1)
 np.random.uniform(1, 30, 200)               # 200 random numbers in [1, 30)
-np.random.random_integers(1, 15, 300)       # 300 random integers between [1, 15]
+np.random.randint(1, 16, 300)               # 300 random integers between [1, 16)
 ```
 
 ## Matplotlib (`import matplotlib.pyplot as plt`)
