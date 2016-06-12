@@ -268,7 +268,7 @@ a[None, :]                  # transform to column vector
 a[[1, 1, 3, 8]]             # return array with values of the indices
 a = a.reshape(10, 10)       # transform to 10 x 10 matrix
 a.T                         # return transposed view
-np.transpose(a, (1, 0))     # transpose array to new axis order
+b = np.transpose(a, (1, 0)) # transpose array to new axis order
 a[a < 2]                    # returns array that fulfills elementwise condition
 ```
 
@@ -306,11 +306,11 @@ a + 5              # addition with scalar
 a + b              # addition with array b
 a / b              # division with b (np.NaN for division by zero)
 np.exp(a)          # exponential (complex and real)
-np.power(a,b)      # a to the power b
+np.power(a, b)     # a to the power b
 np.sin(a)          # sine
 np.cos(a)          # cosine
-np.arctan2(y,x)    # arctan(y/x)
-np.arcsin(x)       # arcsin
+np.arctan2(a, b)   # arctan(a/b)
+np.arcsin(a)       # arcsin
 np.radians(a)      # degrees to radians
 np.degrees(a)      # radians to degrees
 np.var(a)          # variance of array
@@ -321,7 +321,7 @@ np.std(a, axis=1)  # standard deviation
 
 ```python
 np.dot(a, b)                        # inner matrix product: a_mi b_in
-np.einsum('ijkl,klmn->ijmn', a, b)  # einstein summation convention
+np.einsum('ij,kj->ik', a, b)        # einstein summation convention
 np.sum(a, axis=1)                   # sum over axis 1
 np.abs(a)                           # return array with absolute values
 a[None, :] + b[:, None]             # outer sum
@@ -333,7 +333,7 @@ np.sum(a * a.T)                     # matrix norm
 ### interpolation, integration
 
 ```python
-np.trapz(y, x=x, axis=1)  # integrate along axis 1
+np.trapz(a, x=x, axis=1)  # integrate along axis 1
 np.interp(x, xp, yp)      # interpolate function xp, yp at points x
 ```
 
