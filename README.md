@@ -7,7 +7,9 @@ for scientific work. Tries to keep examples as compact as possible.
 Click [here](sheet.md)
 
 ## Contributing
-If you wish to contribute, you only need to edit the file [sheet.md](sheet.md) and push it to the master branch (preferably via pull-request). The website updates automatically.
+If you wish to contribute, you only need to edit the file [sheet.md](sheet.md) and push it to the master branch (preferably via pull-request). The website updates automatically. 
+
+If, beyond your knowledge of Python, you also master HTML and CSS, you can also contribute to the design of the website.
 
 ## Reference:
 Authors: A few scientists
