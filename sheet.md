@@ -93,7 +93,7 @@ a += 1 (*=, /=)   # change and assign
 3 * 2             # multiplication
 3 ** 2            # exponent
 3 % 2             # remainder
-abs()             # absolute value
+abs(a)            # absolute value
 1 == 1            # equal
 2 > 1             # larger
 2 < 1             # smaller
@@ -101,7 +101,7 @@ abs()             # absolute value
 1 != 2 and 2 < 3  # logical AND
 1 != 2 or 2 < 3   # logical OR
 not 1 == 2        # logical NOT
-a in b            # test if a is in b
+'a' in b          # test if a is in b
 a is b            # test if objects point to the same memory (id)
 ```
 
