@@ -384,8 +384,8 @@ fig.subplots_adjust(bottom=0.1, right=0.8, top=0.9, wspace=0.2,
                     hspace=0.5)  # adjust subplot positions
 fig.tight_layout(pad=0.1, h_pad=0.5, w_pad=0.5,
                  rect=None)      # adjust subplots to fit perfectly into fig
-ax.set_xlabel()                  # set xlabel
-ax.set_ylabel()                  # set ylabel
+ax.set_xlabel('xbla')            # set xlabel
+ax.set_ylabel('ybla')            # set ylabel
 ax.set_xlim(1, 2)                # sets x limits
 ax.set_ylim(3, 4)                # sets y limits
 ax.set_title('blabla')           # sets the axis title
