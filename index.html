@@ -77,8 +77,8 @@ code > span.in { color: #808080; font-weight: bold; font-style: italic; } /* Inf
 <ul>
 <li><a href="#array-initialization">array initialization</a></li>
 <li><a href="#reading-writing-files">reading/ writing files</a></li>
-<li><a href="#array-properties-and-operations">array properties and operations</a></li>
 <li><a href="#indexing">indexing</a></li>
+<li><a href="#array-properties-and-operations">array properties and operations</a></li>
 <li><a href="#boolean-arrays">boolean arrays</a></li>
 <li><a href="#elementwise-operations-and-math-functions">elementwise operations and math functions</a></li>
 <li><a href="#inner--outer-products">inner / outer products</a></li>
@@ -110,7 +110,7 @@ b = <span class="dt">list</span>(<span class="dt">range</span>(<span class="dv">
 c = [nu**<span class="dv">2</span> <span class="kw">for</span> nu in b]            <span class="co"># initialize through list comprehension</span>
 d = [nu**<span class="dv">2</span> <span class="kw">for</span> nu in b <span class="kw">if</span> nu &lt; <span class="dv">3</span>]  <span class="co"># list comprehension with condition</span>
 e = c[<span class="dv">0</span>]                           <span class="co"># access element</span>
-f = e[<span class="dv">1</span>:<span class="dv">2</span>]                         <span class="co"># access a slice of the list</span>
+f = c[<span class="dv">1</span>:<span class="dv">2</span>]                         <span class="co"># access a slice of the list</span>
 g = [<span class="st">'re'</span>, <span class="st">'bl'</span>] + [<span class="st">'gr'</span>]          <span class="co"># list concatenation</span>
 h = [<span class="st">'re'</span>] * <span class="dv">5</span>                     <span class="co"># repeat a list</span>
 [<span class="st">'re'</span>, <span class="st">'bl'</span>].index(<span class="st">'re'</span>)           <span class="co"># returns index of 're'</span>
@@ -136,7 +136,7 @@ a += <span class="dv">1</span> (*=, /=)   <span class="co"># change and assign</
 <span class="dv">3</span> * <span class="dv">2</span>             <span class="co"># multiplication</span>
 <span class="dv">3</span> ** <span class="dv">2</span>            <span class="co"># exponent</span>
 <span class="dv">3</span> % <span class="dv">2</span>             <span class="co"># remainder</span>
-<span class="dt">abs</span>()             <span class="co"># absolute value</span>
+<span class="dt">abs</span>(a)            <span class="co"># absolute value</span>
 <span class="dv">1</span> == <span class="dv">1</span>            <span class="co"># equal</span>
 <span class="dv">2</span> &gt; <span class="dv">1</span>             <span class="co"># larger</span>
 <span class="dv">2</span> &lt; <span class="dv">1</span>             <span class="co"># smaller</span>
@@ -144,7 +144,7 @@ a += <span class="dv">1</span> (*=, /=)   <span class="co"># change and assign</
 <span class="dv">1</span> != <span class="dv">2</span> and <span class="dv">2</span> &lt; <span class="dv">3</span>  <span class="co"># logical AND</span>
 <span class="dv">1</span> != <span class="dv">2</span> or <span class="dv">2</span> &lt; <span class="dv">3</span>   <span class="co"># logical OR</span>
 not <span class="dv">1</span> == <span class="dv">2</span>        <span class="co"># logical NOT</span>
-a in b            <span class="co"># test if a is in b</span>
+<span class="st">'a'</span> in b          <span class="co"># test if a is in b</span>
 a is b            <span class="co"># test if objects point to the same memory (id)</span></code></pre>
 <h3 id="control-flow">Control Flow</h3>
 <pre class="sourceCode python"><code class="sourceCode python"><span class="co"># if/elif/else</span>
@@ -277,6 +277,17 @@ np.copy(a)                      <span class="co"># copy array to new memory</spa
 <h3 id="reading-writing-files">reading/ writing files</h3>
 <pre class="sourceCode python"><code class="sourceCode python">np.fromfile(fname/<span class="dt">object</span>, dtype=np.float32, count=<span class="dv">5</span>)  <span class="co"># read binary data from file</span>
 np.loadtxt(fname/<span class="dt">object</span>, skiprows=<span class="dv">2</span>, delimiter=<span class="st">','</span>)   <span class="co"># read ascii data from file</span></code></pre>
+<h3 id="indexing">indexing</h3>
+<pre class="sourceCode python"><code class="sourceCode python">a = np.arange(<span class="dv">100</span>)          <span class="co"># initialization with 0 - 99</span>
+a[:<span class="dv">3</span>] = <span class="dv">0</span>                   <span class="co"># set the first three indices to zero</span>
+a[<span class="dv">2</span>:<span class="dv">5</span>] = <span class="dv">1</span>                  <span class="co"># set indices 2-4 to 1</span>
+a[start:stop:step]          <span class="co"># general form of indexing/slicing</span>
+a[<span class="ot">None</span>, :]                  <span class="co"># transform to column vector</span>
+a[[<span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">8</span>]]             <span class="co"># return array with values of the indices</span>
+a = a.reshape(<span class="dv">10</span>, <span class="dv">10</span>)       <span class="co"># transform to 10 x 10 matrix</span>
+a.T                         <span class="co"># return transposed view</span>
+b = np.transpose(a, (<span class="dv">1</span>, <span class="dv">0</span>)) <span class="co"># transpose array to new axis order</span>
+a[a &lt; <span class="dv">2</span>]                    <span class="co"># returns array that fulfills elementwise condition</span></code></pre>
 <h3 id="array-properties-and-operations">array properties and operations</h3>
 <pre class="sourceCode python"><code class="sourceCode python">a.shape                <span class="co"># a tuple with the lengths of each axis</span>
 <span class="dt">len</span>(a)                 <span class="co"># length of axis 0</span>
@@ -285,22 +296,11 @@ a.sort(axis=<span class="dv">1</span>)         <span class="co"># sort array alo
 a.flatten()            <span class="co"># collapse array to one dimension</span>
 a.conj()               <span class="co"># return complex conjugate</span>
 a.astype(np.int16)     <span class="co"># cast to integer</span>
-np.argmax(a, axis=<span class="dv">2</span>)   <span class="co"># return index of maximum along a given axis</span>
+np.argmax(a, axis=<span class="dv">1</span>)   <span class="co"># return index of maximum along a given axis</span>
 np.cumsum(a)           <span class="co"># return cumulative sum</span>
 np.<span class="dt">any</span>(a)              <span class="co"># True if any element is True</span>
 np.<span class="dt">all</span>(a)              <span class="co"># True if all elements are True</span>
 np.argsort(a, axis=<span class="dv">1</span>)  <span class="co"># return sorted index array along axis</span></code></pre>
-<h3 id="indexing">indexing</h3>
-<pre class="sourceCode python"><code class="sourceCode python">a = np.arange(<span class="dv">100</span>)          <span class="co"># initialization with 0 - 99</span>
-a[:<span class="dv">3</span>] = <span class="dv">0</span>                   <span class="co"># set the first three indices to zero</span>
-a[<span class="dv">1</span>:<span class="dv">5</span>] = <span class="dv">1</span>                  <span class="co"># set indices 1-4 to 1</span>
-a[start:stop:step]          <span class="co"># general form of indexing/slicing</span>
-a[<span class="ot">None</span>, :]                  <span class="co"># transform to column vector</span>
-a[[<span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">8</span>]]             <span class="co"># return array with values of the indices</span>
-a = a.reshape(<span class="dv">10</span>, <span class="dv">10</span>)       <span class="co"># transform to 10 x 10 matrix</span>
-a.T                         <span class="co"># return transposed view</span>
-np.transpose(a, (<span class="dv">2</span>, <span class="dv">1</span>, <span class="dv">0</span>))  <span class="co"># transpose array to new axis order</span>
-a[a &lt; <span class="dv">2</span>]                    <span class="co"># returns array that fulfills elementwise condition</span></code></pre>
 <h3 id="boolean-arrays">boolean arrays</h3>
 <pre class="sourceCode python"><code class="sourceCode python">a &lt; <span class="dv">2</span>                         <span class="co"># returns array with boolean values</span>
 (a &lt; <span class="dv">2</span>) &amp; (b &gt; <span class="dv">10</span>)            <span class="co"># elementwise logical and</span>
@@ -312,18 +312,18 @@ a + <span class="dv">5</span>              <span class="co"># addition with scal
 a + b              <span class="co"># addition with array b</span>
 a / b              <span class="co"># division with b (np.NaN for division by zero)</span>
 np.exp(a)          <span class="co"># exponential (complex and real)</span>
-np.power(a,b)      <span class="co"># a to the power b</span>
+np.power(a, b)     <span class="co"># a to the power b</span>
 np.sin(a)          <span class="co"># sine</span>
 np.cos(a)          <span class="co"># cosine</span>
-np.arctan2(y,x)    <span class="co"># arctan(y/x)</span>
-np.arcsin(x)       <span class="co"># arcsin</span>
+np.arctan2(a, b)   <span class="co"># arctan(a/b)</span>
+np.arcsin(a)       <span class="co"># arcsin</span>
 np.radians(a)      <span class="co"># degrees to radians</span>
 np.degrees(a)      <span class="co"># radians to degrees</span>
 np.var(a)          <span class="co"># variance of array</span>
 np.std(a, axis=<span class="dv">1</span>)  <span class="co"># standard deviation</span></code></pre>
 <h3 id="inner-outer-products">inner / outer products</h3>
 <pre class="sourceCode python"><code class="sourceCode python">np.dot(a, b)                        <span class="co"># inner matrix product: a_mi b_in</span>
-np.einsum(<span class="st">'ijkl,klmn-&gt;ijmn'</span>, a, b)  <span class="co"># einstein summation convention</span>
+np.einsum(<span class="st">'ij,kj-&gt;ik'</span>, a, b)        <span class="co"># einstein summation convention</span>
 np.<span class="dt">sum</span>(a, axis=<span class="dv">1</span>)                   <span class="co"># sum over axis 1</span>
 np.<span class="dt">abs</span>(a)                           <span class="co"># return array with absolute values</span>
 a[<span class="ot">None</span>, :] + b[:, <span class="ot">None</span>]             <span class="co"># outer sum</span>
@@ -331,14 +331,14 @@ a[<span class="ot">None</span>, :] * b[:, <span class="ot">None</span>]         
 np.outer(a, b)                      <span class="co"># outer product</span>
 np.<span class="dt">sum</span>(a * a.T)                     <span class="co"># matrix norm</span></code></pre>
 <h3 id="interpolation-integration">interpolation, integration</h3>
-<pre class="sourceCode python"><code class="sourceCode python">np.trapz(y, x=x, axis=<span class="dv">1</span>)  <span class="co"># integrate along axis 1</span>
+<pre class="sourceCode python"><code class="sourceCode python">np.trapz(a, x=x, axis=<span class="dv">1</span>)  <span class="co"># integrate along axis 1</span>
 np.interp(x, xp, yp)      <span class="co"># interpolate function xp, yp at points x</span></code></pre>
 <h3 id="fft">fft</h3>
-<pre class="sourceCode python"><code class="sourceCode python">np.fft.fft(y)             <span class="co"># complex fourier transform of y</span>
-np.fft.fftfreqs(<span class="dt">len</span>(y))   <span class="co"># fft frequencies for a given length</span>
-np.fft.fftshift(freqs)    <span class="co"># shifts zero frequency to the middle</span>
-np.fft.rfft(y)            <span class="co"># real fourier transform of y</span>
-np.fft.rfftfreqs(<span class="dt">len</span>(y))  <span class="co"># real fft frequencies for a given length</span></code></pre>
+<pre class="sourceCode python"><code class="sourceCode python">np.fft.fft(a)                <span class="co"># complex fourier transform of a</span>
+f = np.fft.fftfreq(<span class="dt">len</span>(a))   <span class="co"># fft frequencies for a given length</span>
+np.fft.fftshift(f)           <span class="co"># shifts zero frequency to the middle</span>
+np.fft.rfft(a)               <span class="co"># real fourier transform of a</span>
+np.fft.rfftfreq(<span class="dt">len</span>(a))      <span class="co"># real fft frequencies for a given length</span></code></pre>
 <h3 id="rounding">rounding</h3>
 <pre class="sourceCode python"><code class="sourceCode python">np.ceil(a)   <span class="co"># rounds to nearest upper int</span>
 np.floor(a)  <span class="co"># rounds to nearest lower int</span>
@@ -348,7 +348,7 @@ np.<span class="dt">round</span>(a)  <span class="co"># rounds to neares int</sp
 np.random.seed(<span class="dv">23032</span>)                       <span class="co"># resets the seed value</span>
 np.random.rand(<span class="dv">200</span>)                         <span class="co"># 200 random numbers in [0, 1)</span>
 np.random.uniform(<span class="dv">1</span>, <span class="dv">30</span>, <span class="dv">200</span>)               <span class="co"># 200 random numbers in [1, 30)</span>
-np.random.random_integers(<span class="dv">1</span>, <span class="dv">15</span>, <span class="dv">300</span>)       <span class="co"># 300 random integers between [1, 15]</span></code></pre>
+np.random.randint(<span class="dv">1</span>, <span class="dv">16</span>, <span class="dv">300</span>)               <span class="co"># 300 random integers between [1, 16)</span></code></pre>
 </div>
 <div class="group">
 <h2 id="matplotlib-import-matplotlib.pyplot-as-plt">Matplotlib (<code>import matplotlib.pyplot as plt</code>)</h2>
@@ -363,8 +363,8 @@ fig.subplots_adjust(bottom=<span class="fl">0.1</span>, right=<span class="fl">0
                     hspace=<span class="fl">0.5</span>)  <span class="co"># adjust subplot positions</span>
 fig.tight_layout(pad=<span class="fl">0.1</span>, h_pad=<span class="fl">0.5</span>, w_pad=<span class="fl">0.5</span>,
                  rect=<span class="ot">None</span>)      <span class="co"># adjust subplots to fit perfectly into fig</span>
-ax.set_xlabel()                  <span class="co"># set xlabel</span>
-ax.set_ylabel()                  <span class="co"># set ylabel</span>
+ax.set_xlabel(<span class="st">'xbla'</span>)            <span class="co"># set xlabel</span>
+ax.set_ylabel(<span class="st">'ybla'</span>)            <span class="co"># set ylabel</span>
 ax.set_xlim(<span class="dv">1</span>, <span class="dv">2</span>)                <span class="co"># sets x limits</span>
 ax.set_ylim(<span class="dv">3</span>, <span class="dv">4</span>)                <span class="co"># sets y limits</span>
 ax.set_title(<span class="st">'blabla'</span>)           <span class="co"># sets the axis title</span>
