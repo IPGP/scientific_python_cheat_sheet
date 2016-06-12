@@ -9,7 +9,7 @@ Click [here](sheet.md)
 ## Contributing
 If you wish to contribute, you only need to edit the file [sheet.md](sheet.md) and push it to the master branch (preferably via pull-request). The website updates automatically. 
 
-If, beyond your knowledge of Python, you also master HTML and CSS, you can also contribute to the design of the website.
+If, beyond your knowledge of Python, you also master HTML and CSS, you can also contribute to the design of the website. You can submit your ideas via the issues section or directly via pull-request.
 
 ## Reference:
 Authors: A few scientists
