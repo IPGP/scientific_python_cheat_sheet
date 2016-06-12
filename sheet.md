@@ -18,8 +18,8 @@ Scientific Python Cheatsheet
     - [NumPy](#numpy)
         - [array initialization](#array-initialization)
         - [reading/ writing files](#reading-writing-files)
-        - [array properties and operations](#array-properties-and-operations)
         - [indexing](#indexing)
+        - [array properties and operations](#array-properties-and-operations)
         - [boolean arrays](#boolean-arrays)
         - [elementwise operations and math functions](#elementwise-operations-and-math-functions)
         - [inner / outer products](#inner--outer-products)
@@ -257,6 +257,21 @@ np.fromfile(fname/object, dtype=np.float32, count=5)  # read binary data from fi
 np.loadtxt(fname/object, skiprows=2, delimiter=',')   # read ascii data from file
 ```
 
+### indexing
+
+```python
+a = np.arange(100)          # initialization with 0 - 99
+a[:3] = 0                   # set the first three indices to zero
+a[2:5] = 1                  # set indices 2-4 to 1
+a[start:stop:step]          # general form of indexing/slicing
+a[None, :]                  # transform to column vector
+a[[1, 1, 3, 8]]             # return array with values of the indices
+a = a.reshape(10, 10)       # transform to 10 x 10 matrix
+a.T                         # return transposed view
+np.transpose(a, (1, 0))     # transpose array to new axis order
+a[a < 2]                    # returns array that fulfills elementwise condition
+```
+
 ### array properties and operations
 
 ```python
@@ -267,26 +282,11 @@ a.sort(axis=1)         # sort array along axis
 a.flatten()            # collapse array to one dimension
 a.conj()               # return complex conjugate
 a.astype(np.int16)     # cast to integer
-np.argmax(a, axis=2)   # return index of maximum along a given axis
+np.argmax(a, axis=1)   # return index of maximum along a given axis
 np.cumsum(a)           # return cumulative sum
 np.any(a)              # True if any element is True
 np.all(a)              # True if all elements are True
 np.argsort(a, axis=1)  # return sorted index array along axis
-```
-
-### indexing
-
-```python
-a = np.arange(100)          # initialization with 0 - 99
-a[:3] = 0                   # set the first three indices to zero
-a[1:5] = 1                  # set indices 1-4 to 1
-a[start:stop:step]          # general form of indexing/slicing
-a[None, :]                  # transform to column vector
-a[[1, 1, 3, 8]]             # return array with values of the indices
-a = a.reshape(10, 10)       # transform to 10 x 10 matrix
-a.T                         # return transposed view
-np.transpose(a, (2, 1, 0))  # transpose array to new axis order
-a[a < 2]                    # returns array that fulfills elementwise condition
 ```
 
 ### boolean arrays
