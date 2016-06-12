@@ -18,8 +18,8 @@ Scientific Python Cheatsheet
     - [NumPy](#numpy)
         - [array initialization](#array-initialization)
         - [reading/ writing files](#reading-writing-files)
-        - [array properties and operations](#array-properties-and-operations)
         - [indexing](#indexing)
+        - [array properties and operations](#array-properties-and-operations)
         - [boolean arrays](#boolean-arrays)
         - [elementwise operations and math functions](#elementwise-operations-and-math-functions)
         - [inner / outer products](#inner--outer-products)
@@ -55,7 +55,7 @@ b = list(range(5))                 # initialization through a function
 c = [nu**2 for nu in b]            # initialize through list comprehension
 d = [nu**2 for nu in b if nu < 3]  # list comprehension with condition
 e = c[0]                           # access element
-f = e[1:2]                         # access a slice of the list
+f = c[1:2]                         # access a slice of the list
 g = ['re', 'bl'] + ['gr']          # list concatenation
 h = ['re'] * 5                     # repeat a list
 ['re', 'bl'].index('re')           # returns index of 're'
@@ -93,7 +93,7 @@ a += 1 (*=, /=)   # change and assign
 3 * 2             # multiplication
 3 ** 2            # exponent
 3 % 2             # remainder
-abs()             # absolute value
+abs(a)            # absolute value
 1 == 1            # equal
 2 > 1             # larger
 2 < 1             # smaller
@@ -101,7 +101,7 @@ abs()             # absolute value
 1 != 2 and 2 < 3  # logical AND
 1 != 2 or 2 < 3   # logical OR
 not 1 == 2        # logical NOT
-a in b            # test if a is in b
+'a' in b          # test if a is in b
 a is b            # test if objects point to the same memory (id)
 ```
 
@@ -257,6 +257,21 @@ np.fromfile(fname/object, dtype=np.float32, count=5)  # read binary data from fi
 np.loadtxt(fname/object, skiprows=2, delimiter=',')   # read ascii data from file
 ```
 
+### indexing
+
+```python
+a = np.arange(100)          # initialization with 0 - 99
+a[:3] = 0                   # set the first three indices to zero
+a[2:5] = 1                  # set indices 2-4 to 1
+a[start:stop:step]          # general form of indexing/slicing
+a[None, :]                  # transform to column vector
+a[[1, 1, 3, 8]]             # return array with values of the indices
+a = a.reshape(10, 10)       # transform to 10 x 10 matrix
+a.T                         # return transposed view
+b = np.transpose(a, (1, 0)) # transpose array to new axis order
+a[a < 2]                    # returns array that fulfills elementwise condition
+```
+
 ### array properties and operations
 
 ```python
@@ -267,26 +282,11 @@ a.sort(axis=1)         # sort array along axis
 a.flatten()            # collapse array to one dimension
 a.conj()               # return complex conjugate
 a.astype(np.int16)     # cast to integer
-np.argmax(a, axis=2)   # return index of maximum along a given axis
+np.argmax(a, axis=1)   # return index of maximum along a given axis
 np.cumsum(a)           # return cumulative sum
 np.any(a)              # True if any element is True
 np.all(a)              # True if all elements are True
 np.argsort(a, axis=1)  # return sorted index array along axis
-```
-
-### indexing
-
-```python
-a = np.arange(100)          # initialization with 0 - 99
-a[:3] = 0                   # set the first three indices to zero
-a[1:5] = 1                  # set indices 1-4 to 1
-a[start:stop:step]          # general form of indexing/slicing
-a[None, :]                  # transform to column vector
-a[[1, 1, 3, 8]]             # return array with values of the indices
-a = a.reshape(10, 10)       # transform to 10 x 10 matrix
-a.T                         # return transposed view
-np.transpose(a, (2, 1, 0))  # transpose array to new axis order
-a[a < 2]                    # returns array that fulfills elementwise condition
 ```
 
 ### boolean arrays
@@ -306,11 +306,11 @@ a + 5              # addition with scalar
 a + b              # addition with array b
 a / b              # division with b (np.NaN for division by zero)
 np.exp(a)          # exponential (complex and real)
-np.power(a,b)      # a to the power b
+np.power(a, b)     # a to the power b
 np.sin(a)          # sine
 np.cos(a)          # cosine
-np.arctan2(y,x)    # arctan(y/x)
-np.arcsin(x)       # arcsin
+np.arctan2(a, b)   # arctan(a/b)
+np.arcsin(a)       # arcsin
 np.radians(a)      # degrees to radians
 np.degrees(a)      # radians to degrees
 np.var(a)          # variance of array
@@ -321,7 +321,7 @@ np.std(a, axis=1)  # standard deviation
 
 ```python
 np.dot(a, b)                        # inner matrix product: a_mi b_in
-np.einsum('ijkl,klmn->ijmn', a, b)  # einstein summation convention
+np.einsum('ij,kj->ik', a, b)        # einstein summation convention
 np.sum(a, axis=1)                   # sum over axis 1
 np.abs(a)                           # return array with absolute values
 a[None, :] + b[:, None]             # outer sum
@@ -333,18 +333,18 @@ np.sum(a * a.T)                     # matrix norm
 ### interpolation, integration
 
 ```python
-np.trapz(y, x=x, axis=1)  # integrate along axis 1
+np.trapz(a, x=x, axis=1)  # integrate along axis 1
 np.interp(x, xp, yp)      # interpolate function xp, yp at points x
 ```
 
 ### fft
 
 ```python
-np.fft.fft(y)             # complex fourier transform of y
-np.fft.fftfreqs(len(y))   # fft frequencies for a given length
-np.fft.fftshift(freqs)    # shifts zero frequency to the middle
-np.fft.rfft(y)            # real fourier transform of y
-np.fft.rfftfreqs(len(y))  # real fft frequencies for a given length
+np.fft.fft(a)                # complex fourier transform of a
+f = np.fft.fftfreq(len(a))   # fft frequencies for a given length
+np.fft.fftshift(f)           # shifts zero frequency to the middle
+np.fft.rfft(a)               # real fourier transform of a
+np.fft.rfftfreq(len(a))      # real fft frequencies for a given length
 ```
 
 ### rounding
@@ -362,7 +362,7 @@ np.random.normal(loc=0, scale=2, size=100)  # 100 normal distributed random numb
 np.random.seed(23032)                       # resets the seed value
 np.random.rand(200)                         # 200 random numbers in [0, 1)
 np.random.uniform(1, 30, 200)               # 200 random numbers in [1, 30)
-np.random.random_integers(1, 15, 300)       # 300 random integers between [1, 15]
+np.random.randint(1, 16, 300)               # 300 random integers between [1, 16)
 ```
 
 ## Matplotlib (`import matplotlib.pyplot as plt`)
@@ -384,8 +384,8 @@ fig.subplots_adjust(bottom=0.1, right=0.8, top=0.9, wspace=0.2,
                     hspace=0.5)  # adjust subplot positions
 fig.tight_layout(pad=0.1, h_pad=0.5, w_pad=0.5,
                  rect=None)      # adjust subplots to fit perfectly into fig
-ax.set_xlabel()                  # set xlabel
-ax.set_ylabel()                  # set ylabel
+ax.set_xlabel('xbla')            # set xlabel
+ax.set_ylabel('ybla')            # set ylabel
 ax.set_xlim(1, 2)                # sets x limits
 ax.set_ylim(3, 4)                # sets y limits
 ax.set_title('blabla')           # sets the axis title
