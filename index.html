@@ -207,13 +207,15 @@ number = <span class="dv">1</span>
 </div>
 <div class="subgroup">
 <h3 id="functions-classes-generators-decorators">Functions, Classes, Generators, Decorators</h3>
-<pre class="sourceCode python"><code class="sourceCode python"><span class="co"># Function</span>
+<pre class="sourceCode python"><code class="sourceCode python"><span class="co"># Function groups code statements and possibly</span>
+<span class="co"># returns a derived value</span>
 <span class="kw">def</span> myfunc(a1, a2):
     <span class="kw">return</span> a1 + a2
 
 x = myfunc(a1, a2)
 
-<span class="co"># Class</span>
+<span class="co"># Class groups attributes (data)</span>
+<span class="co"># and associated methods (functions)</span>
 <span class="kw">class</span> Point(<span class="dt">object</span>):
     <span class="kw">def</span> <span class="ot">__init__</span>(<span class="ot">self</span>, x):
         <span class="ot">self</span>.x = x
@@ -222,17 +224,18 @@ x = myfunc(a1, a2)
 
 x = Point(<span class="dv">3</span>)
 
-<span class="co"># Generators</span>
+<span class="co"># Generator iterates without</span>
+<span class="co"># creating all values at ones</span>
 <span class="kw">def</span> firstn(n):
     num = <span class="dv">0</span>
     <span class="kw">while</span> num &lt; n:
         <span class="kw">yield</span> num
         num += <span class="dv">1</span>
 
-<span class="co"># consume the generator with list comprehension</span>
 x = [i <span class="kw">for</span> i in firstn(<span class="dv">10</span>)]
 
-<span class="co"># Decorators</span>
+<span class="co"># Decorator can be used to modify</span>
+<span class="co"># the behaviour of a function</span>
 <span class="kw">class</span> myDecorator(<span class="dt">object</span>):
     <span class="kw">def</span> <span class="ot">__init__</span>(<span class="ot">self</span>, f):
         <span class="ot">self</span>.f = f
