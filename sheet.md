@@ -35,8 +35,9 @@ Scientific Python Cheatsheet
         - [interpolation](#interpolation)
         - [integration](#integration)
     - [Pandas](#Pandas) 
-        - [data structures](#Data Structures)
+        - [data structures](#Data structures)
         - [DataFrame](#DataFrame)
+        
 <!-- markdown-toc end -->
 
 ## Pure Python
@@ -446,7 +447,7 @@ df = pd.DataFrame(np.zeros(1000, 3), index=index,
 ```
 
 ### DataFrame
- ```python
+```python
 df = pd.read_csv("filename.csv")           # read and load CSV file in a DataFrame
 print(df[:2])                              # print first 2 lines of the DataFrame
 raw = df.values                            # get raw data out of DataFrame object
