@@ -88,7 +88,7 @@ char = a[2]                    # access individual characters
 a = 2             # assignment
 a += 1 (*=, /=)   # change and assign
 3 + 2             # addition
-3 / 2             # integer division (python2) or float division (python3)
+3 / 2             # integer (python2) or float (python3) division
 3 // 2            # integer division
 3 * 2             # multiplication
 3 ** 2            # exponent
@@ -253,8 +253,10 @@ np.copy(a)                      # copy array to new memory
 ### reading/ writing files
 
 ```python
-np.fromfile(fname/object, dtype=np.float32, count=5)  # read binary data from file
-np.loadtxt(fname/object, skiprows=2, delimiter=',')   # read ascii data from file
+np.fromfile(fname/fobject, dtype=np.float32, count=5)  # read binary data from file
+np.loadtxt(fname/fobject, skiprows=2, delimiter=',')   # read ascii data from file
+np.savetxt(fname/fobject, array, fmt='%.5f')           # write ascii data
+np.tofile(fname/fobject)                               # write binary data (C-order)
 ```
 
 ### indexing
