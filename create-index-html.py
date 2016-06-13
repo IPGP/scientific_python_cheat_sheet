@@ -123,7 +123,6 @@ for line in sheet_html_lines:
     elif "h2" in line:
         if flag_first_h2:
             # ends the section AND the subsection
-            print 'line', line
             f.write('</div>\n</div>\n\n')
             f.write(line+"\n")
             f.write('<div class="group">\n')

@@ -2,5 +2,9 @@
 *.aux
 *.log
 *.gz
+index.html
+sheet.html
+template.html
+github.css
 auto/*
 
