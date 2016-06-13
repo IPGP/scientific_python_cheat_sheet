@@ -109,15 +109,26 @@ a {
   -moz-column-count:auto;
   -webkit-column-count: auto;
   
-  -webkit-column-width: 330px;
-  -moz-column-width: 330px;
-  column-width: 330px;
-  
   box-sizing: unset;}
 
 .main-content .group {
   display: inline-block;
+  -webkit-column-width: 500px;
+  -moz-column-width: 500px;
+  column-width: 500px;
+
+  border-radius: 25px;
+  border-size:2px;
+  border-style:solid;
+  border-color:#D8D8D8; 
+
+  padding: 10px;
   width: 100%;}
+
+.main-content .subgroup{
+  display: inline-block;
+  
+  width: 500px;}
 
 .main-content :first-child {
   margin-top: 0; }
