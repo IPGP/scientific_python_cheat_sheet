@@ -92,7 +92,12 @@ code > span.in { color: #808080; font-weight: bold; font-style: italic; } /* Inf
 <ul>
 <li><a href="#figures-and-axes">figures and axes</a></li>
 <li><a href="#figures-and-axes-properties">figures and axes properties</a></li>
-<li><a href="#plotting-routines">plotting routines</a></li>
+<li><a href="#plotting-routines">plotting routines</a> &lt;!--</li>
+</ul></li>
+<li><a href="#scipy">Scipy</a>
+<ul>
+<li><a href="#interpolation">interpolation</a></li>
+<li><a href="#integration">integration</a> --&gt;</li>
 </ul></li>
 </ul></li>
 </ul>
@@ -143,7 +148,7 @@ char = a[<span class="dv">2</span>]                    <span class="co"># access
 <pre class="sourceCode python"><code class="sourceCode python">a = <span class="dv">2</span>             <span class="co"># assignment</span>
 a += <span class="dv">1</span> (*=, /=)   <span class="co"># change and assign</span>
 <span class="dv">3</span> + <span class="dv">2</span>             <span class="co"># addition</span>
-<span class="dv">3</span> / <span class="dv">2</span>             <span class="co"># integer division (python2) or float division (python3)</span>
+<span class="dv">3</span> / <span class="dv">2</span>             <span class="co"># integer (python2) or float (python3) division</span>
 <span class="dv">3</span> // <span class="dv">2</span>            <span class="co"># integer division</span>
 <span class="dv">3</span> * <span class="dv">2</span>             <span class="co"># multiplication</span>
 <span class="dv">3</span> ** <span class="dv">2</span>            <span class="co"># exponent</span>
@@ -301,8 +306,10 @@ np.copy(a)                      <span class="co"># copy array to new memory</spa
 </div>
 <div class="subgroup">
 <h3 id="reading-writing-files">reading/ writing files</h3>
-<pre class="sourceCode python"><code class="sourceCode python">np.fromfile(fname/<span class="dt">object</span>, dtype=np.float32, count=<span class="dv">5</span>)  <span class="co"># read binary data from file</span>
-np.loadtxt(fname/<span class="dt">object</span>, skiprows=<span class="dv">2</span>, delimiter=<span class="st">','</span>)   <span class="co"># read ascii data from file</span></code></pre>
+<pre class="sourceCode python"><code class="sourceCode python">np.fromfile(fname/fobject, dtype=np.float32, count=<span class="dv">5</span>)  <span class="co"># read binary data from file</span>
+np.loadtxt(fname/fobject, skiprows=<span class="dv">2</span>, delimiter=<span class="st">','</span>)   <span class="co"># read ascii data from file</span>
+np.savetxt(fname/fobject, array, fmt=<span class="st">'</span><span class="ot">%.5f</span><span class="st">'</span>)           <span class="co"># write ascii data</span>
+np.tofile(fname/fobject)                               <span class="co"># write binary data (C-order)</span></code></pre>
 </div>
 <div class="subgroup">
 <h3 id="indexing">indexing</h3>
@@ -400,10 +407,10 @@ np.random.randint(<span class="dv">1</span>, <span class="dv">16</span>, <span c
 <div class="group">
 <div class="subgroup">
 <h3 id="figures-and-axes">figures and axes</h3>
-<pre class="sourceCode python"><code class="sourceCode python">fig = plt.figure(figsize=(<span class="dv">5</span>, <span class="dv">2</span>), facecolor=<span class="st">'black'</span>)  <span class="co"># initialize figure</span>
-ax = fig.add_subplot(<span class="dv">3</span>, <span class="dv">2</span>, <span class="dv">2</span>)                        <span class="co"># add second subplot in a 3 x 2 grid</span>
-fig, axes = plt.subplots(<span class="dv">5</span>, <span class="dv">2</span>, figsize=(<span class="dv">5</span>, <span class="dv">5</span>))       <span class="co"># return fig and array of axes in a 5 x 2 grid</span>
-ax = fig.add_axes([left, bottom, width, height])     <span class="co"># manually add axes at a certain position</span></code></pre>
+<pre class="sourceCode python"><code class="sourceCode python">fig = plt.figure(figsize=(<span class="dv">5</span>, <span class="dv">2</span>))                  <span class="co"># initialize figure</span>
+ax = fig.add_subplot(<span class="dv">3</span>, <span class="dv">2</span>, <span class="dv">2</span>)                     <span class="co"># add second subplot in a 3 x 2 grid</span>
+fig, axes = plt.subplots(<span class="dv">5</span>, <span class="dv">2</span>, figsize=(<span class="dv">5</span>, <span class="dv">5</span>))    <span class="co"># return fig and 5 x 2 array of axes</span>
+ax = fig.add_axes([left, bottom, width, height])  <span class="co"># add custom axis</span></code></pre>
 </div>
 <div class="subgroup">
 <h3 id="figures-and-axes-properties">figures and axes properties</h3>
@@ -411,7 +418,7 @@ ax = fig.add_axes([left, bottom, width, height])     <span class="co"># manually
 fig.subplots_adjust(bottom=<span class="fl">0.1</span>, right=<span class="fl">0.8</span>, top=<span class="fl">0.9</span>, wspace=<span class="fl">0.2</span>,
                     hspace=<span class="fl">0.5</span>)  <span class="co"># adjust subplot positions</span>
 fig.tight_layout(pad=<span class="fl">0.1</span>, h_pad=<span class="fl">0.5</span>, w_pad=<span class="fl">0.5</span>,
-                 rect=<span class="ot">None</span>)      <span class="co"># adjust subplots to fit perfectly into fig</span>
+                 rect=<span class="ot">None</span>)      <span class="co"># adjust subplots to fit into fig</span>
 ax.set_xlabel(<span class="st">'xbla'</span>)            <span class="co"># set xlabel</span>
 ax.set_ylabel(<span class="st">'ybla'</span>)            <span class="co"># set ylabel</span>
 ax.set_xlim(<span class="dv">1</span>, <span class="dv">2</span>)                <span class="co"># sets x limits</span>
@@ -427,14 +434,25 @@ bbox.x0 + bbox.width             <span class="co"># bounding box parameters</spa
 <h3 id="plotting-routines">plotting routines</h3>
 <pre class="sourceCode python"><code class="sourceCode python">ax.plot(x,y, <span class="st">'-o'</span>, c=<span class="st">'red'</span>, lw=<span class="dv">2</span>, label=<span class="st">'bla'</span>)  <span class="co"># plots a line</span>
 ax.scatter(x,y, s=<span class="dv">20</span>, c=color)                  <span class="co"># scatter plot</span>
-ax.pcolormesh(xx, yy, zz, shading=<span class="st">'gouraud'</span>)    <span class="co"># fast colormesh function</span>
-ax.colormesh(xx, yy, zz, norm=norm)             <span class="co"># slower colormesh function</span>
+ax.pcolormesh(xx, yy, zz, shading=<span class="st">'gouraud'</span>)    <span class="co"># fast colormesh</span>
+ax.colormesh(xx, yy, zz, norm=norm)             <span class="co"># slower colormesh</span>
 ax.contour(xx, yy, zz, cmap=<span class="st">'jet'</span>)              <span class="co"># contour line plot</span>
 ax.contourf(xx, yy, zz, vmin=<span class="dv">2</span>, vmax=<span class="dv">4</span>)         <span class="co"># filled contours plot</span>
 n, bins, patch = ax.hist(x, <span class="dv">50</span>)                 <span class="co"># histogram</span>
 ax.imshow(matrix, origin=<span class="st">'lower'</span>,
           extent=(x1, x2, y1, y2))              <span class="co"># show image</span>
-ax.specgram(y, FS=<span class="fl">0.1</span>, noverlap=<span class="dv">128</span>, scale=<span class="st">'linear'</span>)  <span class="co"># plot a spectrogram</span></code></pre>
+ax.specgram(y, FS=<span class="fl">0.1</span>, noverlap=<span class="dv">128</span>,
+            scale=<span class="st">'linear'</span>)                     <span class="co"># plot a spectrogram</span></code></pre>
+</div>
+<div class="subgroup">
+<h3 id="interpolation">interpolation</h3>
+<pre class="sourceCode python"><code class="sourceCode python"><span class="ch">from</span> scipy.ndimage <span class="ch">import</span> map_coordinates       <span class="co"># interpolates a data</span>
+pts_new = map_coordinates(data, float_indices,  <span class="co"># array at index coordinate</span>
+                          order=<span class="dv">3</span>)              <span class="co"># positions</span></code></pre>
+</div>
+<div class="subgroup">
+<h3 id="integration">Integration</h3>
+<p><code>python from scipy.integrate import quad value = quad(func, low_lim, up_lim)  # definite integral of python function</code> )</p>
 
 </div></div>
 

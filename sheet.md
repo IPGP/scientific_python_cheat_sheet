@@ -31,11 +31,13 @@ Scientific Python Cheatsheet
         - [figures and axes](#figures-and-axes)
         - [figures and axes properties](#figures-and-axes-properties)
         - [plotting routines](#plotting-routines)
+    - [Scipy](#scipy)
+        - [interpolation](#interpolation)
+        - [integration](#integration)
 
 <!-- markdown-toc end -->
 
-Pure Python
------------
+## Pure Python
 
 ### Types
 ```python
@@ -186,8 +188,7 @@ def my_funct():
 my_funct()
 ```
 
-IPython
------------
+## IPython
 
 ### Python console
 ```python
@@ -372,10 +373,10 @@ np.random.randint(1, 16, 300)               # 300 random integers between [1, 16
 ### figures and axes
 
 ```python
-fig = plt.figure(figsize=(5, 2), facecolor='black')  # initialize figure
-ax = fig.add_subplot(3, 2, 2)                        # add second subplot in a 3 x 2 grid
-fig, axes = plt.subplots(5, 2, figsize=(5, 5))       # return fig and array of axes in a 5 x 2 grid
-ax = fig.add_axes([left, bottom, width, height])     # manually add axes at a certain position
+fig = plt.figure(figsize=(5, 2))                  # initialize figure
+ax = fig.add_subplot(3, 2, 2)                     # add second subplot in a 3 x 2 grid
+fig, axes = plt.subplots(5, 2, figsize=(5, 5))    # return fig and 5 x 2 array of axes
+ax = fig.add_axes([left, bottom, width, height])  # add custom axis
 ```
 
 ### figures and axes properties
@@ -385,7 +386,7 @@ fig.suptitle('title')            # big figure title
 fig.subplots_adjust(bottom=0.1, right=0.8, top=0.9, wspace=0.2,
                     hspace=0.5)  # adjust subplot positions
 fig.tight_layout(pad=0.1, h_pad=0.5, w_pad=0.5,
-                 rect=None)      # adjust subplots to fit perfectly into fig
+                 rect=None)      # adjust subplots to fit into fig
 ax.set_xlabel('xbla')            # set xlabel
 ax.set_ylabel('ybla')            # set ylabel
 ax.set_xlim(1, 2)                # sets x limits
@@ -403,12 +404,30 @@ bbox.x0 + bbox.width             # bounding box parameters
 ```python
 ax.plot(x,y, '-o', c='red', lw=2, label='bla')  # plots a line
 ax.scatter(x,y, s=20, c=color)                  # scatter plot
-ax.pcolormesh(xx, yy, zz, shading='gouraud')    # fast colormesh function
-ax.colormesh(xx, yy, zz, norm=norm)             # slower colormesh function
+ax.pcolormesh(xx, yy, zz, shading='gouraud')    # fast colormesh
+ax.colormesh(xx, yy, zz, norm=norm)             # slower colormesh
 ax.contour(xx, yy, zz, cmap='jet')              # contour line plot
 ax.contourf(xx, yy, zz, vmin=2, vmax=4)         # filled contours plot
 n, bins, patch = ax.hist(x, 50)                 # histogram
 ax.imshow(matrix, origin='lower',
           extent=(x1, x2, y1, y2))              # show image
-ax.specgram(y, FS=0.1, noverlap=128, scale='linear')  # plot a spectrogram
+ax.specgram(y, FS=0.1, noverlap=128,
+            scale='linear')                     # plot a spectrogram
+```
+
+## Scipy (`import scipy as sci`)
+
+### interpolation
+
+```python
+from scipy.ndimage import map_coordinates       # interpolates a data
+pts_new = map_coordinates(data, float_indices,  # array at index coordinate
+                          order=3)              # positions
+```
+
+### Integration
+
+```python
+from scipy.integrate import quad
+value = quad(func, low_lim, up_lim)  # definite integral of python function
 ```
