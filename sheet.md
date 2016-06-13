@@ -35,7 +35,8 @@ Scientific Python Cheatsheet
         - [interpolation](#interpolation)
         - [integration](#integration)
     - [Pandas](#Pandas) 
-
+        - [data structures](#Data Structures)
+        - [DataFrame](#DataFrame)
 <!-- markdown-toc end -->
 
 ## Pure Python
@@ -435,8 +436,17 @@ value = quad(func, low_lim, up_lim)  # definite integral of python function
 
 ## Pandas
 
+### Data structures
+```python
+import pandas as pd                                     # import pandas
+s = pd.Series(np.random.rand(1000), index=range(1000))  # series
+index = pd.date_range("13/06/2016", periods=1000)       # time index
+df = pd.DataFrame(np.zeros(1000, 3), index=index,
+                    columns=["A", "B", "C"])            # DataFrame
+```
+
+### DataFrame
  ```python
-import pandas as pd                        # import pandas
 df = pd.read_csv("filename.csv")           # read and load CSV file in a DataFrame
 print(df[:2])                              # print first 2 lines of the DataFrame
 raw = df.values                            # get raw data out of DataFrame object
