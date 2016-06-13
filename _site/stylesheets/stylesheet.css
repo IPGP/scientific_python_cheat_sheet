@@ -105,17 +105,17 @@ a {
     font-size: 1rem; } }
 
 .main-content {
-  column-count:auto;
-  -moz-column-count:auto;
-  -webkit-column-count: auto;
-  
   box-sizing: unset;}
 
 .main-content .group {
   display: inline-block;
-  -webkit-column-width: 500px;
-  -moz-column-width: 500px;
-  column-width: 500px;
+  column-count:auto;
+  -moz-column-count:auto;
+  -webkit-column-count: auto;
+  
+  -webkit-column-width: 570px;
+  -moz-column-width: 570px;
+  column-width: 570px;
 
   border-radius: 25px;
   border-size:2px;
@@ -128,7 +128,7 @@ a {
 .main-content .subgroup{
   display: inline-block;
   
-  width: 500px;}
+  width: 570px;}
 
 .main-content :first-child {
   margin-top: 0; }
