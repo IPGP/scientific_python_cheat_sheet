@@ -35,8 +35,8 @@ Scientific Python Cheatsheet
         - [interpolation](#interpolation)
         - [integration](#integration)
     - [Pandas](#Pandas) 
-        - [data structures](#Data structures)
-        - [DataFrame](#DataFrame)
+        - [data structures](#data-structures)
+        - [DataFrame](#dataframe)
         
 <!-- markdown-toc end -->
 
