@@ -110,22 +110,42 @@ except:
 sheet_html_lines = sheet_html.split("\n")
 f = open("index.html", "w")
 flag_first_h2 = False
+flag_first_h3 = False
 f.write(top+"\n")
 for line in sheet_html_lines:
     if "markdown-toc" in line:
         continue
 
-    if "h2" in line:
+    if "h1" in line:
+        # start table of contents group after main header
+        f.write(line)
+        f.write('\n<div class="group">\n')
+    elif "h2" in line:
         if flag_first_h2:
-            f.write('</div>\n<div class="group">\n')
+            # ends the section AND the subsection
+            print 'line', line
+            f.write('</div>\n</div>\n\n')
+            f.write(line+"\n")
+            f.write('<div class="group">\n')
+            flag_first_h3 = False
+        else:
+            # end table of contents and begin first group
+            f.write('</div>\n\n')
+            f.write(line+"\n")
+            f.write('<div class="group">\n')
+            flag_first_h2 = True
+    elif "h3" in line:
+        if flag_first_h3:
+            # ends only a subsection
+            f.write('</div>\n<div class="subgroup">\n')
             f.write(line+"\n")
         else:
-            f.write('<div class="group">\n')
+            f.write('<div class="subgroup">\n')
             f.write(line+"\n")
-            flag_first_h2 = True
+            flag_first_h3 = True
     else:
         f.write(line+"\n")
 
-f.write("</div>\n")
+f.write("</div></div>\n")
 f.write(bottom+"\n")
 f.close()

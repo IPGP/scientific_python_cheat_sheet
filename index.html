@@ -3,6 +3,7 @@
 <html lang="en-us">
   <head>
     <meta charset="UTF-8">
+    <meta name="Description" CONTENT="science python cheatsheet cheat sheet numpy matplotlib pandas scipy pydata data obspy">
     <title>Scientific python cheat sheet by IPGP</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.5">
     <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
@@ -48,11 +49,13 @@ code > span.in { color: #808080; font-weight: bold; font-style: italic; } /* Inf
   </style>
   </head>
   <body>
+    <a href="https://github.com/IPGP/scientific_python_cheat_sheet"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/a6677b08c955af8400f44c6298f40e7d19cc5b2d/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677261795f3664366436642e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png"></a>
+  
     <section class="main-content">
 
 
 <h1 id="scientific-python-cheatsheet">Scientific Python Cheatsheet</h1>
-<p><strong>Table of Contents</strong></p>
+<div class="group">
 <ul>
 <li><a href="#scientific-python-cheatsheet">Scientific Python Cheatsheet</a>
 <ul>
@@ -66,12 +69,17 @@ code > span.in { color: #808080; font-weight: bold; font-style: italic; } /* Inf
 <li><a href="#control-flow">Control Flow</a></li>
 <li><a href="#functions-classes-generators-decorators">Functions, Classes, Generators, Decorators</a></li>
 </ul></li>
+<li><a href="#IPython">IPython</a>
+<ul>
+<li><a href="#python-console">Python Console</a></li>
+<li><a href="#debugger-commands">Debugger commands</a></li>
+</ul></li>
 <li><a href="#numpy">NumPy</a>
 <ul>
 <li><a href="#array-initialization">array initialization</a></li>
 <li><a href="#reading-writing-files">reading/ writing files</a></li>
-<li><a href="#array-properties-and-operations">array properties and operations</a></li>
 <li><a href="#indexing">indexing</a></li>
+<li><a href="#array-properties-and-operations">array properties and operations</a></li>
 <li><a href="#boolean-arrays">boolean arrays</a></li>
 <li><a href="#elementwise-operations-and-math-functions">elementwise operations and math functions</a></li>
 <li><a href="#inner--outer-products">inner / outer products</a></li>
@@ -88,255 +96,347 @@ code > span.in { color: #808080; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 </ul></li>
 </ul>
-<div class="group">
+</div>
+
 <h2 id="pure-python">Pure Python</h2>
+<div class="group">
+<div class="subgroup">
 <h3 id="types">Types</h3>
-<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">a <span class="op">=</span> <span class="dv">2</span>           <span class="co"># integer</span>
-b <span class="op">=</span> <span class="fl">5.0</span>         <span class="co"># float</span>
-c <span class="op">=</span> <span class="fl">8.3e5</span>       <span class="co"># exponential</span>
-d <span class="op">=</span> <span class="fl">1.5</span> <span class="op">+</span><span class="ot"> 0.5j</span>  <span class="co"># complex</span>
-e <span class="op">=</span> <span class="dv">4</span> <span class="op">&gt;</span> <span class="dv">5</span>       <span class="co"># boolean</span>
-f <span class="op">=</span> <span class="st">'word'</span>      <span class="co"># string</span></code></pre></div>
+<pre class="sourceCode python"><code class="sourceCode python">a = <span class="dv">2</span>           <span class="co"># integer</span>
+b = <span class="fl">5.0</span>         <span class="co"># float</span>
+c = <span class="fl">8.3e5</span>       <span class="co"># exponential</span>
+d = <span class="fl">1.5</span> +<span class="ot"> 0.5j</span>  <span class="co"># complex</span>
+e = <span class="dv">4</span> &gt; <span class="dv">5</span>       <span class="co"># boolean</span>
+f = <span class="st">'word'</span>      <span class="co"># string</span></code></pre>
+</div>
+<div class="subgroup">
 <h3 id="lists">Lists</h3>
-<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">a <span class="op">=</span> [<span class="st">'red'</span>, <span class="st">'blue'</span>, <span class="st">'green'</span>]      <span class="co"># manually initialization</span>
-b <span class="op">=</span> <span class="bu">range</span>(<span class="dv">5</span>)                      <span class="co"># initialization through a function</span>
-c <span class="op">=</span> [nu<span class="op">**</span><span class="dv">2</span> <span class="cf">for</span> nu <span class="op">in</span> b]           <span class="co"># initialize through list comprehension</span>
-d <span class="op">=</span> [nu<span class="op">**</span><span class="dv">2</span> <span class="cf">for</span> nu <span class="op">in</span> b <span class="cf">if</span> b <span class="op">&lt;</span> <span class="dv">3</span>]  <span class="co"># list comprehension withcondition</span>
-e <span class="op">=</span> c[<span class="dv">0</span>]                          <span class="co"># access element</span>
-f <span class="op">=</span> e[<span class="dv">1</span>: <span class="dv">2</span>]                       <span class="co"># access a slice of the list</span>
-g <span class="op">=</span> [<span class="st">'re'</span>, <span class="st">'bl'</span>] <span class="op">+</span> [<span class="st">'gr'</span>]         <span class="co"># list concatenation</span>
-h <span class="op">=</span> [<span class="st">'re'</span>] <span class="op">*</span> <span class="dv">5</span>                    <span class="co"># repeat a list</span>
-[<span class="st">'re'</span>, <span class="st">'bl'</span>].index(<span class="st">'re'</span>)          <span class="co"># returns index of 're'</span>
-<span class="co">'re'</span> <span class="op">in</span> [<span class="st">'re'</span>, <span class="st">'bl'</span>]              <span class="co"># true if 're' in list</span>
-<span class="bu">sorted</span>([<span class="dv">3</span>, <span class="dv">2</span>, <span class="dv">1</span>])                 <span class="co"># returns sorted list</span>
-z <span class="op">=</span> [<span class="st">'red'</span>] <span class="op">+</span> [<span class="st">'green'</span>, <span class="st">'blue'</span>]   <span class="co"># list concatenation</span></code></pre></div>
+<pre class="sourceCode python"><code class="sourceCode python">a = [<span class="st">'red'</span>, <span class="st">'blue'</span>, <span class="st">'green'</span>]       <span class="co"># manually initialization</span>
+b = <span class="dt">list</span>(<span class="dt">range</span>(<span class="dv">5</span>))                 <span class="co"># initialization through a function</span>
+c = [nu**<span class="dv">2</span> <span class="kw">for</span> nu in b]            <span class="co"># initialize through list comprehension</span>
+d = [nu**<span class="dv">2</span> <span class="kw">for</span> nu in b <span class="kw">if</span> nu &lt; <span class="dv">3</span>]  <span class="co"># list comprehension with condition</span>
+e = c[<span class="dv">0</span>]                           <span class="co"># access element</span>
+f = c[<span class="dv">1</span>:<span class="dv">2</span>]                         <span class="co"># access a slice of the list</span>
+g = [<span class="st">'re'</span>, <span class="st">'bl'</span>] + [<span class="st">'gr'</span>]          <span class="co"># list concatenation</span>
+h = [<span class="st">'re'</span>] * <span class="dv">5</span>                     <span class="co"># repeat a list</span>
+[<span class="st">'re'</span>, <span class="st">'bl'</span>].index(<span class="st">'re'</span>)           <span class="co"># returns index of 're'</span>
+<span class="st">'re'</span> in [<span class="st">'re'</span>, <span class="st">'bl'</span>]               <span class="co"># true if 're' in list</span>
+<span class="dt">sorted</span>([<span class="dv">3</span>, <span class="dv">2</span>, <span class="dv">1</span>])                  <span class="co"># returns sorted list</span></code></pre>
+</div>
+<div class="subgroup">
 <h3 id="dictionaries">Dictionaries</h3>
-<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">a <span class="op">=</span> {<span class="st">'red'</span>: <span class="st">'rouge'</span>, <span class="st">'blue'</span>: <span class="st">'bleu'</span>, <span class="st">'green'</span>: <span class="st">'vert'</span>}  <span class="co"># dictionary</span>
-b <span class="op">=</span> a[<span class="st">'red'</span>]                                           <span class="co"># translate item</span>
-c <span class="op">=</span> [value <span class="cf">for</span> key, value <span class="op">in</span> b.items()]                <span class="co"># loop through contents</span>
-d <span class="op">=</span> a.get(<span class="st">'yellow'</span>, <span class="st">'no translation found'</span>)            <span class="co"># return default</span></code></pre></div>
+<pre class="sourceCode python"><code class="sourceCode python">a = {<span class="st">'red'</span>: <span class="st">'rouge'</span>, <span class="st">'blue'</span>: <span class="st">'bleu'</span>, <span class="st">'green'</span>: <span class="st">'vert'</span>}  <span class="co"># dictionary</span>
+b = a[<span class="st">'red'</span>]                                           <span class="co"># translate item</span>
+c = [value <span class="kw">for</span> key, value in a.items()]                <span class="co"># loop through contents</span>
+d = a.get(<span class="st">'yellow'</span>, <span class="st">'no translation found'</span>)            <span class="co"># return default</span></code></pre>
+</div>
+<div class="subgroup">
 <h3 id="strings">Strings</h3>
-<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">a <span class="op">=</span> <span class="st">'red'</span>                      <span class="co"># assignment</span>
-char <span class="op">=</span> a[<span class="dv">2</span>]                    <span class="co"># access individual characters</span>
-<span class="co">'red '</span> <span class="op">+</span> <span class="st">'blue'</span>                <span class="co"># string concatenation</span>
-<span class="co">'1, 2, three'</span>.split(<span class="st">','</span>)       <span class="co"># split string into list</span>
-<span class="co">'.'</span>.join([<span class="st">'1'</span>, <span class="st">'2'</span>, <span class="st">'three'</span>])  <span class="co"># concatenate list into string</span></code></pre></div>
+<pre class="sourceCode python"><code class="sourceCode python">a = <span class="st">'red'</span>                      <span class="co"># assignment</span>
+char = a[<span class="dv">2</span>]                    <span class="co"># access individual characters</span>
+<span class="st">'red '</span> + <span class="st">'blue'</span>                <span class="co"># string concatenation</span>
+<span class="st">'1, 2, three'</span>.split(<span class="st">','</span>)       <span class="co"># split string into list</span>
+<span class="st">'.'</span>.join([<span class="st">'1'</span>, <span class="st">'2'</span>, <span class="st">'three'</span>])  <span class="co"># concatenate list into string</span></code></pre>
+</div>
+<div class="subgroup">
 <h3 id="operators">Operators</h3>
-<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">a <span class="op">=</span> <span class="dv">2</span>             <span class="co"># assignment</span>
-a <span class="op">+=</span> <span class="dv">1</span> (<span class="op">*=</span>, <span class="op">/=</span>)   <span class="co"># change and assign</span>
-<span class="dv">3</span> <span class="op">+</span> <span class="dv">2</span>             <span class="co"># addition</span>
-<span class="dv">3</span> <span class="op">/</span> <span class="dv">2</span>             <span class="co"># integer division (python2) or float division (python3)</span>
-<span class="dv">3</span> <span class="op">//</span> <span class="dv">2</span>            <span class="co"># integer division</span>
-<span class="dv">3</span> <span class="op">*</span> <span class="dv">2</span>             <span class="co"># multiplication</span>
-<span class="dv">3</span> <span class="op">**</span> <span class="dv">2</span>            <span class="co"># exponent</span>
-<span class="dv">3</span> <span class="op">%</span> <span class="dv">2</span>             <span class="co"># remainder</span>
-<span class="bu">abs</span>()             <span class="co"># absolute value</span>
-<span class="dv">1</span> <span class="op">==</span> <span class="dv">1</span>            <span class="co"># equal</span>
-<span class="dv">2</span> <span class="op">&gt;</span> <span class="dv">1</span>             <span class="co"># larger</span>
-<span class="dv">2</span> <span class="op">&lt;</span> <span class="dv">1</span>             <span class="co"># smaller</span>
-<span class="dv">1</span> <span class="op">!=</span> <span class="dv">2</span>            <span class="co"># not equal</span>
-<span class="dv">1</span> <span class="op">!=</span> <span class="dv">2</span> <span class="op">and</span> <span class="dv">2</span> <span class="op">&lt;</span> <span class="dv">3</span>  <span class="co"># logical AND</span>
-<span class="dv">1</span> <span class="op">!=</span> <span class="dv">2</span> <span class="op">or</span> <span class="dv">2</span> <span class="op">&lt;</span> <span class="dv">3</span>   <span class="co"># logical OR</span>
-<span class="op">not</span> <span class="dv">1</span> <span class="op">==</span> <span class="dv">2</span>        <span class="co"># logical NOT</span>
-a <span class="op">in</span> b            <span class="co"># test if a is in b</span>
-a <span class="op">is</span> b            <span class="co"># test if objects point to the same memory (id)</span></code></pre></div>
+<pre class="sourceCode python"><code class="sourceCode python">a = <span class="dv">2</span>             <span class="co"># assignment</span>
+a += <span class="dv">1</span> (*=, /=)   <span class="co"># change and assign</span>
+<span class="dv">3</span> + <span class="dv">2</span>             <span class="co"># addition</span>
+<span class="dv">3</span> / <span class="dv">2</span>             <span class="co"># integer division (python2) or float division (python3)</span>
+<span class="dv">3</span> // <span class="dv">2</span>            <span class="co"># integer division</span>
+<span class="dv">3</span> * <span class="dv">2</span>             <span class="co"># multiplication</span>
+<span class="dv">3</span> ** <span class="dv">2</span>            <span class="co"># exponent</span>
+<span class="dv">3</span> % <span class="dv">2</span>             <span class="co"># remainder</span>
+<span class="dt">abs</span>(a)            <span class="co"># absolute value</span>
+<span class="dv">1</span> == <span class="dv">1</span>            <span class="co"># equal</span>
+<span class="dv">2</span> &gt; <span class="dv">1</span>             <span class="co"># larger</span>
+<span class="dv">2</span> &lt; <span class="dv">1</span>             <span class="co"># smaller</span>
+<span class="dv">1</span> != <span class="dv">2</span>            <span class="co"># not equal</span>
+<span class="dv">1</span> != <span class="dv">2</span> and <span class="dv">2</span> &lt; <span class="dv">3</span>  <span class="co"># logical AND</span>
+<span class="dv">1</span> != <span class="dv">2</span> or <span class="dv">2</span> &lt; <span class="dv">3</span>   <span class="co"># logical OR</span>
+not <span class="dv">1</span> == <span class="dv">2</span>        <span class="co"># logical NOT</span>
+<span class="st">'a'</span> in b          <span class="co"># test if a is in b</span>
+a is b            <span class="co"># test if objects point to the same memory (id)</span></code></pre>
+</div>
+<div class="subgroup">
 <h3 id="control-flow">Control Flow</h3>
-<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="co"># if/elif/else</span>
-a, b <span class="op">=</span> <span class="dv">1</span>, <span class="dv">2</span>
-<span class="cf">if</span> a <span class="op">+</span> b <span class="op">==</span> <span class="dv">3</span>:
-    <span class="bu">print</span> <span class="st">'True'</span>
-<span class="cf">elif</span> a <span class="op">+</span> b <span class="op">==</span> <span class="dv">1</span>:
-    <span class="bu">print</span> <span class="st">'False'</span>
-<span class="cf">else</span>:
-    <span class="bu">print</span> <span class="st">'?'</span>
-    
+<pre class="sourceCode python"><code class="sourceCode python"><span class="co"># if/elif/else</span>
+a, b = <span class="dv">1</span>, <span class="dv">2</span>
+<span class="kw">if</span> a + b == <span class="dv">3</span>:
+    <span class="kw">print</span>(<span class="st">'True'</span>)
+<span class="kw">elif</span> a + b == <span class="dv">1</span>:
+    <span class="kw">print</span>(<span class="st">'False'</span>)
+<span class="kw">else</span>:
+    <span class="kw">print</span>(<span class="st">'?'</span>)
+
 <span class="co"># for</span>
-a <span class="op">=</span> [<span class="st">'red'</span>, <span class="st">'blue'</span>, <span class="st">'green'</span>]
-<span class="cf">for</span> color <span class="op">in</span> a:
-    <span class="bu">print</span> color
-    
+a = [<span class="st">'red'</span>, <span class="st">'blue'</span>, <span class="st">'green'</span>]
+<span class="kw">for</span> color in a:
+    <span class="kw">print</span>(color)
+
 <span class="co"># while</span>
-number <span class="op">=</span> <span class="dv">1</span>
-<span class="cf">while</span> number <span class="op">&lt;</span> <span class="dv">10</span>:
-    <span class="bu">print</span> number
-    number <span class="op">+=</span> <span class="dv">1</span>
+number = <span class="dv">1</span>
+<span class="kw">while</span> number &lt; <span class="dv">10</span>:
+    <span class="kw">print</span>(number)
+    number += <span class="dv">1</span>
 
 <span class="co"># break</span>
-number <span class="op">=</span> <span class="dv">1</span>
-<span class="cf">while</span> <span class="va">True</span>:
-    <span class="bu">print</span> number
-    number <span class="op">+=</span> <span class="dv">1</span>
-    <span class="cf">if</span> number <span class="op">&gt;</span> <span class="dv">10</span>:
-        <span class="cf">break</span>
+number = <span class="dv">1</span>
+<span class="kw">while</span> <span class="ot">True</span>:
+    <span class="kw">print</span>(number)
+    number += <span class="dv">1</span>
+    <span class="kw">if</span> number &gt; <span class="dv">10</span>:
+        <span class="kw">break</span>
 
 <span class="co"># continue</span>
-<span class="cf">for</span> i <span class="op">in</span> <span class="bu">range</span>(<span class="dv">20</span>):
-    <span class="cf">if</span> i <span class="op">%</span> <span class="dv">2</span> <span class="op">==</span> <span class="dv">0</span>:
-        <span class="cf">continue</span>
-    <span class="bu">print</span> i</code></pre></div>
+<span class="kw">for</span> i in <span class="dt">range</span>(<span class="dv">20</span>):
+    <span class="kw">if</span> i % <span class="dv">2</span> == <span class="dv">0</span>:
+        <span class="kw">continue</span>
+    <span class="kw">print</span>(i)</code></pre>
+</div>
+<div class="subgroup">
 <h3 id="functions-classes-generators-decorators">Functions, Classes, Generators, Decorators</h3>
-<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="co"># Function</span>
+<pre class="sourceCode python"><code class="sourceCode python"><span class="co"># Function</span>
 <span class="kw">def</span> myfunc(a1, a2):
-    <span class="cf">return</span> x
+    <span class="kw">return</span> a1 + a2
 
-x <span class="op">=</span> my_function(a1,a2)
+x = myfunc(a1, a2)
 
 <span class="co"># Class</span>
-<span class="kw">class</span> Point(<span class="bu">object</span>):
-    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, x):
-        <span class="va">self</span>.x <span class="op">=</span> x
-    <span class="kw">def</span> <span class="fu">__call__</span>(<span class="va">self</span>):
-        <span class="bu">print</span> <span class="va">self</span>.x
+<span class="kw">class</span> Point(<span class="dt">object</span>):
+    <span class="kw">def</span> <span class="ot">__init__</span>(<span class="ot">self</span>, x):
+        <span class="ot">self</span>.x = x
+    <span class="kw">def</span> <span class="ot">__call__</span>(<span class="ot">self</span>):
+        <span class="kw">print</span>(<span class="ot">self</span>.x)
 
-x <span class="op">=</span> Point(<span class="dv">3</span>)
+x = Point(<span class="dv">3</span>)
 
 <span class="co"># Generators</span>
 <span class="kw">def</span> firstn(n):
-    num <span class="op">=</span> <span class="dv">0</span>
-    <span class="cf">while</span> num <span class="op">&lt;</span> n:
-        <span class="cf">yield</span> num
-        num <span class="op">+=</span> <span class="dv">1</span>
+    num = <span class="dv">0</span>
+    <span class="kw">while</span> num &lt; n:
+        <span class="kw">yield</span> num
+        num += <span class="dv">1</span>
 
-x <span class="op">=</span> [<span class="cf">for</span> i <span class="op">in</span> firstn(<span class="dv">10</span>)]
+<span class="co"># consume the generator with list comprehension</span>
+x = [i <span class="kw">for</span> i in firstn(<span class="dv">10</span>)]
 
 <span class="co"># Decorators</span>
-<span class="kw">class</span> myDecorator(<span class="bu">object</span>):
-    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, f):
-        <span class="va">self</span>.f <span class="op">=</span> f
-    <span class="kw">def</span> <span class="fu">__call__</span>(<span class="va">self</span>):
-        <span class="bu">print</span> <span class="st">"call"</span>
-        <span class="va">self</span>.f()
+<span class="kw">class</span> myDecorator(<span class="dt">object</span>):
+    <span class="kw">def</span> <span class="ot">__init__</span>(<span class="ot">self</span>, f):
+        <span class="ot">self</span>.f = f
+    <span class="kw">def</span> <span class="ot">__call__</span>(<span class="ot">self</span>):
+        <span class="kw">print</span>(<span class="st">"call"</span>)
+        <span class="ot">self</span>.f()
 
-<span class="at">@myDecorator</span>
+<span class="ot">@myDecorator</span>
 <span class="kw">def</span> my_funct():
-    <span class="bu">print</span> <span class="st">'func'</span>
+    <span class="kw">print</span>(<span class="st">'func'</span>)
 
-my_func()</code></pre></div>
+my_funct()</code></pre>
 </div>
+</div>
+
+<h2 id="ipython">IPython</h2>
 <div class="group">
-<h2 id="numpy">NumPy</h2>
+<div class="subgroup">
+<h3 id="python-console">Python console</h3>
+<pre class="sourceCode python"><code class="sourceCode python">&lt;<span class="dt">object</span>&gt;?  <span class="co"># Information about the object</span>
+&lt;<span class="dt">object</span>&gt;.&lt;TAB&gt;  <span class="co"># tab completion</span>
+
+<span class="co"># measure runtime of a function:</span>
+%timeit <span class="dt">range</span>(<span class="dv">1000</span>)
+<span class="dv">100000</span> loops, best of <span class="dv">3</span>: <span class="fl">7.76</span> us per loop
+
+<span class="co"># run scripts and debug</span>
+%run
+%run -d  <span class="co"># run in debug mode</span>
+%run -t  <span class="co"># measures execution time</span>
+%run -p  <span class="co"># runs a profiler</span>
+%debug  <span class="co"># jumps to the debugger after an exception</span>
+
+%pdb  <span class="co"># run debugger automatically on exception</span>
+
+<span class="co"># examine history</span>
+%history
+%history ~<span class="dv">1</span>/<span class="dv">1-5</span>  <span class="co"># lines 1-5 of last session</span>
+
+<span class="co"># run shell commands</span>
+!make  <span class="co"># prefix command with "!"</span>
+
+<span class="co"># clean namespace</span>
+%reset</code></pre>
+</div>
+<div class="subgroup">
+<h3 id="debugger-commands">Debugger commands</h3>
+<pre class="sourceCode python"><code class="sourceCode python">n               <span class="co"># execute next line</span>
+b <span class="dv">42</span>            <span class="co"># set breakpoint in the main file at line 42</span>
+b myfile.py:<span class="dv">42</span>  <span class="co"># set breakpoint in 'myfile.py' at line 42</span>
+c               <span class="co"># continue execution</span>
+l               <span class="co"># show current position in the code</span>
+p data          <span class="co"># print the 'data' variable</span>
+pp data         <span class="co"># pretty print the 'data' variable</span>
+s               <span class="co"># step into subroutine</span>
+a               <span class="co"># print arguments that a function received</span>
+pp <span class="dt">locals</span>()     <span class="co"># show all variables in local scope</span>
+pp <span class="dt">globals</span>()    <span class="co"># show all variables in global scope</span></code></pre>
+</div>
+</div>
+
+<h2 id="numpy-import-numpy-as-np">NumPy (<code>import numpy as np</code>)</h2>
+<div class="group">
+<div class="subgroup">
 <h3 id="array-initialization">array initialization</h3>
-<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">np.array([<span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>])             <span class="co"># direct initialization</span>
-np.empty(<span class="dv">20</span>, dtype<span class="op">=</span>np.float32)  <span class="co"># single precision array with 20 entries</span>
+<pre class="sourceCode python"><code class="sourceCode python">np.array([<span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>])             <span class="co"># direct initialization</span>
+np.empty(<span class="dv">20</span>, dtype=np.float32)  <span class="co"># single precision array with 20 entries</span>
 np.zeros(<span class="dv">200</span>)                   <span class="co"># initialize 200 zeros</span>
-np.ones((<span class="dv">3</span>,<span class="dv">3</span>), dtype<span class="op">=</span>np.int32)  <span class="co"># 3 x 3 integer matrix with ones</span>
+np.ones((<span class="dv">3</span>,<span class="dv">3</span>), dtype=np.int32)  <span class="co"># 3 x 3 integer matrix with ones</span>
 np.eye(<span class="dv">200</span>)                     <span class="co"># ones on the diagonal</span>
 np.zeros_like(a)                <span class="co"># returns array with zeros and the shape of a</span>
 np.linspace(<span class="dv">0</span>., <span class="dv">10</span>., <span class="dv">100</span>)       <span class="co"># 100 points from 0 to 10</span>
 np.arange(<span class="dv">0</span>, <span class="dv">100</span>, <span class="dv">2</span>)            <span class="co"># points from 0 to &lt;100 with step width 2</span>
-np.logspace(<span class="op">-</span><span class="dv">5</span>, <span class="dv">2</span>, <span class="dv">100</span>)         <span class="co"># 100 log-spaced points between 1e-5 and 1e2</span>
-np.copy(a)                      <span class="co"># copy array to new memory</span></code></pre></div>
+np.logspace(-<span class="dv">5</span>, <span class="dv">2</span>, <span class="dv">100</span>)         <span class="co"># 100 log-spaced points between 1e-5 and 1e2</span>
+np.copy(a)                      <span class="co"># copy array to new memory</span></code></pre>
+</div>
+<div class="subgroup">
 <h3 id="reading-writing-files">reading/ writing files</h3>
-<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">np.fromfile(fname<span class="op">/</span><span class="bu">object</span>, dtype<span class="op">=</span>np.float32, count<span class="op">=</span><span class="dv">5</span>)  <span class="co"># read binary data from file</span>
-np.loadtxt(fname<span class="op">/</span><span class="bu">object</span>, skiprows<span class="op">=</span><span class="dv">2</span>, delimiter<span class="op">=</span><span class="st">','</span>)   <span class="co"># read ascii data from file</span></code></pre></div>
+<pre class="sourceCode python"><code class="sourceCode python">np.fromfile(fname/<span class="dt">object</span>, dtype=np.float32, count=<span class="dv">5</span>)  <span class="co"># read binary data from file</span>
+np.loadtxt(fname/<span class="dt">object</span>, skiprows=<span class="dv">2</span>, delimiter=<span class="st">','</span>)   <span class="co"># read ascii data from file</span></code></pre>
+</div>
+<div class="subgroup">
+<h3 id="indexing">indexing</h3>
+<pre class="sourceCode python"><code class="sourceCode python">a = np.arange(<span class="dv">100</span>)          <span class="co"># initialization with 0 - 99</span>
+a[:<span class="dv">3</span>] = <span class="dv">0</span>                   <span class="co"># set the first three indices to zero</span>
+a[<span class="dv">2</span>:<span class="dv">5</span>] = <span class="dv">1</span>                  <span class="co"># set indices 2-4 to 1</span>
+a[start:stop:step]          <span class="co"># general form of indexing/slicing</span>
+a[<span class="ot">None</span>, :]                  <span class="co"># transform to column vector</span>
+a[[<span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">8</span>]]             <span class="co"># return array with values of the indices</span>
+a = a.reshape(<span class="dv">10</span>, <span class="dv">10</span>)       <span class="co"># transform to 10 x 10 matrix</span>
+a.T                         <span class="co"># return transposed view</span>
+b = np.transpose(a, (<span class="dv">1</span>, <span class="dv">0</span>)) <span class="co"># transpose array to new axis order</span>
+a[a &lt; <span class="dv">2</span>]                    <span class="co"># returns array that fulfills elementwise condition</span></code></pre>
+</div>
+<div class="subgroup">
 <h3 id="array-properties-and-operations">array properties and operations</h3>
-<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">a.shape                <span class="co"># a tuple with the lengths of each axis</span>
-<span class="bu">len</span>(a)                 <span class="co"># length of axis 0</span>
+<pre class="sourceCode python"><code class="sourceCode python">a.shape                <span class="co"># a tuple with the lengths of each axis</span>
+<span class="dt">len</span>(a)                 <span class="co"># length of axis 0</span>
 a.ndim                 <span class="co"># number of dimensions (axes)</span>
-a.sort(axis<span class="op">=</span><span class="dv">1</span>)         <span class="co"># sort array along axis</span>
+a.sort(axis=<span class="dv">1</span>)         <span class="co"># sort array along axis</span>
 a.flatten()            <span class="co"># collapse array to one dimension</span>
 a.conj()               <span class="co"># return complex conjugate</span>
 a.astype(np.int16)     <span class="co"># cast to integer</span>
-np.argmax(a, axis<span class="op">=</span><span class="dv">2</span>)   <span class="co"># return index of maximum along a given axis</span>
+np.argmax(a, axis=<span class="dv">1</span>)   <span class="co"># return index of maximum along a given axis</span>
 np.cumsum(a)           <span class="co"># return cumulative sum</span>
-np.<span class="bu">any</span>(a)              <span class="co"># True if any element is True</span>
-np.<span class="bu">all</span>(a)              <span class="co"># True if all elements are True</span>
-np.argsort(a, axis<span class="op">=</span><span class="dv">1</span>)  <span class="co"># return sorted index array along axis</span></code></pre></div>
-<h3 id="indexing">indexing</h3>
-<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">a <span class="op">=</span> np.arange(<span class="dv">100</span>)          <span class="co"># initialization with 0 - 99</span>
-a[: <span class="dv">3</span>] <span class="op">=</span> <span class="dv">0</span>                  <span class="co"># set the first three indices to zero</span>
-a[<span class="dv">1</span>: <span class="dv">5</span>] <span class="op">=</span> <span class="dv">1</span>                 <span class="co"># set indices 1-4 to 1</span>
-a[start:stop:step]          <span class="co"># general form of indexing/slicing</span>
-a[<span class="va">None</span>, :]                  <span class="co"># transform to column vector</span>
-a[[<span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">8</span>]]             <span class="co"># return array with values of the indices</span>
-a <span class="op">=</span> a.reshape(<span class="dv">10</span>, <span class="dv">10</span>)       <span class="co"># transform to 10 x 10 matrix</span>
-a.T                         <span class="co"># return transposed view</span>
-np.transpose(a, (<span class="dv">2</span>, <span class="dv">1</span>, <span class="dv">0</span>))  <span class="co"># transpose array to new axis order</span>
-a[a <span class="op">&lt;</span> <span class="dv">2</span>]                    <span class="co"># returns array that fulfills elementwise condition</span></code></pre></div>
+np.<span class="dt">any</span>(a)              <span class="co"># True if any element is True</span>
+np.<span class="dt">all</span>(a)              <span class="co"># True if all elements are True</span>
+np.argsort(a, axis=<span class="dv">1</span>)  <span class="co"># return sorted index array along axis</span></code></pre>
+</div>
+<div class="subgroup">
 <h3 id="boolean-arrays">boolean arrays</h3>
-<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">a <span class="op">&lt;</span> <span class="dv">2</span>                          <span class="co"># returns array with boolean values</span>
-np.logical_and(a <span class="op">&lt;</span> <span class="dv">2</span>, b <span class="op">&gt;</span> <span class="dv">10</span>)  <span class="co"># elementwise logical and</span>
-np.logical_or(a <span class="op">&lt;</span> <span class="dv">2</span>, b <span class="op">&gt;</span> <span class="dv">10</span>)   <span class="co"># elementwise logical or</span>
-<span class="op">~</span>a                             <span class="co"># invert boolean array</span>
-np.invert(a)                   <span class="co"># invert boolean array</span></code></pre></div>
+<pre class="sourceCode python"><code class="sourceCode python">a &lt; <span class="dv">2</span>                         <span class="co"># returns array with boolean values</span>
+(a &lt; <span class="dv">2</span>) &amp; (b &gt; <span class="dv">10</span>)            <span class="co"># elementwise logical and</span>
+(a &lt; <span class="dv">2</span>) | (b &gt; <span class="dv">10</span>)            <span class="co"># elementwise logical or</span>
+~a                            <span class="co"># invert boolean array</span></code></pre>
+</div>
+<div class="subgroup">
 <h3 id="elementwise-operations-and-math-functions">elementwise operations and math functions</h3>
-<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">a <span class="op">*</span> <span class="dv">5</span>              <span class="co"># multiplication with scalar</span>
-a <span class="op">+</span> <span class="dv">5</span>              <span class="co"># addition with scalar</span>
-a <span class="op">+</span> b              <span class="co"># addition with array b</span>
-a <span class="op">/</span> b              <span class="co"># division with b (np.NaN for division by zero)</span>
+<pre class="sourceCode python"><code class="sourceCode python">a * <span class="dv">5</span>              <span class="co"># multiplication with scalar</span>
+a + <span class="dv">5</span>              <span class="co"># addition with scalar</span>
+a + b              <span class="co"># addition with array b</span>
+a / b              <span class="co"># division with b (np.NaN for division by zero)</span>
 np.exp(a)          <span class="co"># exponential (complex and real)</span>
+np.power(a, b)     <span class="co"># a to the power b</span>
 np.sin(a)          <span class="co"># sine</span>
 np.cos(a)          <span class="co"># cosine</span>
-np.arctan2(y,x)    <span class="co"># arctan(y/x)</span>
-np.arcsin(x)       <span class="co"># arcsin</span>
+np.arctan2(a, b)   <span class="co"># arctan(a/b)</span>
+np.arcsin(a)       <span class="co"># arcsin</span>
 np.radians(a)      <span class="co"># degrees to radians</span>
 np.degrees(a)      <span class="co"># radians to degrees</span>
 np.var(a)          <span class="co"># variance of array</span>
-np.std(a, axis<span class="op">=</span><span class="dv">1</span>)  <span class="co"># standard deviation</span></code></pre></div>
+np.std(a, axis=<span class="dv">1</span>)  <span class="co"># standard deviation</span></code></pre>
+</div>
+<div class="subgroup">
 <h3 id="inner-outer-products">inner / outer products</h3>
-<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">np.dot(a, b)                        <span class="co"># inner matrix product: a_mi b_in</span>
-np.einsum(<span class="st">'ijkl,klmn-&gt;ijmn'</span>, a, b)  <span class="co"># einstein summation convention</span>
-np.<span class="bu">sum</span>(a, axis<span class="op">=</span><span class="dv">1</span>)                   <span class="co"># sum over axis 1</span>
-np.<span class="bu">abs</span>(a)                           <span class="co"># return array with absolute values</span>
-a[<span class="va">None</span>, :] <span class="op">+</span> b[:, <span class="va">None</span>]             <span class="co"># outer sum</span>
-a[<span class="va">None</span>, :] <span class="op">*</span> b[<span class="va">None</span>, :]             <span class="co"># outer product</span>
+<pre class="sourceCode python"><code class="sourceCode python">np.dot(a, b)                        <span class="co"># inner matrix product: a_mi b_in</span>
+np.einsum(<span class="st">'ij,kj-&gt;ik'</span>, a, b)        <span class="co"># einstein summation convention</span>
+np.<span class="dt">sum</span>(a, axis=<span class="dv">1</span>)                   <span class="co"># sum over axis 1</span>
+np.<span class="dt">abs</span>(a)                           <span class="co"># return array with absolute values</span>
+a[<span class="ot">None</span>, :] + b[:, <span class="ot">None</span>]             <span class="co"># outer sum</span>
+a[<span class="ot">None</span>, :] * b[:, <span class="ot">None</span>]             <span class="co"># outer product</span>
 np.outer(a, b)                      <span class="co"># outer product</span>
-np.<span class="bu">sum</span>(a <span class="op">*</span> a.T)                     <span class="co"># matrix norm</span></code></pre></div>
+np.<span class="dt">sum</span>(a * a.T)                     <span class="co"># matrix norm</span></code></pre>
+</div>
+<div class="subgroup">
 <h3 id="interpolation-integration">interpolation, integration</h3>
-<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">np.trapz(y, x<span class="op">=</span>x, axis<span class="op">=</span><span class="dv">1</span>)  <span class="co"># integrate along axis 1</span>
-np.interp(x, xp, yp)      <span class="co"># interpolate function xp, yp at points x</span></code></pre></div>
+<pre class="sourceCode python"><code class="sourceCode python">np.trapz(a, x=x, axis=<span class="dv">1</span>)  <span class="co"># integrate along axis 1</span>
+np.interp(x, xp, yp)      <span class="co"># interpolate function xp, yp at points x</span></code></pre>
+</div>
+<div class="subgroup">
 <h3 id="fft">fft</h3>
-<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">np.fft.fft(y)             <span class="co"># complex fourier transform of y</span>
-np.fft.fftfreqs(<span class="bu">len</span>(y))   <span class="co"># fft frequencies for a given length</span>
-np.fft.fftshift(freqs)    <span class="co"># shifts zero frequency to the middle</span>
-np.fft.rfft(y)            <span class="co"># real fourier transform of y</span>
-np.fft.rfftfreqs(<span class="bu">len</span>(y))  <span class="co"># real fft frequencies for a given length</span></code></pre></div>
+<pre class="sourceCode python"><code class="sourceCode python">np.fft.fft(a)                <span class="co"># complex fourier transform of a</span>
+f = np.fft.fftfreq(<span class="dt">len</span>(a))   <span class="co"># fft frequencies for a given length</span>
+np.fft.fftshift(f)           <span class="co"># shifts zero frequency to the middle</span>
+np.fft.rfft(a)               <span class="co"># real fourier transform of a</span>
+np.fft.rfftfreq(<span class="dt">len</span>(a))      <span class="co"># real fft frequencies for a given length</span></code></pre>
+</div>
+<div class="subgroup">
 <h3 id="rounding">rounding</h3>
-<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">np.ceil(a)   <span class="co"># rounds to nearest upper int</span>
+<pre class="sourceCode python"><code class="sourceCode python">np.ceil(a)   <span class="co"># rounds to nearest upper int</span>
 np.floor(a)  <span class="co"># rounds to nearest lower int</span>
-np.<span class="bu">round</span>(a)  <span class="co"># rounds to neares int</span></code></pre></div>
+np.<span class="dt">round</span>(a)  <span class="co"># rounds to neares int</span></code></pre>
+</div>
+<div class="subgroup">
 <h3 id="random-variables">random variables</h3>
-<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">np.random.normal(loc<span class="op">=</span><span class="dv">0</span>, scale<span class="op">=</span><span class="dv">2</span>, size<span class="op">=</span><span class="dv">100</span>)  <span class="co"># 100 normal distributed random numbers</span>
+<pre class="sourceCode python"><code class="sourceCode python">np.random.normal(loc=<span class="dv">0</span>, scale=<span class="dv">2</span>, size=<span class="dv">100</span>)  <span class="co"># 100 normal distributed random numbers</span>
 np.random.seed(<span class="dv">23032</span>)                       <span class="co"># resets the seed value</span>
 np.random.rand(<span class="dv">200</span>)                         <span class="co"># 200 random numbers in [0, 1)</span>
 np.random.uniform(<span class="dv">1</span>, <span class="dv">30</span>, <span class="dv">200</span>)               <span class="co"># 200 random numbers in [1, 30)</span>
-np.random.random_integers(<span class="dv">1</span>, <span class="dv">15</span>, <span class="dv">300</span>)       <span class="co"># 300 random integers between [1, 15]</span></code></pre></div>
+np.random.randint(<span class="dv">1</span>, <span class="dv">16</span>, <span class="dv">300</span>)               <span class="co"># 300 random integers between [1, 16)</span></code></pre>
 </div>
+</div>
+
+<h2 id="matplotlib-import-matplotlib.pyplot-as-plt">Matplotlib (<code>import matplotlib.pyplot as plt</code>)</h2>
 <div class="group">
-<h2 id="matplotlib">Matplotlib</h2>
+<div class="subgroup">
 <h3 id="figures-and-axes">figures and axes</h3>
-<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">fig <span class="op">=</span> plt.figure(figsize<span class="op">=</span>(<span class="dv">5</span>, <span class="dv">2</span>), facecolor<span class="op">=</span><span class="st">'black'</span>)  <span class="co"># initialize figure</span>
-ax <span class="op">=</span> fig.add_subplot(<span class="dv">3</span>, <span class="dv">2</span>, <span class="dv">2</span>)                        <span class="co"># add second subplot in a 3 x 2 grid</span>
-fig, axes <span class="op">=</span> plt.subplots(<span class="dv">5</span>, <span class="dv">2</span>, figsize<span class="op">=</span>(<span class="dv">5</span>, <span class="dv">5</span>))       <span class="co"># return fig and array of axes in a 5 x 2 grid</span>
-ax <span class="op">=</span> fig.add_axes([left, bottom, width, height])     <span class="co"># manually add axes at a certain position</span></code></pre></div>
+<pre class="sourceCode python"><code class="sourceCode python">fig = plt.figure(figsize=(<span class="dv">5</span>, <span class="dv">2</span>), facecolor=<span class="st">'black'</span>)  <span class="co"># initialize figure</span>
+ax = fig.add_subplot(<span class="dv">3</span>, <span class="dv">2</span>, <span class="dv">2</span>)                        <span class="co"># add second subplot in a 3 x 2 grid</span>
+fig, axes = plt.subplots(<span class="dv">5</span>, <span class="dv">2</span>, figsize=(<span class="dv">5</span>, <span class="dv">5</span>))       <span class="co"># return fig and array of axes in a 5 x 2 grid</span>
+ax = fig.add_axes([left, bottom, width, height])     <span class="co"># manually add axes at a certain position</span></code></pre>
+</div>
+<div class="subgroup">
 <h3 id="figures-and-axes-properties">figures and axes properties</h3>
-<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">fig.suptitle(<span class="st">'title'</span>)            <span class="co"># big figure title</span>
-fig.subplots_adjust(bottom<span class="op">=</span><span class="fl">0.1</span>, right<span class="op">=</span><span class="fl">0.8</span>, top<span class="op">=</span><span class="fl">0.9</span>, wspace<span class="op">=</span><span class="fl">0.2</span>,
-                    hspace<span class="op">=</span><span class="fl">0.5</span>)  <span class="co"># adjust subplot positions</span>
-fig.tight_layout(pad<span class="op">=</span><span class="fl">0.1</span>,h_pad<span class="op">=</span><span class="fl">0.5</span>, w_pad<span class="op">=</span><span class="fl">0.5</span>, rect<span class="op">=</span><span class="va">None</span>) <span class="co"># adjust</span>
-subplots to fit perfectly into fig
-ax.set_xlabel()                  <span class="co"># set xlabel</span>
-ax.set_ylabel()                  <span class="co"># set ylabel</span>
+<pre class="sourceCode python"><code class="sourceCode python">fig.suptitle(<span class="st">'title'</span>)            <span class="co"># big figure title</span>
+fig.subplots_adjust(bottom=<span class="fl">0.1</span>, right=<span class="fl">0.8</span>, top=<span class="fl">0.9</span>, wspace=<span class="fl">0.2</span>,
+                    hspace=<span class="fl">0.5</span>)  <span class="co"># adjust subplot positions</span>
+fig.tight_layout(pad=<span class="fl">0.1</span>, h_pad=<span class="fl">0.5</span>, w_pad=<span class="fl">0.5</span>,
+                 rect=<span class="ot">None</span>)      <span class="co"># adjust subplots to fit perfectly into fig</span>
+ax.set_xlabel(<span class="st">'xbla'</span>)            <span class="co"># set xlabel</span>
+ax.set_ylabel(<span class="st">'ybla'</span>)            <span class="co"># set ylabel</span>
 ax.set_xlim(<span class="dv">1</span>, <span class="dv">2</span>)                <span class="co"># sets x limits</span>
 ax.set_ylim(<span class="dv">3</span>, <span class="dv">4</span>)                <span class="co"># sets y limits</span>
 ax.set_title(<span class="st">'blabla'</span>)           <span class="co"># sets the axis title</span>
-ax.<span class="bu">set</span>(xlabel<span class="op">=</span><span class="st">'bla'</span>)             <span class="co"># set multiple parameters at once</span>
-ax.legend(loc<span class="op">=</span><span class="st">'upper center'</span>)    <span class="co"># activate legend</span>
-ax.grid(<span class="va">True</span>, which<span class="op">=</span><span class="st">'both'</span>)      <span class="co"># activate grid</span>
-bbox <span class="op">=</span> ax.get_position()         <span class="co"># returns the axes bounding box</span>
-bbox.x0 <span class="op">+</span> bbox.width             <span class="co"># bounding box parameters</span></code></pre></div>
-<h3 id="plotting-routines">plotting routines</h3>
-<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">ax.plot(x,y, <span class="st">'-o'</span>, c<span class="op">=</span><span class="st">'red'</span>, lw<span class="op">=</span><span class="dv">2</span>, label<span class="op">=</span><span class="st">'bla'</span>)  <span class="co"># plots a line</span>
-ax.scatter(x,y, s<span class="op">=</span><span class="dv">20</span>, c<span class="op">=</span>color)                  <span class="co"># scatter plot</span>
-ax.pcolormesh(xx,yy,zz, shading<span class="op">=</span><span class="st">'gouraud'</span>)      <span class="co"># fast colormesh function</span>
-ax.colormesh(xx,yy,zz, norm<span class="op">=</span>norm)               <span class="co"># slower colormesh function</span>
-ax.contour(xx,yy,zz, cmap<span class="op">=</span><span class="st">'jet'</span>)                <span class="co"># contour line plot</span>
-ax.contourf(xx,yy,zz, vmin<span class="op">=</span><span class="dv">2</span>, vmax<span class="op">=</span><span class="dv">4</span>)           <span class="co"># filled contours plot</span>
-n, bins, patch <span class="op">=</span> ax.hist(x, <span class="dv">50</span>)                 <span class="co"># histogram</span>
-ax.imshow(matrix, origin<span class="op">=</span><span class="st">'lower'</span>, extent<span class="op">=</span>(x1, x2, y1, y2))  <span class="co"># show image</span>
-ax.specgram(y, FS<span class="op">=</span><span class="fl">0.1</span>, noverlap<span class="op">=</span><span class="dv">128</span>, scale<span class="op">=</span><span class="st">'linear'</span>)  <span class="co"># plot a spectrogram</span></code></pre></div>
-
+ax.<span class="dt">set</span>(xlabel=<span class="st">'bla'</span>)             <span class="co"># set multiple parameters at once</span>
+ax.legend(loc=<span class="st">'upper center'</span>)    <span class="co"># activate legend</span>
+ax.grid(<span class="ot">True</span>, which=<span class="st">'both'</span>)      <span class="co"># activate grid</span>
+bbox = ax.get_position()         <span class="co"># returns the axes bounding box</span>
+bbox.x0 + bbox.width             <span class="co"># bounding box parameters</span></code></pre>
 </div>
+<div class="subgroup">
+<h3 id="plotting-routines">plotting routines</h3>
+<pre class="sourceCode python"><code class="sourceCode python">ax.plot(x,y, <span class="st">'-o'</span>, c=<span class="st">'red'</span>, lw=<span class="dv">2</span>, label=<span class="st">'bla'</span>)  <span class="co"># plots a line</span>
+ax.scatter(x,y, s=<span class="dv">20</span>, c=color)                  <span class="co"># scatter plot</span>
+ax.pcolormesh(xx, yy, zz, shading=<span class="st">'gouraud'</span>)    <span class="co"># fast colormesh function</span>
+ax.colormesh(xx, yy, zz, norm=norm)             <span class="co"># slower colormesh function</span>
+ax.contour(xx, yy, zz, cmap=<span class="st">'jet'</span>)              <span class="co"># contour line plot</span>
+ax.contourf(xx, yy, zz, vmin=<span class="dv">2</span>, vmax=<span class="dv">4</span>)         <span class="co"># filled contours plot</span>
+n, bins, patch = ax.hist(x, <span class="dv">50</span>)                 <span class="co"># histogram</span>
+ax.imshow(matrix, origin=<span class="st">'lower'</span>,
+          extent=(x1, x2, y1, y2))              <span class="co"># show image</span>
+ax.specgram(y, FS=<span class="fl">0.1</span>, noverlap=<span class="dv">128</span>, scale=<span class="st">'linear'</span>)  <span class="co"># plot a spectrogram</span></code></pre>
+
+</div></div>
 
       <footer class="site-footer">
         <span class="site-footer-owner"><a href="https://github.com/IPGP/scientific_python_cheat_sheet">Scientific python cheat sheet</a> is maintained by <a href="https://github.com/IPGP">IPGP</a>.</span>
@@ -346,5 +446,16 @@ ax.specgram(y, FS<span class="op">=</span><span class="fl">0.1</span>, noverlap<
 
     </section>
   </body>
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-48685483-3', 'auto');
+  ga('send', 'pageview');
+
+</script>
 </html>
+
 
