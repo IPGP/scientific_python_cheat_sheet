@@ -380,9 +380,10 @@ np.savetxt(fname/fobject, array, fmt=<span class="st">'</span><span class="ot">%
 np.tofile(fname/fobject)                               <span class="co"># write binary data (C-order)</span></code></pre>
 </div>
 <div class="subgroup">
-<h3 id="interpolation-integration">interpolation, integration</h3>
+<h3 id="interpolation-integration-optimization">interpolation, integration, optimization</h3>
 <pre class="sourceCode python"><code class="sourceCode python">np.trapz(a, x=x, axis=<span class="dv">1</span>)  <span class="co"># integrate along axis 1</span>
-np.interp(x, xp, yp)      <span class="co"># interpolate function xp, yp at points x</span></code></pre>
+np.interp(x, xp, yp)      <span class="co"># interpolate function xp, yp at points x</span>
+np.linalg.lstsq(a, b)     <span class="co"># solve a x = b in least square sense</span></code></pre>
 </div>
 <div class="subgroup">
 <h3 id="fft">fft</h3>
