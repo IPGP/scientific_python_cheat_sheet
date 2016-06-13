@@ -34,6 +34,7 @@ Scientific Python Cheatsheet
     - [Scipy](#scipy)
         - [interpolation](#interpolation)
         - [integration](#integration)
+    - [Pandas](#Pandas) 
 
 <!-- markdown-toc end -->
 
