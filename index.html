@@ -305,13 +305,6 @@ np.logspace(-<span class="dv">5</span>, <span class="dv">2</span>, <span class="
 np.copy(a)                      <span class="co"># copy array to new memory</span></code></pre>
 </div>
 <div class="subgroup">
-<h3 id="reading-writing-files">reading/ writing files</h3>
-<pre class="sourceCode python"><code class="sourceCode python">np.fromfile(fname/fobject, dtype=np.float32, count=<span class="dv">5</span>)  <span class="co"># read binary data from file</span>
-np.loadtxt(fname/fobject, skiprows=<span class="dv">2</span>, delimiter=<span class="st">','</span>)   <span class="co"># read ascii data from file</span>
-np.savetxt(fname/fobject, array, fmt=<span class="st">'</span><span class="ot">%.5f</span><span class="st">'</span>)           <span class="co"># write ascii data</span>
-np.tofile(fname/fobject)                               <span class="co"># write binary data (C-order)</span></code></pre>
-</div>
-<div class="subgroup">
 <h3 id="indexing">indexing</h3>
 <pre class="sourceCode python"><code class="sourceCode python">a = np.arange(<span class="dv">100</span>)          <span class="co"># initialization with 0 - 99</span>
 a[:<span class="dv">3</span>] = <span class="dv">0</span>                   <span class="co"># set the first three indices to zero</span>
@@ -373,6 +366,13 @@ a[<span class="ot">None</span>, :] + b[:, <span class="ot">None</span>]         
 a[<span class="ot">None</span>, :] * b[:, <span class="ot">None</span>]             <span class="co"># outer product</span>
 np.outer(a, b)                      <span class="co"># outer product</span>
 np.<span class="dt">sum</span>(a * a.T)                     <span class="co"># matrix norm</span></code></pre>
+</div>
+<div class="subgroup">
+<h3 id="reading-writing-files">reading/ writing files</h3>
+<pre class="sourceCode python"><code class="sourceCode python">np.fromfile(fname/fobject, dtype=np.float32, count=<span class="dv">5</span>)  <span class="co"># read binary data from file</span>
+np.loadtxt(fname/fobject, skiprows=<span class="dv">2</span>, delimiter=<span class="st">','</span>)   <span class="co"># read ascii data from file</span>
+np.savetxt(fname/fobject, array, fmt=<span class="st">'</span><span class="ot">%.5f</span><span class="st">'</span>)           <span class="co"># write ascii data</span>
+np.tofile(fname/fobject)                               <span class="co"># write binary data (C-order)</span></code></pre>
 </div>
 <div class="subgroup">
 <h3 id="interpolation-integration">interpolation, integration</h3>
