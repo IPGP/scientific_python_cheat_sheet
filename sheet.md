@@ -23,7 +23,7 @@ Scientific Python Cheatsheet
         - [elementwise operations and math functions](#elementwise-operations-and-math-functions)
         - [inner / outer products](#inner--outer-products)
         - [reading/ writing files](#reading-writing-files)
-        - [interpolation, integration](#interpolation-integration)
+        - [interpolation, integration, optimization](#interpolation-integration-optimization)
         - [fft](#fft)
         - [rounding](#rounding)
         - [random variables](#random-variables)
