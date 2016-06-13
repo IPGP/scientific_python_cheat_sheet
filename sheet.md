@@ -336,11 +336,12 @@ np.savetxt(fname/fobject, array, fmt='%.5f')           # write ascii data
 np.tofile(fname/fobject)                               # write binary data (C-order)
 ```
 
-### interpolation, integration
+### interpolation, integration, optimization
 
 ```python
 np.trapz(a, x=x, axis=1)  # integrate along axis 1
 np.interp(x, xp, yp)      # interpolate function xp, yp at points x
+np.linalg.lstsq(a, b)     # solve a x = b in least square sense
 ```
 
 ### fft
