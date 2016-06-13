@@ -151,13 +151,15 @@ for i in range(20):
 ### Functions, Classes, Generators, Decorators
 
 ```python
-# Function
+# Function groups code statements and possibly
+# returns a derived value
 def myfunc(a1, a2):
     return a1 + a2
 
 x = myfunc(a1, a2)
 
-# Class
+# Class groups attributes (data)
+# and associated methods (functions)
 class Point(object):
     def __init__(self, x):
         self.x = x
@@ -166,17 +168,18 @@ class Point(object):
 
 x = Point(3)
 
-# Generators
+# Generator iterates without
+# creating all values at ones
 def firstn(n):
     num = 0
     while num < n:
         yield num
         num += 1
 
-# consume the generator with list comprehension
 x = [i for i in firstn(10)]
 
-# Decorators
+# Decorator can be used to modify
+# the behaviour of a function
 class myDecorator(object):
     def __init__(self, f):
         self.f = f
