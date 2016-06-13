@@ -431,3 +431,13 @@ pts_new = map_coordinates(data, float_indices,  # array at index coordinate
 from scipy.integrate import quad
 value = quad(func, low_lim, up_lim)  # definite integral of python function
 ```
+
+## Pandas
+
+ ```python
+import pandas as pd                        # import pandas
+df = pd.read_csv("filename.csv")           # read and load CSV file in a DataFrame
+print(df[:2])                              # print first 2 lines of the DataFrame
+raw = df.values                            # get raw data out of DataFrame object
+cols = df.columns                          # get list of columns headers
+```
