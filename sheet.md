@@ -251,15 +251,6 @@ np.logspace(-5, 2, 100)         # 100 log-spaced points between 1e-5 and 1e2
 np.copy(a)                      # copy array to new memory
 ```
 
-### reading/ writing files
-
-```python
-np.fromfile(fname/fobject, dtype=np.float32, count=5)  # read binary data from file
-np.loadtxt(fname/fobject, skiprows=2, delimiter=',')   # read ascii data from file
-np.savetxt(fname/fobject, array, fmt='%.5f')           # write ascii data
-np.tofile(fname/fobject)                               # write binary data (C-order)
-```
-
 ### indexing
 
 ```python
@@ -331,6 +322,15 @@ a[None, :] + b[:, None]             # outer sum
 a[None, :] * b[:, None]             # outer product
 np.outer(a, b)                      # outer product
 np.sum(a * a.T)                     # matrix norm
+```
+
+### reading/ writing files
+
+```python
+np.fromfile(fname/fobject, dtype=np.float32, count=5)  # read binary data from file
+np.loadtxt(fname/fobject, skiprows=2, delimiter=',')   # read ascii data from file
+np.savetxt(fname/fobject, array, fmt='%.5f')           # write ascii data
+np.tofile(fname/fobject)                               # write binary data (C-order)
 ```
 
 ### interpolation, integration
