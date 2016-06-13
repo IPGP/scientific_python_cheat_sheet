@@ -99,7 +99,10 @@ code > span.in { color: #808080; font-weight: bold; font-style: italic; } /* Inf
 <li><a href="#interpolation">interpolation</a></li>
 <li><a href="#integration">integration</a></li>
 </ul></li>
-<li><a href="#Pandas">Pandas</a></li>
+<li><a href="#Pandas">Pandas</a>
+<ul>
+<li><a href="#Data%20Structures">data structures</a></li>
+</ul></li>
 </ul></li>
 </ul>
 </div>
@@ -464,7 +467,17 @@ value = quad(func, low_lim, up_lim)  <span class="co"># definite integral of pyt
 
 <h2 id="pandas">Pandas</h2>
 <div class="group">
-<p><code>python import pandas as pd                        # import pandas df = pd.read_csv("filename.csv")           # read and load CSV file in a DataFrame print(df[:2])                              # print first 2 lines of the DataFrame raw = df.values                            # get raw data out of DataFrame object cols = df.columns                          # get list of columns headers</code></p>
+<div class="subgroup">
+<h3 id="data-structures">Data structures</h3>
+<pre class="sourceCode python"><code class="sourceCode python"><span class="ch">import</span> pandas <span class="ch">as</span> pd                                     <span class="co"># import pandas</span>
+s = pd.Series(np.random.rand(<span class="dv">1000</span>), index=<span class="dt">range</span>(<span class="dv">1000</span>))  <span class="co"># series</span>
+index = pd.date_range(<span class="st">"13/06/2016"</span>, periods=<span class="dv">1000</span>)       <span class="co"># time index</span>
+df = pd.DataFrame(np.zeros(<span class="dv">1000</span>, <span class="dv">3</span>), index=index,
+                    columns=[<span class="st">"A"</span>, <span class="st">"B"</span>, <span class="st">"C"</span>])            <span class="co"># DataFrame</span></code></pre>
+</div>
+<div class="subgroup">
+<h3 id="dataframe">DataFrame</h3>
+<p><code>python df = pd.read_csv("filename.csv")           # read and load CSV file in a DataFrame print(df[:2])                              # print first 2 lines of the DataFrame raw = df.values                            # get raw data out of DataFrame object cols = df.columns                          # get list of columns headers</code></p>
 
 </div></div>
 
