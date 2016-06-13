@@ -8,10 +8,12 @@ Click [here for the github markdown version](sheet.md) or [here for a web site l
 
 ## Printing
 Printing is a bit complicated so far if you want to have the same layout as on the webpage but possible: You can save the CSS layout as an image in firefox: 
+
 1. use `shift + f2` to open the web console. 
 2. Arange the page as you want to print it. We found that two columns is suitable for printing on A3 pages. You can either resize your browser or use the built-in zoom function for this (e.g. strg + mouswheel on firefox). More columns become quickly too small
 3. The command `screenshot out.png --fullpage` saves the current complete view of the page to the download folder.
 4. Print the long image on several sheets or you cut it in the pieces you want with the image software of your choice (e.g. gimp or inkscape). 
+
 Hopefully this will be simpler in the future !
 
 ## Contributing
