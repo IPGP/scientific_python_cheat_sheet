@@ -478,7 +478,7 @@ value = quad(func, low_lim, up_lim)  <span class="co"># function/method</span></
 <h3 id="data-structures">Data structures</h3>
 <pre class="sourceCode python"><code class="sourceCode python">s = pd.Series(np.random.rand(<span class="dv">1000</span>), index=<span class="dt">range</span>(<span class="dv">1000</span>))  <span class="co"># series</span>
 index = pd.date_range(<span class="st">"13/06/2016"</span>, periods=<span class="dv">1000</span>)       <span class="co"># time index</span>
-df = pd.DataFrame(np.zeros(<span class="dv">1000</span>, <span class="dv">3</span>), index=index,
+df = pd.DataFrame(np.zeros([<span class="dv">1000</span>, <span class="dv">3</span>]), index=index,
                     columns=[<span class="st">"A"</span>, <span class="st">"B"</span>, <span class="st">"C"</span>])            <span class="co"># DataFrame</span></code></pre>
 </div>
 <div class="subgroup">
