@@ -122,9 +122,9 @@ f = <span class="st">'word'</span>      <span class="co"># string</span></code><
 <div class="subgroup">
 <h3 id="lists">Lists</h3>
 <pre class="sourceCode python"><code class="sourceCode python">a = [<span class="st">'red'</span>, <span class="st">'blue'</span>, <span class="st">'green'</span>]       <span class="co"># manually initialization</span>
-b = <span class="dt">list</span>(<span class="dt">range</span>(<span class="dv">5</span>))                 <span class="co"># initialization through a function</span>
-c = [nu**<span class="dv">2</span> <span class="kw">for</span> nu in b]            <span class="co"># initialize through list comprehension</span>
-d = [nu**<span class="dv">2</span> <span class="kw">for</span> nu in b <span class="kw">if</span> nu &lt; <span class="dv">3</span>]  <span class="co"># list comprehension with condition</span>
+b = <span class="dt">list</span>(<span class="dt">range</span>(<span class="dv">5</span>))                 <span class="co"># initialize from iteratable</span>
+c = [nu**<span class="dv">2</span> <span class="kw">for</span> nu in b]            <span class="co"># list comprehension</span>
+d = [nu**<span class="dv">2</span> <span class="kw">for</span> nu in b <span class="kw">if</span> nu &lt; <span class="dv">3</span>]  <span class="co"># conditioned list comprehension</span>
 e = c[<span class="dv">0</span>]                           <span class="co"># access element</span>
 f = c[<span class="dv">1</span>:<span class="dv">2</span>]                         <span class="co"># access a slice of the list</span>
 g = [<span class="st">'re'</span>, <span class="st">'bl'</span>] + [<span class="st">'gr'</span>]          <span class="co"># list concatenation</span>
@@ -135,10 +135,10 @@ h = [<span class="st">'re'</span>] * <span class="dv">5</span>                  
 </div>
 <div class="subgroup">
 <h3 id="dictionaries">Dictionaries</h3>
-<pre class="sourceCode python"><code class="sourceCode python">a = {<span class="st">'red'</span>: <span class="st">'rouge'</span>, <span class="st">'blue'</span>: <span class="st">'bleu'</span>, <span class="st">'green'</span>: <span class="st">'vert'</span>}  <span class="co"># dictionary</span>
-b = a[<span class="st">'red'</span>]                                           <span class="co"># translate item</span>
-c = [value <span class="kw">for</span> key, value in a.items()]                <span class="co"># loop through contents</span>
-d = a.get(<span class="st">'yellow'</span>, <span class="st">'no translation found'</span>)            <span class="co"># return default</span></code></pre>
+<pre class="sourceCode python"><code class="sourceCode python">a = {<span class="st">'red'</span>: <span class="st">'rouge'</span>, <span class="st">'blue'</span>: <span class="st">'bleu'</span>}         <span class="co"># dictionary</span>
+b = a[<span class="st">'red'</span>]                                 <span class="co"># translate item</span>
+c = [value <span class="kw">for</span> key, value in a.items()]      <span class="co"># loop through contents</span>
+d = a.get(<span class="st">'yellow'</span>, <span class="st">'no translation found'</span>)  <span class="co"># return default</span></code></pre>
 </div>
 <div class="subgroup">
 <h3 id="strings">Strings</h3>
@@ -299,14 +299,14 @@ pp <span class="dt">globals</span>()    <span class="co"># show all variables in
 <div class="subgroup">
 <h3 id="array-initialization">array initialization</h3>
 <pre class="sourceCode python"><code class="sourceCode python">np.array([<span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>])             <span class="co"># direct initialization</span>
-np.empty(<span class="dv">20</span>, dtype=np.float32)  <span class="co"># single precision array with 20 entries</span>
+np.empty(<span class="dv">20</span>, dtype=np.float32)  <span class="co"># single precision array of size 20</span>
 np.zeros(<span class="dv">200</span>)                   <span class="co"># initialize 200 zeros</span>
 np.ones((<span class="dv">3</span>,<span class="dv">3</span>), dtype=np.int32)  <span class="co"># 3 x 3 integer matrix with ones</span>
 np.eye(<span class="dv">200</span>)                     <span class="co"># ones on the diagonal</span>
-np.zeros_like(a)                <span class="co"># returns array with zeros and the shape of a</span>
+np.zeros_like(a)                <span class="co"># array with zeros and the shape of a</span>
 np.linspace(<span class="dv">0</span>., <span class="dv">10</span>., <span class="dv">100</span>)       <span class="co"># 100 points from 0 to 10</span>
-np.arange(<span class="dv">0</span>, <span class="dv">100</span>, <span class="dv">2</span>)            <span class="co"># points from 0 to &lt;100 with step width 2</span>
-np.logspace(-<span class="dv">5</span>, <span class="dv">2</span>, <span class="dv">100</span>)         <span class="co"># 100 log-spaced points between 1e-5 and 1e2</span>
+np.arange(<span class="dv">0</span>, <span class="dv">100</span>, <span class="dv">2</span>)            <span class="co"># points from 0 to &lt;100 with step 2</span>
+np.logspace(-<span class="dv">5</span>, <span class="dv">2</span>, <span class="dv">100</span>)         <span class="co"># 100 log-spaced from 1e-5 -&gt; 1e2</span>
 np.copy(a)                      <span class="co"># copy array to new memory</span></code></pre>
 </div>
 <div class="subgroup">
@@ -320,7 +320,7 @@ a[[<span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">3</spa
 a = a.reshape(<span class="dv">10</span>, <span class="dv">10</span>)       <span class="co"># transform to 10 x 10 matrix</span>
 a.T                         <span class="co"># return transposed view</span>
 b = np.transpose(a, (<span class="dv">1</span>, <span class="dv">0</span>)) <span class="co"># transpose array to new axis order</span>
-a[a &lt; <span class="dv">2</span>]                    <span class="co"># returns array that fulfills elementwise condition</span></code></pre>
+a[a &lt; <span class="dv">2</span>]                    <span class="co"># values with elementwise condition</span></code></pre>
 </div>
 <div class="subgroup">
 <h3 id="array-properties-and-operations">array properties and operations</h3>
@@ -363,21 +363,22 @@ np.std(a, axis=<span class="dv">1</span>)  <span class="co"># standard deviation
 </div>
 <div class="subgroup">
 <h3 id="inner-outer-products">inner / outer products</h3>
-<pre class="sourceCode python"><code class="sourceCode python">np.dot(a, b)                        <span class="co"># inner matrix product: a_mi b_in</span>
-np.einsum(<span class="st">'ij,kj-&gt;ik'</span>, a, b)        <span class="co"># einstein summation convention</span>
-np.<span class="dt">sum</span>(a, axis=<span class="dv">1</span>)                   <span class="co"># sum over axis 1</span>
-np.<span class="dt">abs</span>(a)                           <span class="co"># return array with absolute values</span>
-a[<span class="ot">None</span>, :] + b[:, <span class="ot">None</span>]             <span class="co"># outer sum</span>
-a[<span class="ot">None</span>, :] * b[:, <span class="ot">None</span>]             <span class="co"># outer product</span>
-np.outer(a, b)                      <span class="co"># outer product</span>
-np.<span class="dt">sum</span>(a * a.T)                     <span class="co"># matrix norm</span></code></pre>
+<pre class="sourceCode python"><code class="sourceCode python">np.dot(a, b)                  <span class="co"># inner product: a_mi b_in</span>
+np.einsum(<span class="st">'ij,kj-&gt;ik'</span>, a, b)  <span class="co"># einstein summation convention</span>
+np.<span class="dt">sum</span>(a, axis=<span class="dv">1</span>)             <span class="co"># sum over axis 1</span>
+np.<span class="dt">abs</span>(a)                     <span class="co"># return absolute values</span>
+a[<span class="ot">None</span>, :] + b[:, <span class="ot">None</span>]       <span class="co"># outer sum</span>
+a[<span class="ot">None</span>, :] * b[:, <span class="ot">None</span>]       <span class="co"># outer product</span>
+np.outer(a, b)                <span class="co"># outer product</span>
+np.<span class="dt">sum</span>(a * a.T)               <span class="co"># matrix norm</span></code></pre>
 </div>
 <div class="subgroup">
 <h3 id="reading-writing-files">reading/ writing files</h3>
-<pre class="sourceCode python"><code class="sourceCode python">np.fromfile(fname/fobject, dtype=np.float32, count=<span class="dv">5</span>)  <span class="co"># read binary data from file</span>
-np.loadtxt(fname/fobject, skiprows=<span class="dv">2</span>, delimiter=<span class="st">','</span>)   <span class="co"># read ascii data from file</span>
+<pre class="sourceCode python"><code class="sourceCode python">
+np.fromfile(fname/fobject, dtype=np.float32, count=<span class="dv">5</span>)  <span class="co"># binary data from file</span>
+np.loadtxt(fname/fobject, skiprows=<span class="dv">2</span>, delimiter=<span class="st">','</span>)   <span class="co"># ascii data from file</span>
 np.savetxt(fname/fobject, array, fmt=<span class="st">'</span><span class="ot">%.5f</span><span class="st">'</span>)           <span class="co"># write ascii data</span>
-np.tofile(fname/fobject)                               <span class="co"># write binary data (C-order)</span></code></pre>
+np.tofile(fname/fobject)                               <span class="co"># write (C) binary data</span></code></pre>
 </div>
 <div class="subgroup">
 <h3 id="interpolation-integration-optimization">interpolation, integration, optimization</h3>
@@ -388,10 +389,10 @@ np.linalg.lstsq(a, b)     <span class="co"># solve a x = b in least square sense
 <div class="subgroup">
 <h3 id="fft">fft</h3>
 <pre class="sourceCode python"><code class="sourceCode python">np.fft.fft(a)                <span class="co"># complex fourier transform of a</span>
-f = np.fft.fftfreq(<span class="dt">len</span>(a))   <span class="co"># fft frequencies for a given length</span>
+f = np.fft.fftfreq(<span class="dt">len</span>(a))   <span class="co"># fft frequencies</span>
 np.fft.fftshift(f)           <span class="co"># shifts zero frequency to the middle</span>
 np.fft.rfft(a)               <span class="co"># real fourier transform of a</span>
-np.fft.rfftfreq(<span class="dt">len</span>(a))      <span class="co"># real fft frequencies for a given length</span></code></pre>
+np.fft.rfftfreq(<span class="dt">len</span>(a))      <span class="co"># real fft frequencies</span></code></pre>
 </div>
 <div class="subgroup">
 <h3 id="rounding">rounding</h3>
@@ -401,11 +402,12 @@ np.<span class="dt">round</span>(a)  <span class="co"># rounds to neares int</sp
 </div>
 <div class="subgroup">
 <h3 id="random-variables">random variables</h3>
-<pre class="sourceCode python"><code class="sourceCode python">np.random.normal(loc=<span class="dv">0</span>, scale=<span class="dv">2</span>, size=<span class="dv">100</span>)  <span class="co"># 100 normal distributed random numbers</span>
-np.random.seed(<span class="dv">23032</span>)                       <span class="co"># resets the seed value</span>
-np.random.rand(<span class="dv">200</span>)                         <span class="co"># 200 random numbers in [0, 1)</span>
-np.random.uniform(<span class="dv">1</span>, <span class="dv">30</span>, <span class="dv">200</span>)               <span class="co"># 200 random numbers in [1, 30)</span>
-np.random.randint(<span class="dv">1</span>, <span class="dv">16</span>, <span class="dv">300</span>)               <span class="co"># 300 random integers between [1, 16)</span></code></pre>
+<pre class="sourceCode python"><code class="sourceCode python"><span class="ch">from</span> np.random <span class="ch">import</span> normal, seed, rand, uniform, randint
+normal(loc=<span class="dv">0</span>, scale=<span class="dv">2</span>, size=<span class="dv">100</span>)  <span class="co"># 100 normal distributed</span>
+seed(<span class="dv">23032</span>)                       <span class="co"># resets the seed value</span>
+rand(<span class="dv">200</span>)                         <span class="co"># 200 random numbers in [0, 1)</span>
+uniform(<span class="dv">1</span>, <span class="dv">30</span>, <span class="dv">200</span>)               <span class="co"># 200 random numbers in [1, 30)</span>
+randint(<span class="dv">1</span>, <span class="dv">16</span>, <span class="dv">300</span>)               <span class="co"># 300 random integers in [1, 16)</span></code></pre>
 </div>
 </div>
 
@@ -413,10 +415,10 @@ np.random.randint(<span class="dv">1</span>, <span class="dv">16</span>, <span c
 <div class="group">
 <div class="subgroup">
 <h3 id="figures-and-axes">figures and axes</h3>
-<pre class="sourceCode python"><code class="sourceCode python">fig = plt.figure(figsize=(<span class="dv">5</span>, <span class="dv">2</span>))                  <span class="co"># initialize figure</span>
-ax = fig.add_subplot(<span class="dv">3</span>, <span class="dv">2</span>, <span class="dv">2</span>)                     <span class="co"># add second subplot in a 3 x 2 grid</span>
-fig, axes = plt.subplots(<span class="dv">5</span>, <span class="dv">2</span>, figsize=(<span class="dv">5</span>, <span class="dv">5</span>))    <span class="co"># return fig and 5 x 2 array of axes</span>
-ax = fig.add_axes([left, bottom, width, height])  <span class="co"># add custom axis</span></code></pre>
+<pre class="sourceCode python"><code class="sourceCode python">fig = plt.figure(figsize=(<span class="dv">5</span>, <span class="dv">2</span>))  <span class="co"># initialize figure</span>
+ax = fig.add_subplot(<span class="dv">3</span>, <span class="dv">2</span>, <span class="dv">2</span>)     <span class="co"># add second subplot in a 3 x 2 grid</span>
+fig, axes = plt.subplots(<span class="dv">5</span>, <span class="dv">2</span>, figsize=(<span class="dv">5</span>, <span class="dv">5</span>)) <span class="co"># fig and 5 x 2 nparray of axes</span>
+ax = fig.add_axes([left, bottom, width, height]) <span class="co"># add custom axis</span></code></pre>
 </div>
 <div class="subgroup">
 <h3 id="figures-and-axes-properties">figures and axes properties</h3>
@@ -442,8 +444,8 @@ bbox.x0 + bbox.width             <span class="co"># bounding box parameters</spa
 ax.scatter(x,y, s=<span class="dv">20</span>, c=color)                  <span class="co"># scatter plot</span>
 ax.pcolormesh(xx, yy, zz, shading=<span class="st">'gouraud'</span>)    <span class="co"># fast colormesh</span>
 ax.colormesh(xx, yy, zz, norm=norm)             <span class="co"># slower colormesh</span>
-ax.contour(xx, yy, zz, cmap=<span class="st">'jet'</span>)              <span class="co"># contour line plot</span>
-ax.contourf(xx, yy, zz, vmin=<span class="dv">2</span>, vmax=<span class="dv">4</span>)         <span class="co"># filled contours plot</span>
+ax.contour(xx, yy, zz, cmap=<span class="st">'jet'</span>)              <span class="co"># contour lines</span>
+ax.contourf(xx, yy, zz, vmin=<span class="dv">2</span>, vmax=<span class="dv">4</span>)         <span class="co"># filled contours</span>
 n, bins, patch = ax.hist(x, <span class="dv">50</span>)                 <span class="co"># histogram</span>
 ax.imshow(matrix, origin=<span class="st">'lower'</span>,
           extent=(x1, x2, y1, y2))              <span class="co"># show image</span>
@@ -456,14 +458,14 @@ ax.specgram(y, FS=<span class="fl">0.1</span>, noverlap=<span class="dv">128</sp
 <div class="group">
 <div class="subgroup">
 <h3 id="interpolation">interpolation</h3>
-<pre class="sourceCode python"><code class="sourceCode python"><span class="ch">from</span> scipy.ndimage <span class="ch">import</span> map_coordinates       <span class="co"># interpolates a data</span>
-pts_new = map_coordinates(data, float_indices,  <span class="co"># array at index coordinate</span>
-                          order=<span class="dv">3</span>)              <span class="co"># positions</span></code></pre>
+<pre class="sourceCode python"><code class="sourceCode python"><span class="ch">from</span> scipy.ndimage <span class="ch">import</span> map_coordinates       <span class="co"># interpolates data</span>
+pts_new = map_coordinates(data, float_indices,  <span class="co"># at index positions</span>
+                          order=<span class="dv">3</span>)</code></pre>
 </div>
 <div class="subgroup">
 <h3 id="integration">Integration</h3>
-<pre class="sourceCode python"><code class="sourceCode python"><span class="ch">from</span> scipy.integrate <span class="ch">import</span> quad
-value = quad(func, low_lim, up_lim)  <span class="co"># definite integral of python function</span></code></pre>
+<pre class="sourceCode python"><code class="sourceCode python"><span class="ch">from</span> scipy.integrate <span class="ch">import</span> quad     <span class="co"># definite integral of python</span>
+value = quad(func, low_lim, up_lim)  <span class="co"># function/method</span></code></pre>
 </div>
 </div>
 
