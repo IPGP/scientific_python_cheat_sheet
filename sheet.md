@@ -12,7 +12,7 @@ Scientific Python Cheatsheet
         - [Operators](#operators)
         - [Control Flow](#control-flow)
         - [Functions, Classes, Generators, Decorators](#functions-classes-generators-decorators)
-    - [IPython](#IPython)
+    - [IPython](#ipython)
         - [Python Console](#python-console)
         - [Debugger commands](#debugger-commands)
     - [NumPy](#numpy)
