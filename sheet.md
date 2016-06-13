@@ -441,11 +441,10 @@ from scipy.integrate import quad     # definite integral of python
 value = quad(func, low_lim, up_lim)  # function/method
 ```
 
-## Pandas
+## Pandas (`import pandas as pd`)
 
 ### Data structures
 ```python
-import pandas as pd                                     # import pandas
 s = pd.Series(np.random.rand(1000), index=range(1000))  # series
 index = pd.date_range("13/06/2016", periods=1000)       # time index
 df = pd.DataFrame(np.zeros(1000, 3), index=index,
