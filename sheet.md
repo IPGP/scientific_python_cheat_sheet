@@ -34,7 +34,7 @@ Scientific Python Cheatsheet
     - [Scipy](#scipy)
         - [interpolation](#interpolation)
         - [integration](#integration)
-    - [Pandas](#Pandas) 
+    - [Pandas](#pandas)
         - [data structures](#data-structures)
         - [DataFrame](#dataframe)
         
