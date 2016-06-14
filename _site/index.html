@@ -69,12 +69,12 @@ code > span.in { color: #808080; font-weight: bold; font-style: italic; } /* Inf
 <li><a href="#control-flow">Control Flow</a></li>
 <li><a href="#functions-classes-generators-decorators">Functions, Classes, Generators, Decorators</a></li>
 </ul></li>
-<li><a href="#IPython">IPython</a>
+<li><a href="#ipython">IPython</a>
 <ul>
 <li><a href="#python-console">Python Console</a></li>
 <li><a href="#debugger-commands">Debugger commands</a></li>
 </ul></li>
-<li><a href="#numpy">NumPy</a>
+<li><a href="#numpy-import-numpy-as-np">NumPy</a>
 <ul>
 <li><a href="#array-initialization">array initialization</a></li>
 <li><a href="#indexing">indexing</a></li>
@@ -88,18 +88,18 @@ code > span.in { color: #808080; font-weight: bold; font-style: italic; } /* Inf
 <li><a href="#rounding">rounding</a></li>
 <li><a href="#random-variables">random variables</a></li>
 </ul></li>
-<li><a href="#matplotlib">Matplotlib</a>
+<li><a href="#matplotlib-import-matplotlib.pyplot-as-plt">Matplotlib</a>
 <ul>
 <li><a href="#figures-and-axes">figures and axes</a></li>
 <li><a href="#figures-and-axes-properties">figures and axes properties</a></li>
 <li><a href="#plotting-routines">plotting routines</a></li>
 </ul></li>
-<li><a href="#scipy">Scipy</a>
+<li><a href="#scipy-import-scipy-as-sci">Scipy</a>
 <ul>
 <li><a href="#interpolation">interpolation</a></li>
 <li><a href="#integration">integration</a></li>
 </ul></li>
-<li><a href="#Pandas">Pandas</a>
+<li><a href="#pandas-import-pandas-as-pd">Pandas</a>
 <ul>
 <li><a href="#data-structures">data structures</a></li>
 <li><a href="#dataframe">DataFrame</a></li>
@@ -207,13 +207,15 @@ number = <span class="dv">1</span>
 </div>
 <div class="subgroup">
 <h3 id="functions-classes-generators-decorators">Functions, Classes, Generators, Decorators</h3>
-<pre class="sourceCode python"><code class="sourceCode python"><span class="co"># Function</span>
+<pre class="sourceCode python"><code class="sourceCode python"><span class="co"># Function groups code statements and possibly</span>
+<span class="co"># returns a derived value</span>
 <span class="kw">def</span> myfunc(a1, a2):
     <span class="kw">return</span> a1 + a2
 
 x = myfunc(a1, a2)
 
-<span class="co"># Class</span>
+<span class="co"># Class groups attributes (data)</span>
+<span class="co"># and associated methods (functions)</span>
 <span class="kw">class</span> Point(<span class="dt">object</span>):
     <span class="kw">def</span> <span class="ot">__init__</span>(<span class="ot">self</span>, x):
         <span class="ot">self</span>.x = x
@@ -222,17 +224,18 @@ x = myfunc(a1, a2)
 
 x = Point(<span class="dv">3</span>)
 
-<span class="co"># Generators</span>
+<span class="co"># Generator iterates without</span>
+<span class="co"># creating all values at ones</span>
 <span class="kw">def</span> firstn(n):
     num = <span class="dv">0</span>
     <span class="kw">while</span> num &lt; n:
         <span class="kw">yield</span> num
         num += <span class="dv">1</span>
 
-<span class="co"># consume the generator with list comprehension</span>
 x = [i <span class="kw">for</span> i in firstn(<span class="dv">10</span>)]
 
-<span class="co"># Decorators</span>
+<span class="co"># Decorator can be used to modify</span>
+<span class="co"># the behaviour of a function</span>
 <span class="kw">class</span> myDecorator(<span class="dt">object</span>):
     <span class="kw">def</span> <span class="ot">__init__</span>(<span class="ot">self</span>, f):
         <span class="ot">self</span>.f = f
@@ -349,7 +352,7 @@ np.argsort(a, axis=<span class="dv">1</span>)  <span class="co"># return sorted 
 <pre class="sourceCode python"><code class="sourceCode python">a * <span class="dv">5</span>              <span class="co"># multiplication with scalar</span>
 a + <span class="dv">5</span>              <span class="co"># addition with scalar</span>
 a + b              <span class="co"># addition with array b</span>
-a / b              <span class="co"># division with b (np.NaN for division by zero).............</span>
+a / b              <span class="co"># division with b (np.NaN for division by zero)</span>
 np.exp(a)          <span class="co"># exponential (complex and real)</span>
 np.power(a, b)     <span class="co"># a to the power b</span>
 np.sin(a)          <span class="co"># sine</span>
@@ -363,25 +366,22 @@ np.std(a, axis=<span class="dv">1</span>)  <span class="co"># standard deviation
 </div>
 <div class="subgroup">
 <h3 id="inner-outer-products">inner / outer products</h3>
-<pre class="sourceCode python"><code class="sourceCode python">np.dot(a, b)                        <span class="co"># inner product: a_mi b_in</span>
-np.einsum(<span class="st">'ij,kj-&gt;ik'</span>, a, b)        <span class="co"># einstein summation convention</span>
-np.<span class="dt">sum</span>(a, axis=<span class="dv">1</span>)                   <span class="co"># sum over axis 1</span>
-np.<span class="dt">abs</span>(a)                           <span class="co"># return absolute values</span>
-a[<span class="ot">None</span>, :] + b[:, <span class="ot">None</span>]             <span class="co"># outer sum</span>
-a[<span class="ot">None</span>, :] * b[:, <span class="ot">None</span>]             <span class="co"># outer product</span>
-np.outer(a, b)                      <span class="co"># outer product</span>
-np.<span class="dt">sum</span>(a * a.T)                     <span class="co"># matrix norm</span></code></pre>
+<pre class="sourceCode python"><code class="sourceCode python">np.dot(a, b)                  <span class="co"># inner product: a_mi b_in</span>
+np.einsum(<span class="st">'ij,kj-&gt;ik'</span>, a, b)  <span class="co"># einstein summation convention</span>
+np.<span class="dt">sum</span>(a, axis=<span class="dv">1</span>)             <span class="co"># sum over axis 1</span>
+np.<span class="dt">abs</span>(a)                     <span class="co"># return absolute values</span>
+a[<span class="ot">None</span>, :] + b[:, <span class="ot">None</span>]       <span class="co"># outer sum</span>
+a[<span class="ot">None</span>, :] * b[:, <span class="ot">None</span>]       <span class="co"># outer product</span>
+np.outer(a, b)                <span class="co"># outer product</span>
+np.<span class="dt">sum</span>(a * a.T)               <span class="co"># matrix norm</span></code></pre>
 </div>
 <div class="subgroup">
 <h3 id="reading-writing-files">reading/ writing files</h3>
-<pre class="sourceCode python"><code class="sourceCode python"><span class="co"># read binary data from file</span>
-np.fromfile(fname/fobject, dtype=np.float32, count=<span class="dv">5</span>)
-<span class="co"># read ascii data from file</span>
-np.loadtxt(fname/fobject, skiprows=<span class="dv">2</span>, delimiter=<span class="st">','</span>)
-<span class="co"># write ascii data</span>
-np.savetxt(fname/fobject, array, fmt=<span class="st">'</span><span class="ot">%.5f</span><span class="st">'</span>)
-<span class="co"># write binary data (C-order)</span>
-np.tofile(fname/fobject)</code></pre>
+<pre class="sourceCode python"><code class="sourceCode python">
+np.fromfile(fname/fobject, dtype=np.float32, count=<span class="dv">5</span>)  <span class="co"># binary data from file</span>
+np.loadtxt(fname/fobject, skiprows=<span class="dv">2</span>, delimiter=<span class="st">','</span>)   <span class="co"># ascii data from file</span>
+np.savetxt(fname/fobject, array, fmt=<span class="st">'</span><span class="ot">%.5f</span><span class="st">'</span>)           <span class="co"># write ascii data</span>
+np.tofile(fname/fobject)                               <span class="co"># write (C) binary data</span></code></pre>
 </div>
 <div class="subgroup">
 <h3 id="interpolation-integration-optimization">interpolation, integration, optimization</h3>
@@ -420,12 +420,8 @@ randint(<span class="dv">1</span>, <span class="dv">16</span>, <span class="dv">
 <h3 id="figures-and-axes">figures and axes</h3>
 <pre class="sourceCode python"><code class="sourceCode python">fig = plt.figure(figsize=(<span class="dv">5</span>, <span class="dv">2</span>))  <span class="co"># initialize figure</span>
 ax = fig.add_subplot(<span class="dv">3</span>, <span class="dv">2</span>, <span class="dv">2</span>)     <span class="co"># add second subplot in a 3 x 2 grid</span>
-
-<span class="co"># return fig and 5 x 2 array of axes</span>
-fig, axes = plt.subplots(<span class="dv">5</span>, <span class="dv">2</span>, figsize=(<span class="dv">5</span>, <span class="dv">5</span>))
-
-<span class="co"># add custom axis</span>
-ax = fig.add_axes([left, bottom, width, height])</code></pre>
+fig, axes = plt.subplots(<span class="dv">5</span>, <span class="dv">2</span>, figsize=(<span class="dv">5</span>, <span class="dv">5</span>)) <span class="co"># fig and 5 x 2 nparray of axes</span>
+ax = fig.add_axes([left, bottom, width, height]) <span class="co"># add custom axis</span></code></pre>
 </div>
 <div class="subgroup">
 <h3 id="figures-and-axes-properties">figures and axes properties</h3>
@@ -476,14 +472,13 @@ value = quad(func, low_lim, up_lim)  <span class="co"># function/method</span></
 </div>
 </div>
 
-<h2 id="pandas">Pandas</h2>
+<h2 id="pandas-import-pandas-as-pd">Pandas (<code>import pandas as pd</code>)</h2>
 <div class="group">
 <div class="subgroup">
 <h3 id="data-structures">Data structures</h3>
-<pre class="sourceCode python"><code class="sourceCode python"><span class="ch">import</span> pandas <span class="ch">as</span> pd                                     <span class="co"># import pandas</span>
-s = pd.Series(np.random.rand(<span class="dv">1000</span>), index=<span class="dt">range</span>(<span class="dv">1000</span>))  <span class="co"># series</span>
+<pre class="sourceCode python"><code class="sourceCode python">s = pd.Series(np.random.rand(<span class="dv">1000</span>), index=<span class="dt">range</span>(<span class="dv">1000</span>))  <span class="co"># series</span>
 index = pd.date_range(<span class="st">"13/06/2016"</span>, periods=<span class="dv">1000</span>)       <span class="co"># time index</span>
-df = pd.DataFrame(np.zeros(<span class="dv">1000</span>, <span class="dv">3</span>), index=index,
+df = pd.DataFrame(np.zeros((<span class="dv">1000</span>, <span class="dv">3</span>)), index=index,
                     columns=[<span class="st">"A"</span>, <span class="st">"B"</span>, <span class="st">"C"</span>])            <span class="co"># DataFrame</span></code></pre>
 </div>
 <div class="subgroup">
