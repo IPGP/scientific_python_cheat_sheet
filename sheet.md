@@ -21,7 +21,7 @@ Scientific Python Cheatsheet
         - [array properties and operations](#array-properties-and-operations)
         - [boolean arrays](#boolean-arrays)
         - [elementwise operations and math functions](#elementwise-operations-and-math-functions)
-        - [inner / outer products](#inner--outer-products)
+        - [inner / outer products](#inner-outer-products)
         - [reading/ writing files](#reading-writing-files)
         - [interpolation, integration, optimization](#interpolation-integration-optimization)
         - [fft](#fft)
