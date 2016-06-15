@@ -243,7 +243,8 @@ pp globals()    # show all variables in global scope
 
 ### command line
 ```bash
-ipython --pdb -- myscript.py argument1 --option1  # automatic debugger after exception
+ipython --pdb -- myscript.py argument1 --option1  # debug after exception
+ipython -i -- myscript.py argument1 --option1     # console after finish
 ```
 
 ## NumPy (`import numpy as np`)
