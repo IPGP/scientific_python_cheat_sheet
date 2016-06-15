@@ -254,7 +254,7 @@ my_funct()</code></pre>
 <h2 id="ipython">IPython</h2>
 <div class="group">
 <div class="subgroup">
-<h3 id="python-console">Python console</h3>
+<h3 id="console">console</h3>
 <pre class="sourceCode python"><code class="sourceCode python">&lt;<span class="dt">object</span>&gt;?  <span class="co"># Information about the object</span>
 &lt;<span class="dt">object</span>&gt;.&lt;TAB&gt;  <span class="co"># tab completion</span>
 
@@ -282,7 +282,7 @@ my_funct()</code></pre>
 %reset</code></pre>
 </div>
 <div class="subgroup">
-<h3 id="debugger-commands">Debugger commands</h3>
+<h3 id="debugger-console">Debugger console</h3>
 <pre class="sourceCode python"><code class="sourceCode python">n               <span class="co"># execute next line</span>
 b <span class="dv">42</span>            <span class="co"># set breakpoint in the main file at line 42</span>
 b myfile.py:<span class="dv">42</span>  <span class="co"># set breakpoint in 'myfile.py' at line 42</span>
@@ -294,6 +294,10 @@ s               <span class="co"># step into subroutine</span>
 a               <span class="co"># print arguments that a function received</span>
 pp <span class="dt">locals</span>()     <span class="co"># show all variables in local scope</span>
 pp <span class="dt">globals</span>()    <span class="co"># show all variables in global scope</span></code></pre>
+</div>
+<div class="subgroup">
+<h3 id="command-line">command line</h3>
+<pre class="sourceCode bash"><code class="sourceCode bash">ipython --pdb -- myscript.py argument1 --option1  <span class="co"># automatic debugger after exception</span></code></pre>
 </div>
 </div>
 
