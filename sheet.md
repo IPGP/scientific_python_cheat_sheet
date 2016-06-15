@@ -196,7 +196,7 @@ my_funct()
 
 ## IPython
 
-### Python console
+### console
 ```python
 <object>?  # Information about the object
 <object>.<TAB>  # tab completion
@@ -225,7 +225,7 @@ my_funct()
 %reset
 ```
 
-### Debugger commands
+### Debugger console
 ```python
 n               # execute next line
 b 42            # set breakpoint in the main file at line 42
@@ -238,6 +238,11 @@ s               # step into subroutine
 a               # print arguments that a function received
 pp locals()     # show all variables in local scope
 pp globals()    # show all variables in global scope
+```
+
+### command line
+```bash
+ipython --pdb -- myscript.py argument1 --option1  # automatic debugger after exception
 ```
 
 ## NumPy (`import numpy as np`)
