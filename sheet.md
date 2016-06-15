@@ -13,8 +13,9 @@ Scientific Python Cheatsheet
         - [Control Flow](#control-flow)
         - [Functions, Classes, Generators, Decorators](#functions-classes-generators-decorators)
     - [IPython](#ipython)
-        - [Python Console](#python-console)
-        - [Debugger commands](#debugger-commands)
+        - [console](#console)
+        - [debugger](#debugger)
+        - [command line](#command-line)
     - [NumPy](#numpy-import-numpy-as-np)
         - [array initialization](#array-initialization)
         - [indexing](#indexing)
@@ -225,7 +226,7 @@ my_funct()
 %reset
 ```
 
-### Debugger console
+### debugger
 ```python
 n               # execute next line
 b 42            # set breakpoint in the main file at line 42
