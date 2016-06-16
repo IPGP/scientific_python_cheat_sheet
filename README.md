@@ -7,13 +7,13 @@ This is an overview of python, numpy, scipy, matplotlib functions that are
 useful for scientific work. It tries to keep examples as compact as possible.
 
 Chose one of the following layouts:
-[website](https://ipgp.github.io/scientific_python_cheat_sheet)
-[markdown](sheet.md)
+* [website](https://ipgp.github.io/scientific_python_cheat_sheet)
+* [markdown](sheet.md)
 
 Or the print version (without pandas until there are enough commands for a
 third page)
-[high contrast pdf (2016-06-16)](print_version/high_contrast.pdf)
-[low contrast pdf (2016-06-16)](print_version/low_contrast.pdf)
+* [high contrast pdf (2016-06-16)](print_version/high_contrast.pdf)
+* [low contrast pdf (2016-06-16)](print_version/low_contrast.pdf)
 
 ## Printing
 Printing the last version is a bit complicated so far if you want to have the
