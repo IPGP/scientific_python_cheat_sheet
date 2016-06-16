@@ -4,7 +4,11 @@
 simple overview of python, numpy, scipy, matplotlib functions that are useful
 for scientific work. Tries to keep examples as compact as possible.
 
-Click [here for the github markdown version](sheet.md) or [here for a web site layout](https://ipgp.github.io/scientific_python_cheat_sheet)
+Chose one of the following layouts:
+[website](https://ipgp.github.io/scientific_python_cheat_sheet)
+[markdown](sheet.md)
+[high contrast pdf](print_version/high_contrast.pdf)
+[low contrast pdf](print_version/low_contrast.pdf)
 
 ## Printing
 Printing is a bit complicated so far if you want to have the same layout as on the webpage but possible: You can save the CSS layout as an image in firefox: 
