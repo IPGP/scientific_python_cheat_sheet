@@ -460,8 +460,8 @@ df = pd.DataFrame(np.zeros((1000, 3)), index=index,
 
 ### DataFrame
 ```python
-df = pd.read_csv("filename.csv")           # read and load CSV file in a DataFrame
-print(df[:2])                              # print first 2 lines of the DataFrame
-raw = df.values                            # get raw data out of DataFrame object
-cols = df.columns                          # get list of columns headers
+df = pd.read_csv("filename.csv")   # read and load CSV file in a DataFrame
+print(df[:2])                      # print first 2 lines of the DataFrame
+raw = df.values                    # get raw data out of DataFrame object
+cols = df.columns                  # get list of columns headers
 ```
