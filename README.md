@@ -13,8 +13,8 @@ Chose one of the following layouts:
 Or the print version (without pandas until there are enough commands for a
 third page)
 
-* [high contrast pdf (2016-06-16)](print_version/high_contrast.pdf)
-* [low contrast pdf (2016-06-16)](print_version/low_contrast.pdf)
+* [high contrast pdf (2016-06-16)](https://github.com/IPGP/scientific_python_cheat_sheet/raw/master/print_version/high_contrast.pdf)
+* [low contrast pdf (2016-06-16)](https://github.com/IPGP/scientific_python_cheat_sheet/raw/master/print_version/low_contrast.pdf)
 
 ## Printing
 Printing the last version is a bit complicated so far if you want to have the
