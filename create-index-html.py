@@ -14,6 +14,7 @@ top = """
 <html lang="en-us">
   <head>
     <meta charset="UTF-8">
+    <meta name="google-site-verification" content="gExcTnKyChvrBUc7aDzh1pzZzHQzU2RoYvN7WM3UQiw" />
     <meta name="Description" CONTENT="A cheat sheet for scientific python. The cheat sheet focuses on the scientific/data Python tools, e.g. matplotlib, NumPy/SciPy or pandas.">
     <title>Scientific python cheat sheet by IPGP</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.5">
