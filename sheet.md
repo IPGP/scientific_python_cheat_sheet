@@ -76,6 +76,7 @@ a = {'red': 'rouge', 'blue': 'bleu'}         # dictionary
 b = a['red']                                 # translate item
 c = [value for key, value in a.items()]      # loop through contents
 d = a.get('yellow', 'no translation found')  # return default
+e = a.setdefault(extra, []).append('cyan')   # append to (non-existing) item
 ```
 
 ### Strings
@@ -429,6 +430,7 @@ ax.imshow(matrix, origin='lower',
           extent=(x1, x2, y1, y2))              # show image
 ax.specgram(y, FS=0.1, noverlap=128,
             scale='linear')                     # plot a spectrogram
+ax.text(x, y, string, fontsize=12, color='m')   # write text
 ```
 
 ## Scipy (`import scipy as sci`)
