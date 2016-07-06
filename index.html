@@ -140,7 +140,8 @@ h = [<span class="st">'re'</span>] * <span class="dv">5</span>                  
 <pre class="sourceCode python"><code class="sourceCode python">a = {<span class="st">'red'</span>: <span class="st">'rouge'</span>, <span class="st">'blue'</span>: <span class="st">'bleu'</span>}         <span class="co"># dictionary</span>
 b = a[<span class="st">'red'</span>]                                 <span class="co"># translate item</span>
 c = [value <span class="kw">for</span> key, value in a.items()]      <span class="co"># loop through contents</span>
-d = a.get(<span class="st">'yellow'</span>, <span class="st">'no translation found'</span>)  <span class="co"># return default</span></code></pre>
+d = a.get(<span class="st">'yellow'</span>, <span class="st">'no translation found'</span>)  <span class="co"># return default</span>
+e = a.setdefault(extra, []).append(<span class="st">'cyan'</span>)   <span class="co"># append to (non-existing) item</span></code></pre>
 </div>
 <div class="subgroup">
 <h3 id="strings">Strings</h3>
@@ -460,7 +461,8 @@ n, bins, patch = ax.hist(x, <span class="dv">50</span>)                 <span cl
 ax.imshow(matrix, origin=<span class="st">'lower'</span>,
           extent=(x1, x2, y1, y2))              <span class="co"># show image</span>
 ax.specgram(y, FS=<span class="fl">0.1</span>, noverlap=<span class="dv">128</span>,
-            scale=<span class="st">'linear'</span>)                     <span class="co"># plot a spectrogram</span></code></pre>
+            scale=<span class="st">'linear'</span>)                     <span class="co"># plot a spectrogram</span>
+ax.text(x, y, string, fontsize=<span class="dv">12</span>, color=<span class="st">'m'</span>)   <span class="co"># write text</span></code></pre>
 </div>
 </div>
 
