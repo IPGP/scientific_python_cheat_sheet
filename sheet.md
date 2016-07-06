@@ -76,7 +76,7 @@ a = {'red': 'rouge', 'blue': 'bleu'}         # dictionary
 b = a['red']                                 # translate item
 c = [value for key, value in a.items()]      # loop through contents
 d = a.get('yellow', 'no translation found')  # return default
-e = a.setdefault(extra, []).append('cyan')   # append to (non-existing) item
+e = a.setdefault('extra', []).append('cyan')   # append to (non-existing) item
 ```
 
 ### Strings
