@@ -141,7 +141,7 @@ h = [<span class="st">'re'</span>] * <span class="dv">5</span>                  
 b = a[<span class="st">'red'</span>]                                 <span class="co"># translate item</span>
 c = [value <span class="kw">for</span> key, value in a.items()]      <span class="co"># loop through contents</span>
 d = a.get(<span class="st">'yellow'</span>, <span class="st">'no translation found'</span>)  <span class="co"># return default</span>
-e = a.setdefault(<span class="st">'extra'</span>, []).append(<span class="st">'cyan'</span>)   <span class="co"># append to (non-existing) item</span></code></pre>
+a.setdefault(<span class="st">'extra'</span>, []).append(<span class="st">'cyan'</span>)     <span class="co"># init key with default</span></code></pre>
 </div>
 <div class="subgroup">
 <h3 id="strings">Strings</h3>
