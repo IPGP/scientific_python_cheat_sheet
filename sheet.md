@@ -72,11 +72,11 @@ sorted([3, 2, 1])                  # returns sorted list
 ### Dictionaries
 
 ```python
-a = {'red': 'rouge', 'blue': 'bleu'}         # dictionary
-b = a['red']                                 # translate item
-c = [value for key, value in a.items()]      # loop through contents
-d = a.get('yellow', 'no translation found')  # return default
-e = a.setdefault('extra', []).append('cyan')   # append to (non-existing) item
+a = {'red': 'rouge', 'blue': 'bleu'}          # dictionary
+b = a['red']                                  # translate item
+c = [value for key, value in a.items()]       # loop through contents
+d = a.get('yellow', 'no translation found')   # return default
+e = a.setdefault('extra', []).append('cyan')  # init key with default
 ```
 
 ### Strings
