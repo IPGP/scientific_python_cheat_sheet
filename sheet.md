@@ -62,8 +62,9 @@ c = [nu**2 for nu in b]            # list comprehension
 d = [nu**2 for nu in b if nu < 3]  # conditioned list comprehension
 e = c[0]                           # access element
 f = c[1:2]                         # access a slice of the list
-g = ['re', 'bl'] + ['gr']          # list concatenation
-h = ['re'] * 5                     # repeat a list
+g = c[-1]                          # access last element
+h = ['re', 'bl'] + ['gr']          # list concatenation
+i = ['re'] * 5                     # repeat a list
 ['re', 'bl'].index('re')           # returns index of 're'
 're' in ['re', 'bl']               # true if 're' in list
 sorted([3, 2, 1])                  # returns sorted list
@@ -279,6 +280,7 @@ np.copy(a)                      # copy array to new memory
 a = np.arange(100)          # initialization with 0 - 99
 a[:3] = 0                   # set the first three indices to zero
 a[2:5] = 1                  # set indices 2-4 to 1
+a[:-3] = 2                  # set all but last three elements to 2
 a[start:stop:step]          # general form of indexing/slicing
 a[None, :]                  # transform to column vector
 a[[1, 1, 3, 8]]             # return array with values of the indices
