@@ -129,8 +129,9 @@ c = [nu**<span class="dv">2</span> <span class="kw">for</span> nu in b]         
 d = [nu**<span class="dv">2</span> <span class="kw">for</span> nu in b <span class="kw">if</span> nu &lt; <span class="dv">3</span>]  <span class="co"># conditioned list comprehension</span>
 e = c[<span class="dv">0</span>]                           <span class="co"># access element</span>
 f = c[<span class="dv">1</span>:<span class="dv">2</span>]                         <span class="co"># access a slice of the list</span>
-g = [<span class="st">'re'</span>, <span class="st">'bl'</span>] + [<span class="st">'gr'</span>]          <span class="co"># list concatenation</span>
-h = [<span class="st">'re'</span>] * <span class="dv">5</span>                     <span class="co"># repeat a list</span>
+g = c[-<span class="dv">1</span>]                          <span class="co"># access last element</span>
+h = [<span class="st">'re'</span>, <span class="st">'bl'</span>] + [<span class="st">'gr'</span>]          <span class="co"># list concatenation</span>
+i = [<span class="st">'re'</span>] * <span class="dv">5</span>                     <span class="co"># repeat a list</span>
 [<span class="st">'re'</span>, <span class="st">'bl'</span>].index(<span class="st">'re'</span>)           <span class="co"># returns index of 're'</span>
 <span class="st">'re'</span> in [<span class="st">'re'</span>, <span class="st">'bl'</span>]               <span class="co"># true if 're' in list</span>
 <span class="dt">sorted</span>([<span class="dv">3</span>, <span class="dv">2</span>, <span class="dv">1</span>])                  <span class="co"># returns sorted list</span></code></pre>
@@ -332,6 +333,7 @@ np.copy(a)                      <span class="co"># copy array to new memory</spa
 <pre class="sourceCode python"><code class="sourceCode python">a = np.arange(<span class="dv">100</span>)          <span class="co"># initialization with 0 - 99</span>
 a[:<span class="dv">3</span>] = <span class="dv">0</span>                   <span class="co"># set the first three indices to zero</span>
 a[<span class="dv">2</span>:<span class="dv">5</span>] = <span class="dv">1</span>                  <span class="co"># set indices 2-4 to 1</span>
+a[:-<span class="dv">3</span>] = <span class="dv">2</span>                  <span class="co"># set all but last three elements to 2</span>
 a[start:stop:step]          <span class="co"># general form of indexing/slicing</span>
 a[<span class="ot">None</span>, :]                  <span class="co"># transform to column vector</span>
 a[[<span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">8</span>]]             <span class="co"># return array with values of the indices</span>
