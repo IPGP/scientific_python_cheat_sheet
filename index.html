@@ -137,11 +137,11 @@ h = [<span class="st">'re'</span>] * <span class="dv">5</span>                  
 </div>
 <div class="subgroup">
 <h3 id="dictionaries">Dictionaries</h3>
-<pre class="sourceCode python"><code class="sourceCode python">a = {<span class="st">'red'</span>: <span class="st">'rouge'</span>, <span class="st">'blue'</span>: <span class="st">'bleu'</span>}          <span class="co"># dictionary</span>
-b = a[<span class="st">'red'</span>]                                  <span class="co"># translate item</span>
-c = [value <span class="kw">for</span> key, value in a.items()]       <span class="co"># loop through contents</span>
-d = a.get(<span class="st">'yellow'</span>, <span class="st">'no translation found'</span>)   <span class="co"># return default</span>
-e = a.setdefault(<span class="st">'extra'</span>, []).append(<span class="st">'cyan'</span>)  <span class="co"># init key with default</span></code></pre>
+<pre class="sourceCode python"><code class="sourceCode python">a = {<span class="st">'red'</span>: <span class="st">'rouge'</span>, <span class="st">'blue'</span>: <span class="st">'bleu'</span>}         <span class="co"># dictionary</span>
+b = a[<span class="st">'red'</span>]                                 <span class="co"># translate item</span>
+c = [value <span class="kw">for</span> key, value in a.items()]      <span class="co"># loop through contents</span>
+d = a.get(<span class="st">'yellow'</span>, <span class="st">'no translation found'</span>)  <span class="co"># return default</span>
+a.setdefault(<span class="st">'extra'</span>, []).append(<span class="st">'cyan'</span>)     <span class="co"># init key with default</span></code></pre>
 </div>
 <div class="subgroup">
 <h3 id="strings">Strings</h3>
@@ -265,6 +265,10 @@ my_funct()</code></pre>
 %timeit <span class="dt">range</span>(<span class="dv">1000</span>)
 <span class="dv">100000</span> loops, best of <span class="dv">3</span>: <span class="fl">7.76</span> us per loop
 
+<span class="co"># run statement with python profiler</span>
+%prun &lt;statement&gt;
+%prun -s &lt;key&gt; &lt;statement&gt;  <span class="co"># sort by key, e.g. "cumulative" or "calls"</span>
+
 <span class="co"># run scripts and debug</span>
 %run
 %run -d  <span class="co"># run in debug mode</span>
@@ -282,7 +286,10 @@ my_funct()</code></pre>
 !make  <span class="co"># prefix command with "!"</span>
 
 <span class="co"># clean namespace</span>
-%reset</code></pre>
+%reset
+
+<span class="co"># run code from clipboard</span>
+%paste</code></pre>
 </div>
 <div class="subgroup">
 <h3 id="debugger">debugger</h3>
