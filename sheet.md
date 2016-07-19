@@ -23,6 +23,7 @@ Scientific Python Cheatsheet
         - [boolean arrays](#boolean-arrays)
         - [elementwise operations and math functions](#elementwise-operations-and-math-functions)
         - [inner / outer products](#inner-outer-products)
+        - [linear algebra / matrix math](#linear-algebra-matrix-math)
         - [reading/ writing files](#reading-writing-files)
         - [interpolation, integration, optimization](#interpolation-integration-optimization)
         - [fft](#fft)
@@ -351,7 +352,7 @@ np.sum(a * a.T)               # matrix norm
 ```
 
 
-### Linear algebra/Matrix math
+### linear algebra / matrix math
 
 ```python
 from scipy import linalg
