@@ -206,21 +206,17 @@ my_funct()
 <object>?                   # Information about the object
 <object>.<TAB>              # tab completion
 
-# run script
+# run scripts / profile / debug
 %run myscript.py
 
-# measure runtime:
-%timeit range(1000)
-100000 loops, best of 3: 7.76 us per loop
-%run -t  myscript.py        # measures execution time
+%timeit range(1000)         # measure runtime of statement
+%run -t  myscript.py        # measure script execution time
 
-# run with profiler
-%prun <statement>
+%prun <statement>           # run statement with profiler
 %prun -s <key> <statement>  # sort by key, e.g. "cumulative" or "calls"
 %run -p  myfile.py          # profile script
 
-# run with debugger
-%run -d myscript.py         # run in debug mode
+%run -d myscript.py         # run script in debug mode
 %debug                      # jumps to the debugger after an exception
 %pdb                        # run debugger automatically on exception
 
