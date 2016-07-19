@@ -22,8 +22,8 @@ Scientific Python Cheatsheet
         - [array properties and operations](#array-properties-and-operations)
         - [boolean arrays](#boolean-arrays)
         - [elementwise operations and math functions](#elementwise-operations-and-math-functions)
-        - [inner / outer products](#inner--outer-products)
-        - [linear algebra / matrix math](#linear-algebra--matrix-math)
+        - [inner/ outer products](#inner-outer-products)
+        - [linear algebra/ matrix math](#linear-algebra-matrix-math)
         - [reading/ writing files](#reading-writing-files)
         - [interpolation, integration, optimization](#interpolation-integration-optimization)
         - [fft](#fft)
@@ -340,7 +340,7 @@ np.var(a)          # variance of array
 np.std(a, axis=1)  # standard deviation
 ```
 
-### inner / outer products
+### inner/ outer products
 
 ```python
 np.dot(a, b)                  # inner product: a_mi b_in
@@ -354,7 +354,7 @@ np.sum(a * a.T)               # matrix norm
 ```
 
 
-### linear algebra / matrix math
+### linear algebra/ matrix math
 
 ```python
 evals, evecs = np.linalg.eig(a)      # Find eigenvalues and eigenvectors
