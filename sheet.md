@@ -35,7 +35,7 @@ Scientific Python Cheatsheet
         - [plotting routines](#plotting-routines)
     - [Scipy](#scipy-import-scipy-as-sci)
         - [interpolation](#interpolation)
-        - [linear algebra / matrix math](#linear-algebra--matrix-math)
+        - [linear algebra](#linear-algebra)
         - [integration](#integration)
     - [Pandas](#pandas-import-pandas-as-pd)
         - [data structures](#data-structures)
@@ -473,7 +473,7 @@ from scipy.integrate import quad     # definite integral of python
 value = quad(func, low_lim, up_lim)  # function/method
 ```
 
-### linear algebra / matrix math
+### linear algebra
 
 ```python
 from scipy import linalg
