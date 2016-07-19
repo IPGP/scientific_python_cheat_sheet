@@ -308,7 +308,8 @@ np.cumsum(a)           # return cumulative sum
 np.any(a)              # True if any element is True
 np.all(a)              # True if all elements are True
 np.argsort(a, axis=1)  # return sorted index array along axis
-np.where(a, x, y)      # Construct array with elements from x or y depending on a
+np.where(cond)         # return indices where cond is True
+np.where(cond, x, y)   # return elements from x or y depending on cond
 ```
 
 ### boolean arrays
