@@ -261,25 +261,26 @@ my_funct()</code></pre>
 <div class="group">
 <div class="subgroup">
 <h3 id="console">console</h3>
-<pre class="sourceCode python"><code class="sourceCode python">&lt;<span class="dt">object</span>&gt;?  <span class="co"># Information about the object</span>
-&lt;<span class="dt">object</span>&gt;.&lt;TAB&gt;  <span class="co"># tab completion</span>
+<pre class="sourceCode python"><code class="sourceCode python">&lt;<span class="dt">object</span>&gt;?                   <span class="co"># Information about the object</span>
+&lt;<span class="dt">object</span>&gt;.&lt;TAB&gt;              <span class="co"># tab completion</span>
 
-<span class="co"># measure runtime of a function:</span>
+<span class="co"># run script</span>
+%run myscript.py
+
+<span class="co"># measure runtime:</span>
 %timeit <span class="dt">range</span>(<span class="dv">1000</span>)
 <span class="dv">100000</span> loops, best of <span class="dv">3</span>: <span class="fl">7.76</span> us per loop
+%run -t  myscript.py        <span class="co"># measures execution time</span>
 
-<span class="co"># run statement with python profiler</span>
+<span class="co"># run with profiler</span>
 %prun &lt;statement&gt;
 %prun -s &lt;key&gt; &lt;statement&gt;  <span class="co"># sort by key, e.g. "cumulative" or "calls"</span>
+%run -p  myfile.py          <span class="co"># profile script</span>
 
-<span class="co"># run scripts and debug</span>
-%run
-%run -d  <span class="co"># run in debug mode</span>
-%run -t  <span class="co"># measures execution time</span>
-%run -p  <span class="co"># runs a profiler</span>
-%debug  <span class="co"># jumps to the debugger after an exception</span>
-
-%pdb  <span class="co"># run debugger automatically on exception</span>
+<span class="co"># run with debugger</span>
+%run -d myscript.py         <span class="co"># run in debug mode</span>
+%debug                      <span class="co"># jumps to the debugger after an exception</span>
+%pdb                        <span class="co"># run debugger automatically on exception</span>
 
 <span class="co"># examine history</span>
 %history
