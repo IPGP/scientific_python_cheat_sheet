@@ -35,6 +35,7 @@ Scientific Python Cheatsheet
         - [plotting routines](#plotting-routines)
     - [Scipy](#scipy-import-scipy-as-sci)
         - [interpolation](#interpolation)
+        - [linear algebra / matrix math](#linear-algebra--matrix-math)
         - [integration](#integration)
     - [Pandas](#pandas-import-pandas-as-pd)
         - [data structures](#data-structures)
@@ -355,10 +356,8 @@ np.sum(a * a.T)               # matrix norm
 ### linear algebra / matrix math
 
 ```python
-from scipy import linalg
-linalg.eigh(a)      # Find eigenvalues and eigenvectors
-linalg.expm(a)      # Matrix exponential
-linalg.logm(a)      # Matrix logarithm
+evals, evecs = np.linalg.eig(a)      # Find eigenvalues and eigenvectors
+evals, evecs = np.linalg.eigh(a)     # np.linalg.eig for hermitian matrix
 ```
 
 
@@ -473,6 +472,17 @@ pts_new = map_coordinates(data, float_indices,  # at index positions
 from scipy.integrate import quad     # definite integral of python
 value = quad(func, low_lim, up_lim)  # function/method
 ```
+
+### linear algebra / matrix math
+
+```python
+from scipy import linalg
+evals, evecs = linalg.eig(a)      # Find eigenvalues and eigenvectors
+evals, evecs = linalg.eigh(a)     # linalg.eig for hermitian matrix
+b = linalg.expm(a)                # Matrix exponential
+c = linalg.logm(a)                # Matrix logarithm
+```
+
 
 ## Pandas (`import pandas as pd`)
 
