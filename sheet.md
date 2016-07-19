@@ -203,25 +203,26 @@ my_funct()
 
 ### console
 ```python
-<object>?  # Information about the object
-<object>.<TAB>  # tab completion
+<object>?                   # Information about the object
+<object>.<TAB>              # tab completion
 
-# measure runtime of a function:
+# run script
+%run myscript.py
+
+# measure runtime:
 %timeit range(1000)
 100000 loops, best of 3: 7.76 us per loop
+%run -t  myscript.py        # measures execution time
 
-# run statement with python profiler
+# run with profiler
 %prun <statement>
 %prun -s <key> <statement>  # sort by key, e.g. "cumulative" or "calls"
+%run -p  myfile.py          # profile script
 
-# run scripts and debug
-%run
-%run -d  # run in debug mode
-%run -t  # measures execution time
-%run -p  # runs a profiler
-%debug  # jumps to the debugger after an exception
-
-%pdb  # run debugger automatically on exception
+# run with debugger
+%run -d myscript.py         # run in debug mode
+%debug                      # jumps to the debugger after an exception
+%pdb                        # run debugger automatically on exception
 
 # examine history
 %history
@@ -235,7 +236,6 @@ my_funct()
 
 # run code from clipboard
 %paste
-
 ```
 
 ### debugger
