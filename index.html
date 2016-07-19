@@ -351,11 +351,13 @@ a.sort(axis=<span class="dv">1</span>)         <span class="co"># sort array alo
 a.flatten()            <span class="co"># collapse array to one dimension</span>
 a.conj()               <span class="co"># return complex conjugate</span>
 a.astype(np.int16)     <span class="co"># cast to integer</span>
+a.tolist()             <span class="co"># convert (possibly multidimensional) array to list</span>
 np.argmax(a, axis=<span class="dv">1</span>)   <span class="co"># return index of maximum along a given axis</span>
 np.cumsum(a)           <span class="co"># return cumulative sum</span>
 np.<span class="dt">any</span>(a)              <span class="co"># True if any element is True</span>
 np.<span class="dt">all</span>(a)              <span class="co"># True if all elements are True</span>
-np.argsort(a, axis=<span class="dv">1</span>)  <span class="co"># return sorted index array along axis</span></code></pre>
+np.argsort(a, axis=<span class="dv">1</span>)  <span class="co"># return sorted index array along axis</span>
+np.where(a, x, y)      <span class="co"># Construct array with elements from x or y depending on a</span></code></pre>
 </div>
 <div class="subgroup">
 <h3 id="boolean-arrays">boolean arrays</h3>
@@ -391,6 +393,13 @@ a[<span class="ot">None</span>, :] + b[:, <span class="ot">None</span>]       <s
 a[<span class="ot">None</span>, :] * b[:, <span class="ot">None</span>]       <span class="co"># outer product</span>
 np.outer(a, b)                <span class="co"># outer product</span>
 np.<span class="dt">sum</span>(a * a.T)               <span class="co"># matrix norm</span></code></pre>
+</div>
+<div class="subgroup">
+<h3 id="linear-algebramatrix-math">Linear algebra/Matrix math</h3>
+<pre class="sourceCode python"><code class="sourceCode python"><span class="ch">from</span> scipy <span class="ch">import</span> linalg
+linalg.eigh(a)      <span class="co"># Find eigenvalues and eigenvectors</span>
+linalg.expm(a)      <span class="co"># Matrix exponential</span>
+linalg.logm(a)      <span class="co"># Matrix logarithm</span></code></pre>
 </div>
 <div class="subgroup">
 <h3 id="reading-writing-files">reading/ writing files</h3>
