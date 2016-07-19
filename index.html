@@ -100,6 +100,7 @@ code > span.in { color: #808080; font-weight: bold; font-style: italic; } /* Inf
 <li><a href="#scipy-import-scipy-as-sci">Scipy</a>
 <ul>
 <li><a href="#interpolation">interpolation</a></li>
+<li><a href="#linear-algebra--matrix-math">linear algebra / matrix math</a></li>
 <li><a href="#integration">integration</a></li>
 </ul></li>
 <li><a href="#pandas-import-pandas-as-pd">Pandas</a>
@@ -397,10 +398,8 @@ np.<span class="dt">sum</span>(a * a.T)               <span class="co"># matrix 
 </div>
 <div class="subgroup">
 <h3 id="linear-algebra-matrix-math">linear algebra / matrix math</h3>
-<pre class="sourceCode python"><code class="sourceCode python"><span class="ch">from</span> scipy <span class="ch">import</span> linalg
-linalg.eigh(a)      <span class="co"># Find eigenvalues and eigenvectors</span>
-linalg.expm(a)      <span class="co"># Matrix exponential</span>
-linalg.logm(a)      <span class="co"># Matrix logarithm</span></code></pre>
+<pre class="sourceCode python"><code class="sourceCode python">evals, evecs = np.linalg.eig(a)      <span class="co"># Find eigenvalues and eigenvectors</span>
+evals, evecs = np.linalg.eigh(a)     <span class="co"># np.linalg.eig for hermitian matrix</span></code></pre>
 </div>
 <div class="subgroup">
 <h3 id="reading-writing-files">reading/ writing files</h3>
@@ -497,6 +496,14 @@ pts_new = map_coordinates(data, float_indices,  <span class="co"># at index posi
 <h3 id="integration">Integration</h3>
 <pre class="sourceCode python"><code class="sourceCode python"><span class="ch">from</span> scipy.integrate <span class="ch">import</span> quad     <span class="co"># definite integral of python</span>
 value = quad(func, low_lim, up_lim)  <span class="co"># function/method</span></code></pre>
+</div>
+<div class="subgroup">
+<h3 id="linear-algebra-matrix-math-1">linear algebra / matrix math</h3>
+<pre class="sourceCode python"><code class="sourceCode python"><span class="ch">from</span> scipy <span class="ch">import</span> linalg
+evals, evecs = linalg.eig(a)      <span class="co"># Find eigenvalues and eigenvectors</span>
+evals, evecs = linalg.eigh(a)     <span class="co"># linalg.eig for hermitian matrix</span>
+b = linalg.expm(a)                <span class="co"># Matrix exponential</span>
+c = linalg.logm(a)                <span class="co"># Matrix logarithm</span></code></pre>
 </div>
 </div>
 
