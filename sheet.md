@@ -362,10 +362,10 @@ evals, evecs = np.linalg.eigh(a)     # np.linalg.eig for hermitian matrix
 
 ```python
 
-np.fromfile(fname/fobject, dtype=np.float32, count=5)  # binary data from file
 np.loadtxt(fname/fobject, skiprows=2, delimiter=',')   # ascii data from file
 np.savetxt(fname/fobject, array, fmt='%.5f')           # write ascii data
-np.tofile(fname/fobject)                               # write (C) binary data
+np.save(fname/fobject, array)                          # save binary data
+np.load(fname/fobject, mmap_mode='c')                  # load binary data (memory mapped)
 ```
 
 ### interpolation, integration, optimization
