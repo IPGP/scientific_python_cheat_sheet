@@ -404,8 +404,10 @@ evals, evecs = np.linalg.eigh(a)     <span class="co"># np.linalg.eig for hermit
 <pre class="sourceCode python"><code class="sourceCode python">
 np.loadtxt(fname/fobject, skiprows=<span class="dv">2</span>, delimiter=<span class="st">','</span>)   <span class="co"># ascii data from file</span>
 np.savetxt(fname/fobject, array, fmt=<span class="st">'</span><span class="ot">%.5f</span><span class="st">'</span>)           <span class="co"># write ascii data</span>
-np.save(fname/fobject, array)                          <span class="co"># save binary data</span>
-np.load(fname/fobject, mmap_mode=<span class="st">'c'</span>)                  <span class="co"># load binary data (memory mapped)</span></code></pre>
+np.fromfile(fname/fobject, dtype=np.float32, count=<span class="dv">5</span>)  <span class="co"># binary data from file</span>
+np.tofile(fname/fobject)                               <span class="co"># write (C) binary data</span>
+np.save(fname/fobject, array)                          <span class="co"># save as numpy binary (.npy)</span>
+np.load(fname/fobject, mmap_mode=<span class="st">'c'</span>)                  <span class="co"># load .npy file (memory mapped)</span></code></pre>
 </div>
 <div class="subgroup">
 <h3 id="interpolation-integration-optimization">interpolation, integration, optimization</h3>
