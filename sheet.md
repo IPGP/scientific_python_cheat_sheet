@@ -416,6 +416,7 @@ fig = plt.figure(figsize=(5, 2))  # initialize figure
 ax = fig.add_subplot(3, 2, 2)     # add second subplot in a 3 x 2 grid
 fig, axes = plt.subplots(5, 2, figsize=(5, 5)) # fig and 5 x 2 nparray of axes
 ax = fig.add_axes([left, bottom, width, height]) # add custom axis
+fig.savefig('out.png')            # save png image
 ```
 
 ### figures and axes properties
