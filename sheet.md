@@ -461,9 +461,14 @@ ax.text(x, y, string, fontsize=12, color='m')   # write text
 ### interpolation
 
 ```python
-from scipy.ndimage import map_coordinates       # interpolates data
-pts_new = map_coordinates(data, float_indices,  # at index positions
-                          order=3)
+# interpolate data at index positions:
+from scipy.ndimage import map_coordinates
+pts_new = map_coordinates(data, float_indices, order=3)
+
+# simple 1d interpolator with axis argument:
+from scipy.interpolate import interp1d
+interpolator = interp1d(x, y, axis=2, fill_value=0., bounds_error=False)
+y_new = interpolator(x_new)
 ```
 
 ### Integration
