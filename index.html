@@ -445,10 +445,11 @@ randint(<span class="dv">1</span>, <span class="dv">16</span>, <span class="dv">
 <div class="subgroup">
 <h3 id="figures-and-axes">figures and axes</h3>
 <pre class="sourceCode python"><code class="sourceCode python">fig = plt.figure(figsize=(<span class="dv">5</span>, <span class="dv">2</span>))  <span class="co"># initialize figure</span>
-ax = fig.add_subplot(<span class="dv">3</span>, <span class="dv">2</span>, <span class="dv">2</span>)     <span class="co"># add second subplot in a 3 x 2 grid</span>
+fig.savefig(<span class="st">'out.png'</span>)            <span class="co"># save png image</span>
 fig, axes = plt.subplots(<span class="dv">5</span>, <span class="dv">2</span>, figsize=(<span class="dv">5</span>, <span class="dv">5</span>)) <span class="co"># fig and 5 x 2 nparray of axes</span>
-ax = fig.add_axes([left, bottom, width, height]) <span class="co"># add custom axis</span>
-fig.savefig(<span class="st">'out.png'</span>)            <span class="co"># save png image</span></code></pre>
+ax = fig.add_subplot(<span class="dv">3</span>, <span class="dv">2</span>, <span class="dv">2</span>)     <span class="co"># add second subplot in a 3 x 2 grid</span>
+ax = plt.subplot2grid((<span class="dv">2</span>, <span class="dv">2</span>), (<span class="dv">0</span>, <span class="dv">0</span>), colspan=<span class="dv">2</span>)  <span class="co"># multi column/row axis</span>
+ax = fig.add_axes([left, bottom, width, height])  <span class="co"># add custom axis</span></code></pre>
 </div>
 <div class="subgroup">
 <h3 id="figures-and-axes-properties">figures and axes properties</h3>
