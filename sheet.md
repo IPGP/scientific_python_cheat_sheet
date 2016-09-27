@@ -149,8 +149,11 @@ abs(a)            # absolute value
 2 < 1             # smaller
 1 != 2            # not equal
 1 != 2 and 2 < 3  # logical AND
+a & b             # logical AND
 1 != 2 or 2 < 3   # logical OR
+a | b             # logical OR
 not 1 == 2        # logical NOT
+a ^ b             # logical XOR
 'a' in b          # test if a is in b
 a is b            # test if objects point to the same memory (id)
 ```
