@@ -68,8 +68,12 @@ g = c[-1]                          # access last element
 h = ['re', 'bl'] + ['gr']          # list concatenation
 i = ['re'] * 5                     # repeat a list
 ['re', 'bl'].index('re')           # returns index of 're'
+a.append('yellow')                 # add new element to end of list
+a.extend(b)                        # add elements from list `b` to end of list `a`
+a.insert(1, 'yellow')              # insert element in specified position
 're' in ['re', 'bl']               # true if 're' in list
 sorted([3, 2, 1])                  # returns sorted list
+a.pop(2)                           # remove and return item at index (default last)
 ```
 
 ### Dictionaries
@@ -80,6 +84,12 @@ b = a['red']                                 # translate item
 c = [value for key, value in a.items()]      # loop through contents
 d = a.get('yellow', 'no translation found')  # return default
 a.setdefault('extra', []).append('cyan')     # init key with default
+a.update({'green': 'vert', 'brown': 'brun'}) # update dictionary by data from another one
+a.keys()                                     # get list of keys
+a.values()                                   # get list of values
+a.items()                                    # get list of key-value pairs
+del a['red']                                 # delete key and associated with it value
+a.pop('blue')                                # remove specified key and return the corresponding value
 ```
 
 ### Strings
