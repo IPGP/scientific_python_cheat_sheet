@@ -8,6 +8,7 @@ Scientific Python Cheatsheet
         - [Types](#types)
         - [Lists](#lists)
         - [Dictionaries](#dictionaries)
+        - [Sets, Frozensets](#sets-frozensets)
         - [Strings](#strings)
         - [Operators](#operators)
         - [Control Flow](#control-flow)
@@ -72,6 +73,7 @@ a.append('yellow')                 # add new element to end of list
 a.extend(b)                        # add elements from list `b` to end of list `a`
 a.insert(1, 'yellow')              # insert element in specified position
 're' in ['re', 'bl']               # true if 're' in list
+'fi' not in ['re', 'bl']           # true if 'fi' not in list
 sorted([3, 2, 1])                  # returns sorted list
 a.pop(2)                           # remove and return item at index (default last)
 ```
@@ -81,6 +83,7 @@ a.pop(2)                           # remove and return item at index (default la
 ```python
 a = {'red': 'rouge', 'blue': 'bleu'}         # dictionary
 b = a['red']                                 # translate item
+'red' in a                                   # true if dictionary a contains key 'red'
 c = [value for key, value in a.items()]      # loop through contents
 d = a.get('yellow', 'no translation found')  # return default
 a.setdefault('extra', []).append('cyan')     # init key with default
@@ -90,6 +93,33 @@ a.values()                                   # get list of values
 a.items()                                    # get list of key-value pairs
 del a['red']                                 # delete key and associated with it value
 a.pop('blue')                                # remove specified key and return the corresponding value
+```
+
+
+### Sets, Frozensets
+
+```python
+a = {1, 2, 3}                                # initialize manually
+b = set(range(5))                            # initialize from iteratable
+a.add(13)                                    # add new element to set
+a.discard(13)                                # discard element from set
+a.update([21, 22, 23])                       # update set with elements from iterable
+a.pop()                                      # remove and return an arbitrary set element
+2 in {1, 2, 3}                               # true if 2 in set
+5 in {1, 2, 3}                               # true if 5 not in set
+a.issubset(b)                                # test whether every element in a is in b
+a <= b                                       # issubset in operator form
+a.issuperset(b)                              # test whether every element in b is in a
+a >= b                                       # issuperset in operator form
+a.intersection(b)                            # return the intersection of two sets as a new set
+a & b                                        # intersection in operator form
+a.differnce(b)                               # return the difference of two or more sets as a new set
+a - b                                        # difference in operator form
+a.symmetric_difference(b)                    # return the symmetric difference of two sets as a new set
+a ^ b                                        # symmetric_difference in operator form
+a.union(b)                                   # return the union of sets as a new set
+a | b                                        # union in operator form
+c = frozenset()                              # the same as set but immutable
 ```
 
 ### Strings
