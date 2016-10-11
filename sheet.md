@@ -8,7 +8,7 @@ Scientific Python Cheatsheet
         - [Types](#types)
         - [Lists](#lists)
         - [Dictionaries](#dictionaries)
-        - [Sets, Frozensets](#sets-frozensets)
+        - [Sets](#sets)
         - [Strings](#strings)
         - [Operators](#operators)
         - [Control Flow](#control-flow)
@@ -96,7 +96,7 @@ a.pop('blue')                                # remove specified key and return t
 ```
 
 
-### Sets, Frozensets
+### Sets
 
 ```python
 a = {1, 2, 3}                                # initialize manually
@@ -112,13 +112,10 @@ a <= b                                       # issubset in operator form
 a.issuperset(b)                              # test whether every element in b is in a
 a >= b                                       # issuperset in operator form
 a.intersection(b)                            # return the intersection of two sets as a new set
-a & b                                        # intersection in operator form
-a.differnce(b)                               # return the difference of two or more sets as a new set
+a.difference(b)                              # return the difference of two or more sets as a new set
 a - b                                        # difference in operator form
 a.symmetric_difference(b)                    # return the symmetric difference of two sets as a new set
-a ^ b                                        # symmetric_difference in operator form
 a.union(b)                                   # return the union of sets as a new set
-a | b                                        # union in operator form
 c = frozenset()                              # the same as set but immutable
 ```
 
