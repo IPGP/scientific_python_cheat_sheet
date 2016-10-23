@@ -106,7 +106,7 @@ a.discard(13)                                # discard element from set
 a.update([21, 22, 23])                       # update set with elements from iterable
 a.pop()                                      # remove and return an arbitrary set element
 2 in {1, 2, 3}                               # true if 2 in set
-5 in {1, 2, 3}                               # true if 5 not in set
+5 not in {1, 2, 3}                           # true if 5 not in set
 a.issubset(b)                                # test whether every element in a is in b
 a <= b                                       # issubset in operator form
 a.issuperset(b)                              # test whether every element in b is in a
