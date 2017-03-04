@@ -540,7 +540,6 @@ df = pd.DataFrame(np.zeros((1000, 3)), index=index,
 ### DataFrame
 ```python
 df = pd.read_csv("filename.csv")   # read and load CSV file in a DataFrame
-print(df[:2])                      # print first 2 lines of the DataFrame
 raw = df.values                    # get raw data out of DataFrame object
 cols = df.columns                  # get list of columns headers
 
@@ -554,4 +553,12 @@ df.iloc[:, 0]                       # select by column index
 df.iloc[:, [0]]                     # select by column index, but as a dataframe
 df.ix[:, 'col_name']                # hybrid approach with column name
 df.ix[:, 0]                         # hybrid approach with column index
+```
+
+``` row slicin
+print(df[:2])                      # print first 2 rows of the dataframe
+df.iloc[0:2, :]                    # select first 2 rows of the dataframe
+df.loc[0:2,'col_name']             # select first 3 rows of the dataframe
+df.iloc[0:2,0:2]                   # select fisrt 3 rows and first 3 columns
+# Again, .loc[] and .ix[] are inclusive
 ```
