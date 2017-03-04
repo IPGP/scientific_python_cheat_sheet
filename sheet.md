@@ -543,7 +543,7 @@ df = pd.read_csv("filename.csv")   # read and load CSV file in a DataFrame
 raw = df.values                    # get raw data out of DataFrame object
 cols = df.columns                  # get list of columns headers
 
-```column Slicin
+```column slicin
 # (.loc[] and .ix[] are inclusive of the range of values selected)
 df.col_name                         # select column values by column name (not optimized)
 df[['col_name']]                    # select column values as a dataframe by column name (not optimized)
@@ -555,7 +555,7 @@ df.ix[:, 'col_name']                # hybrid approach with column name
 df.ix[:, 0]                         # hybrid approach with column index
 ```
 
-``` row slicin
+```row slicin
 print(df[:2])                      # print first 2 rows of the dataframe
 df.iloc[0:2, :]                    # select first 2 rows of the dataframe
 df.loc[0:2,'col_name']             # select first 3 rows of the dataframe
