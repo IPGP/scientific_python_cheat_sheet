@@ -552,6 +552,6 @@ df.loc[:, 'col_name']               # select column values by column name
 df.loc[:, ['col_name']]             # select column values as a dataframe by column name 
 df.iloc[:, 0]                       # select by column index
 df.iloc[:, [0]]                     # select by column index, but as a dataframe
-df.ix[:, 'recency']                 # hybrid approach with column name
+df.ix[:, 'col_name']                # hybrid approach with column name
 df.ix[:, 0]                         # hybrid approach with column index
 ```
