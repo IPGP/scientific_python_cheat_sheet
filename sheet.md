@@ -560,4 +560,11 @@ df.iloc[0:2, :]                    # select first 2 rows of the dataframe
 df.loc[0:2,'col_name']             # select first 3 rows of the dataframe
 df.iloc[0:2,0:2]                   # select fisrt 3 rows and first 3 columns
 # Again, .loc[] and .ix[] are inclusive
+
+# Dicin
+df[ df.col_name < 7 ]                            # select all rows where col_name < 7
+df[ (df.col_name1 < 7) & (df.col_name2 == 0) ]       # combine multiple boolean indexing conditionals using bit-wise logical operators.
+                                                     # Regular Python boolean operators (and, or) cannot be used here. 
+                                                     # Be sure to encapsulate each conditional in parenthesis to make this work.
+df[df.recency < 7] = -100                        # writing to slice
 ```
