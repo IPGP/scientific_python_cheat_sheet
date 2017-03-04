@@ -543,4 +543,15 @@ df = pd.read_csv("filename.csv")   # read and load CSV file in a DataFrame
 print(df[:2])                      # print first 2 lines of the DataFrame
 raw = df.values                    # get raw data out of DataFrame object
 cols = df.columns                  # get list of columns headers
+
+```column Slicin
+# (.loc[] and .ix[] are inclusive of the range of values selected)
+df.col_name                         # select column values by column name (not optimized)
+df[['col_name']]                    # select column values as a dataframe by column name (not optimized)
+df.loc[:, 'col_name']               # select column values by column name
+df.loc[:, ['col_name']]             # select column values as a dataframe by column name 
+df.iloc[:, 0]                       # select by column index
+df.iloc[:, [0]]                     # select by column index, but as a dataframe
+df.ix[:, 'recency']                 # hybrid approach with column name
+df.ix[:, 0]                         # hybrid approach with column index
 ```
