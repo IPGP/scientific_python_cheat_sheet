@@ -549,9 +549,9 @@ df.index                           # get index column range
 
 #column slicin
 # (.loc[] and .ix[] are inclusive of the range of values selected)
-df.col_name                         # select column values by column name (not optimized)
+df.col_name                         # select column values as a series by column name (not optimized)
 df[['col_name']]                    # select column values as a dataframe by column name (not optimized)
-df.loc[:, 'col_name']               # select column values by column name
+df.loc[:, 'col_name']               # select column values as a series by column name
 df.loc[:, ['col_name']]             # select column values as a dataframe by column name 
 df.iloc[:, 0]                       # select by column index
 df.iloc[:, [0]]                     # select by column index, but as a dataframe
