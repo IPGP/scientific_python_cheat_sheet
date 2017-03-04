@@ -554,7 +554,6 @@ df.iloc[:, [0]]                     # select by column index, but as a dataframe
 df.ix[:, 'col_name']                # hybrid approach with column name
 df.ix[:, 0]                         # hybrid approach with column index
 ```
-
 ```row slicin
 print(df[:2])                      # print first 2 rows of the dataframe
 df.iloc[0:2, :]                    # select first 2 rows of the dataframe
