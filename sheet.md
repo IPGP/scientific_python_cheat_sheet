@@ -542,6 +542,10 @@ df = pd.DataFrame(np.zeros((1000, 3)), index=index,
 df = pd.read_csv("filename.csv")   # read and load CSV file in a DataFrame
 raw = df.values                    # get raw data out of DataFrame object
 cols = df.columns                  # get list of columns headers
+df.dtypes                          # get data types of all columns
+df.head(5)                         # get first 5 rows
+df.describe()                      # get basic statisitics for all columns
+df.index                           # get index column range
 
 #column slicin
 # (.loc[] and .ix[] are inclusive of the range of values selected)
