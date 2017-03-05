@@ -562,6 +562,7 @@ df.ix[:, 0]                         # hybrid approach with column index
 print(df[:2])                      # print first 2 rows of the dataframe
 df.iloc[0:2, :]                    # select first 2 rows of the dataframe
 df.loc[0:2,'col_name']             # select first 3 rows of the dataframe
+df.loc[0:2, ['col_name1', 'col_name3', 'col_name6']]    # select first 3 rows of the 3 different columns
 df.iloc[0:2,0:2]                   # select fisrt 3 rows and first 3 columns
 # Again, .loc[] and .ix[] are inclusive
 
