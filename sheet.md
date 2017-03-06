@@ -211,7 +211,7 @@ class Point(object):
 x = Point(3)
 
 # Generator iterates without
-# creating all values at ones
+# creating all values at once
 def firstn(n):
     num = 0
     while num < n:
