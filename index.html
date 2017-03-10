@@ -560,9 +560,38 @@ df = pd.DataFrame(np.zeros((<span class="dv">1000</span>, <span class="dv">3</sp
 <div class="subgroup">
 <h3 id="dataframe">DataFrame</h3>
 <pre class="sourceCode python"><code class="sourceCode python">df = pd.read_csv(<span class="st">"filename.csv"</span>)   <span class="co"># read and load CSV file in a DataFrame</span>
-<span class="kw">print</span>(df[:<span class="dv">2</span>])                      <span class="co"># print first 2 lines of the DataFrame</span>
 raw = df.values                    <span class="co"># get raw data out of DataFrame object</span>
-cols = df.columns                  <span class="co"># get list of columns headers</span></code></pre>
+cols = df.columns                  <span class="co"># get list of columns headers</span>
+df.dtypes                          <span class="co"># get data types of all columns</span>
+df.head(<span class="dv">5</span>)                         <span class="co"># get first 5 rows</span>
+df.describe()                      <span class="co"># get basic statisitics for all columns</span>
+df.index                           <span class="co"># get index column range</span>
+
+<span class="co">#column slicin</span>
+<span class="co"># (.loc[] and .ix[] are inclusive of the range of values selected)</span>
+df.col_name                         <span class="co"># select column values as a series by column name (not optimized)</span>
+df[[<span class="st">'col_name'</span>]]                    <span class="co"># select column values as a dataframe by column name (not optimized)</span>
+df.loc[:, <span class="st">'col_name'</span>]               <span class="co"># select column values as a series by column name</span>
+df.loc[:, [<span class="st">'col_name'</span>]]             <span class="co"># select column values as a dataframe by column name </span>
+df.iloc[:, <span class="dv">0</span>]                       <span class="co"># select by column index</span>
+df.iloc[:, [<span class="dv">0</span>]]                     <span class="co"># select by column index, but as a dataframe</span>
+df.ix[:, <span class="st">'col_name'</span>]                <span class="co"># hybrid approach with column name</span>
+df.ix[:, <span class="dv">0</span>]                         <span class="co"># hybrid approach with column index</span>
+
+<span class="co"># row slicin</span>
+<span class="kw">print</span>(df[:<span class="dv">2</span>])                      <span class="co"># print first 2 rows of the dataframe</span>
+df.iloc[<span class="dv">0</span>:<span class="dv">2</span>, :]                    <span class="co"># select first 2 rows of the dataframe</span>
+df.loc[<span class="dv">0</span>:<span class="dv">2</span>,<span class="st">'col_name'</span>]             <span class="co"># select first 3 rows of the dataframe</span>
+df.loc[<span class="dv">0</span>:<span class="dv">2</span>, [<span class="st">'col_name1'</span>, <span class="st">'col_name3'</span>, <span class="st">'col_name6'</span>]]    <span class="co"># select first 3 rows of the 3 different columns</span>
+df.iloc[<span class="dv">0</span>:<span class="dv">2</span>,<span class="dv">0</span>:<span class="dv">2</span>]                   <span class="co"># select fisrt 3 rows and first 3 columns</span>
+<span class="co"># Again, .loc[] and .ix[] are inclusive</span>
+
+<span class="co"># Dicin</span>
+df[ df.col_name &lt; <span class="dv">7</span> ]                            <span class="co"># select all rows where col_name &lt; 7</span>
+df[ (df.col_name1 &lt; <span class="dv">7</span>) &amp; (df.col_name2 == <span class="dv">0</span>) ]       <span class="co"># combine multiple boolean indexing conditionals using bit-wise logical operators.</span>
+                                                     <span class="co"># Regular Python boolean operators (and, or) cannot be used here. </span>
+                                                     <span class="co"># Be sure to encapsulate each conditional in parenthesis to make this work.</span>
+df[df.recency &lt; <span class="dv">7</span>] = -<span class="dv">100</span>                        <span class="co"># writing to slice</span></code></pre>
 
 </div></div>
 
