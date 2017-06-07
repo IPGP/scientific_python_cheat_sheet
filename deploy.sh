@@ -16,8 +16,8 @@ cp index.html _site/
 cd _site/
 
 git init
-git config user.name "Thomas Belahi"
-git config user.email "belahi@ipgp.fr"
+git config user.name "MMesch"
+git config user.email "MMesch@users.noreply.github.com"
 
 git remote add upstream "https://$GH_TOKEN@github.com/IPGP/scientific_python_cheat_sheet.git"
 git fetch upstream
